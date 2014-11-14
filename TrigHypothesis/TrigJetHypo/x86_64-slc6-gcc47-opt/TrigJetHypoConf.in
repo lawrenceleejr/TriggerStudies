@@ -1,8 +1,0 @@
-document genconfig TrigJetHypoConf ../x86_64-slc6-gcc47-opt/libTrigJetHypo.so outdir=/afs/cern.ch/user/l/leejr/work/NightlyTest/Trigger/TrigHypothesis/TrigJetHypo/genConf/TrigJetHypo library=TrigJetHypo library_preload= extra_modules= conf_destdir=/afs/cern.ch/work/l/leejr/NightlyTest/InstallArea/python confModuleName=GaudiKernel.Proxy confDefaultName=Configurable.DefaultName confAlgorithm=ConfigurableAlgorithm confAlgTool=ConfigurableAlgTool confAuditor=ConfigurableAuditor confService=ConfigurableService
-make_fragment make_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/make_header
-make_fragment dependencies /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/dependencies
-make_fragment cleanup_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cleanup_header
-make_fragment genconfig -header=genconfig_header /afs/cern.ch/atlas/software/builds/nightlies/devval/GAUDI/rel_5/GaudiPolicy/cmt/fragments/genconfig
-make_fragment genconfig_header /afs/cern.ch/atlas/software/builds/nightlies/devval/GAUDI/rel_5/GaudiPolicy/cmt/fragments/genconfig_header
-make_fragment document_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/document_header
-make_fragment dependency /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/dependency

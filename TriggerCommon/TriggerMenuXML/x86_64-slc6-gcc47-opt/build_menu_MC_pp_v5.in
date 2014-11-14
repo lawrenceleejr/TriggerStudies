@@ -1,8 +1,0 @@
-document cmt_action_runner build_menu_MC_pp_v5 -group=cmt_actions action_value=../scripts/XMLDumperFromAthena.sh'"'" "'"'MC_pp_v5
-make_fragment make_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/make_header
-make_fragment dependencies /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/dependencies
-make_fragment cleanup_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cleanup_header
-make_fragment cmt_action_runner -header=cmt_action_runner_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cmt_action_runner
-make_fragment cmt_action_runner_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cmt_action_runner_header
-make_fragment document_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/document_header
-make_fragment dependency /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/dependency
