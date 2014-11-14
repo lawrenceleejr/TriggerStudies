@@ -1,0 +1,8 @@
+document cmt_action_runner check_install_python_modules -group=cmt_actions action_value=/afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/External/ExternalPolicy/cmt/atlas_check_installations.sh'"'" "'"'-files='"'"'"'"''"'" "'"'-s=../python'"'" "'"'*.py'"'" "'"''"'"'"'"''"'" "'"'-installdir=/afs/cern.ch/work/l/leejr/NightlyTest/InstallArea/python/TriggerMenu'"'" "'"'-level=
+make_fragment make_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/make_header
+make_fragment dependencies /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/dependencies
+make_fragment cleanup_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cleanup_header
+make_fragment cmt_action_runner -header=cmt_action_runner_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cmt_action_runner
+make_fragment cmt_action_runner_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cmt_action_runner_header
+make_fragment document_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/document_header
+make_fragment dependency /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/dependency

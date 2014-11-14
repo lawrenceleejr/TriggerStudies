@@ -1,0 +1,8 @@
+document merge_componentslist TrigJetHypoMergeComponentsList ../x86_64-slc6-gcc47-opt/libTrigJetHypo.so library=TrigJetHypo merge_componentslist_switch=--do-merge
+make_fragment make_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/make_header
+make_fragment dependencies /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/dependencies
+make_fragment cleanup_header /afs/cern.ch/atlas/software/builds/nightlies/devval/AtlasCore/rel_5/AtlasPolicy/cmt/fragments/cleanup_header
+make_fragment merge_componentslist -header=merge_componentslist_header /afs/cern.ch/atlas/software/builds/nightlies/devval/GAUDI/rel_5/GaudiPolicy/cmt/fragments/merge_componentslist
+make_fragment merge_componentslist_header /afs/cern.ch/atlas/software/builds/nightlies/devval/GAUDI/rel_5/GaudiPolicy/cmt/fragments/merge_componentslist_header
+make_fragment document_header /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/document_header
+make_fragment dependency /afs/cern.ch/sw/contrib/CMT/v1r25p20140131/mgr/fragments/dependency

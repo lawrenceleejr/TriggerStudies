@@ -1,0 +1,35 @@
+##########################################################################################
+##########################################################################################
+__doc__=""
+__version__="Implementation of min bias signatures"
+
+from AthenaCommon.Logging import logging
+logging.getLogger().info("Importing %s",__name__)
+
+
+from TriggerMenu.minbias.MinBiasDef import *
+from TriggerMenu.menu.MenuUtils import *
+
+
+MinBias = []
+
+##########################################################################################
+##########################################################################################
+
+
+def generateChainDefs(chainDict):          
+
+    listOfChainDicts = splitChainDict(chainDict)
+    listOfChainDefs = []
+    
+    for subChainDict in listOfChainDicts:      
+        MinBias = L2EFChain_MB(subChainDict)
+        
+        listOfChainDefs += [MinBias.generateHLTChainDef()]
+        
+    if len(listOfChainDefs)>1:
+        theChainDef = mergeChainDefs(listOfChainDefs)
+    else:
+        theChainDef = listOfChainDefs[0]        
+    
+    return theChainDef

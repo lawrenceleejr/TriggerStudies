@@ -1,0 +1,61 @@
+#!/bin/env python
+
+from TriggerJobOpts.TriggerFlags import TriggerFlags as TF
+from TriggerMenu.TriggerConfigL1Topo import TriggerConfigL1Topo
+from TriggerMenu.l1topo.L1TopoFlags import L1TopoFlags
+
+def generateL1TopoMenu(menu):
+
+    from AthenaCommon.Logging import logging
+    log = logging.getLogger("TriggerConfigL1Topo")
+    log.setLevel(logging.INFO)
+
+
+    # what menu to build
+    TF.triggerMenuSetup = menu
+
+    # TPC for L1Topo
+    tpcl1 = TriggerConfigL1Topo( outputFile = TF.outputL1TopoConfigFile(), menuName = TF.triggerMenuSetup() )
+
+    # build the menu structure
+    tpcl1.generateMenu()
+
+    # write xml file
+    tpcl1.writeXML()
+
+def main():
+
+    if len(sys.argv)==1:
+        generateL1TopoMenu(menu="Physics_pp_v5")
+        generateL1TopoMenu(menu="MC_pp_v5")
+        generateL1TopoMenu(menu="LS1_v1" )
+        generateL1TopoMenu(menu="DC14")
+        return 0
+
+    if sys.argv[1] in ["Physics_pp_v5", "MC_pp_v5", "LS1_v1", "DC14"]: # explicit names for TMXML nightly
+        generateL1TopoMenu(menu=sys.argv[1])
+        return 0
+
+    if sys.argv[1].lower().startswith("ph"): # for interactive production
+        generateL1TopoMenu(menu="Physics_pp_v5")
+        return 0
+
+    if sys.argv[1].lower().startswith("mc"):
+        generateL1TopoMenu(menu="MC_pp_v5")
+        return 0
+
+    if sys.argv[1].lower().startswith("ls"):
+        generateL1TopoMenu(menu="LS1_v1")
+        return 0
+
+    if sys.argv[1].lower().startswith("dc"):
+        generateL1TopoMenu(menu="DC14")
+        return 0
+
+    generateL1TopoMenu(menu=sys.argv[1])
+
+
+if __name__=="__main__":
+    import sys
+    sys.exit( main() )
+

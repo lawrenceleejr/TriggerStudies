@@ -1,0 +1,278 @@
+2014-07-29   Peter Sherwood  <peter@peter-8.home>
+
+	* tag as TrigHLTJetRec-00-00-15
+
+	* src/TrigHLTJetRec.cxx (hltExecute): lower level of
+	'jets reconstructed' message from INFO to DEBUG
+	Add constituent to pseudojet.
+
+2014-07-16   Peter Sherwood  <peter@peter-8.home>
+
+	* python/TrigHLTJetRecConfig.py: 
+	add ptcut variable ptminFilter=7.0 to jtm.addJetFinder
+	* tag TrigHLTJetRec-00-00-14
+
+2014-07-16 Walter Lampl <walter.lampl@ cern.ch>
+	* Don't set output level of AlgTools
+	* tag TrigHLTJetRec-00-00-13
+
+2014-07-15   Peter Sherwood  <peter@peter-8.home>
+
+	* python/TrigHLTJetRecConfig.py: add pt cut to all to 
+	jtm.addJetFinder
+	* Tagging TrigHLTJetRec-00-00-12
+	
+
+2014-07-11   Peter Sherwood  <peter@pb-d-128-141-130-137.cern.ch>
+
+	* python/TrigHLTJetRecConfig.py (_getJetBuildTool): 
+	Undid Ademear's changes
+	Now take the last element of jtm.trigjetrecs as the jetBuildTool
+	rather than the first element.
+
+2014-07-10   Peter Sherwood  <peter@peter-8.home>
+
+	* Tagging TrigHLTJetRec-00-00-10
+
+	* src/TrigHLTPSvsFSDiagnostics.cxx: new partial scan - fullscan
+	diagnostics algorithm.
+
+	* src/TrigHLTJetRec.cxx (attachJetCollection): 
+	Ricardo's AOD wrting fix: add an argument key="" to call to 
+	recordAndAttachFeature.
+
+2014-07-04   Peter Sherwood  <peter@peter-8.home>
+
+	* python/TrigHLTJetRecConfig.py (_getJetBuildTool): 
+	adjustments made for modifications of JEtRec config.
+	ATN testAthenaTrigRDOtoAOD now runs.
+	* TrigHLTJetRec-00-00-09
+
+2014-06-23   Peter Sherwood  <peter@peter-8.home>
+
+	* python/TrigHLTJetRecConfig.py (_getJetBuildTool): 
+	setting RandomOption=0 in call to jtm.addJetFinder
+	* TrigHLTJetRec-00-00-08
+
+2014-06-16   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigHLTJetRec.cxx (attachJetCollection): return HLT::ERROR
+	on emmission of an ERROR error message.
+
+
+2014-06-15  Valentinos Christodoulou  <vchristo@lxplus0211.cern.ch>
+
+	Fixed problem with empty leading jet histograms
+	M src/TrigHLTHypoDiagnostics.cxx
+
+2014-06-13  Valentinos Christodoulou  <vchristo@lxplus0216.cern.ch>
+
+        Removed #include <cmath> and debug msg of energy from
+	cell, cluster, jet and hypo diagnostics
+	Added leading jet histograms in hypo diagnostics
+
+	M src/TrigHLTCellDiagnostics.cxx
+	M src/TrigHLTClusterDiagnostics.cxx
+	M src/TrigHLTJetDiagnostics.cxx
+	M src/TrigHLTHypoDiagnostics.cxx
+
+2014-06-10   Peter Sherwood  <peter@peter-8.home>
+
+	* tagging TrigHLTJetRec-00-00-07
+
+2014-06-09  Valentinos Christodoulou  <vchristo@lxplus0103.cern.ch>
+
+	Added leading jet histograms
+	* src/TrigHLTJetDiagnostics.cxx
+
+2014-06-08  Valentinos Christodoulou  <vchristo@lxplus0124.cern.ch>
+
+	Added TrigHLTHypoDiagnostics
+	Moved histogram axis labels outside of the loop
+	in cell, cluster and jet diagnostics
+
+	A src/TrigHLTHypoDiagnostics.cxx
+	A TrigHLTJetRec/TrigHLTHypoDiagnostics.h
+	M python/TrigHLTJetRecConfig.py
+	M src/TrigHLTRoIDiagnostics.cxx
+	M TrigHLTJetRec/TrigHLTRoIDiagnostics.h
+	M src/TrigHLTCellDiagnostics.cxx
+	M TrigHLTJetRec/TrigHLTCellDiagnostics.h
+	M src/TrigHLTClusterDiagnostics.cxx
+        M TrigHLTJetRec/TrigHLTClusterDiagnostics.h
+        M src/components/TrigHLTJetRec_entries.cxx
+	M src/TrigHLTJetDiagnosticss.cxx
+	M TrigHLTJetRec/TrigHLTJetDiagnostics.h
+	M cmt/requirements
+
+2014-06-07  Valentinos Christodoulou  <vchristo@lxplus0124.cern.ch>
+
+	Added TrigHLTRoIDiagnostics
+	Modified histograms in cell, cluster and jet diagnostics
+	Removed fixPhi method: not needed
+
+	A src/TrigHLTRoIDiagnostics.cxx
+	A TrigHLTJetRec/TrigHLTRoIDiagnostics.h
+	M src/TrigHLTCellDiagnostics.cxx
+	M TrigHLTJetRec/TrigHLTCellDiagnostics.h
+	M src/TrigHLTClusterDiagnostics.cxx
+        M TrigHLTJetRec/TrigHLTClusterDiagnostics.h
+        M src/components/TrigHLTJetRec_entries.cxx
+	M src/TrigHLTJetDiagnosticss.cxx
+	M TrigHLTJetRec/TrigHLTJetDiagnostics.h
+	M cmt/requirements
+
+2014-06-05   Peter Sherwood  <peter@peter-8.home>
+
+	* tagging TrigHLTJetRec-00-00-06
+
+
+2014-06-05   Peter Sherwood  <peter@pb-d-128-141-242-254.cern.ch>
+
+	* src/TrigHLTJetRec.cxx, h general code tidy-up
+
+2014-06-02   Peter Sherwood  <peter@peter-8.home>
+
+	* renamed XXXAnalysis to XXXDiagnostics (XXX=Cell, Cluster, Jet)
+
+	* Added pass = true to CellDiagnistics
+
+2014-05-31   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigHLTJetAnalysis.cxx (hltExecute): set pass = true
+
+2014-06-01  Valentinos Christodoulou  <vchristo@lxbrb1919.cern.ch>
+
+	Added TrigHLTClusterAnalysis and TrigHLTCellAnalysis
+	declareProperty chainName
+
+	A src/TrigHLTCellAnalysis.cxx
+	A TrigHLTJetRec/TrigHLTCellAnalysis.h
+	A src/TrigHLTClusterAnalysis.cxx
+	A TrigHLTJetRec/TrigHLTClusterAnalysis.h
+        M src/components/TrigHLTJetRec_entries.cxx
+	M src/TrigHLTJetAnalysis.cxx
+	M TrigHLTJetRec/TrigHLTJetAnalysis.h
+	M cmt/requirements
+
+2014-05-31  Valentinos Christodoulou  <vchristo@lxplus0122.cern.ch>
+
+	* src/TrigHLTJetAnalysis.cxx: Added 2D histograms
+
+2014-05-31   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigHLTJetAnalysis.cxx (hltExecute): change in message level.
+
+2014-05-28   Peter Sherwood  <peter@peter-8.home>
+
+	* cmt/requirements: move from dual use liberaries to component
+	libraries.
+
+2014-05-28  Valentinos Christodoulou  <vchristo@lxplus0033.cern.ch>
+
+        Added TrigHLTJetAnalysis
+
+	M cmt/requirements
+	M src/components/TrigHLTJetRec_entries.cxx
+	A src/TrigHLTJetAnalysis.cxx
+	A TrigHLTJetRec/TrigHLTJetAnalysis.h
+
+2014-05-26   Peter Sherwood  <peter@peter-8.home>
+
+	* tagging TrigHLTJetRec-00-00-05
+
+	* cmt/requirements: add the magic use statement for
+	TrigParticle.
+
+	* src/TrigHLTJetRec.cxx (hltExecute): add deletion 
+	of the aux container defore leaving hltExecute.
+
+2014-05-24   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigHLTJetRec.cxx (hltExecute): retieve
+	an xAOD::ClusterContainer rather than a ClusterContainer.
+
+	* src/TriggerPseudoJetGetter.cxx (initialize): 
+	emptied out the unneeded initialize method
+
+2014-05-23   Peter Sherwood  <peter@peter-8.home>
+
+	* tagging TrigHLTJetRec-00-00-04
+
+	* src/TrigHLTJetRec.cxx (hltExecute): remove cut and paste
+	errors dealing with the jet container.
+	(hltExecute): add check on address of the incoming cluster
+	container. Do nithing if address is 0.
+
+2014-05-22   Peter Sherwood  <peter@peter-8.home>
+	* tag TrigHLTJetRec-00-00-0
+	
+	* python/TrigHLTJetRecConfig.py (_getJetBuildTool): added
+	checks to not register tools more than once in ToolSvc.
+
+	* New python configuration and TrigHLTJetRec algorithm which
+	are closer to their offline counterparts.
+
+	* Work in progress - mainly updating hltExecute in TrigHLTJetRec
+	M       python/TrigHLTJetRecConfig.py
+	M       cmt/requirements
+	M       src/TrigHLTJetRec.cxx
+	M       TrigHLTJetRec/TrigHLTJetRec.h
+
+
+	* Work in progress....
+	M       python/TrigHLTJetRecConfig.py
+	M       cmt/requirements
+	M       src/TrigHLTJetRec.cxx
+	A       src/ITriggerPseudoJetGetter.cxx
+	M       TrigHLTJetRec/ITriggerPseudoJetGetter.h
+	M       TrigHLTJetRec/TrigHLTJetRec.h
+
+
+2014-05-16   Peter Sherwood  <peter@peter-8.home>
+
+	* Attempting to fix run time error retrieving tools.
+	Current problems: concrete tools are retirved, ie
+	not via interface. 2) JetRecTool is not configured 
+	properly with lower tools and cannot be retrieved.
+
+	M       python/TrigHLTJetRecConfig.py
+	M       cmt/requirements
+	M       src/TriggerPseudoJetGetter.cxx
+	M       src/TrigHLTJetRec.cxx
+	M       TrigHLTJetRec/ITriggerPseudoJetGetter.h
+	M       TrigHLTJetRec/TrigHLTJetRec.h
+	M       TrigHLTJetRec/TriggerPseudoJetGetter.h
+
+2014-05-13   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigHLTJetRec.cxx (hltInitialize): retrieve the
+	TriggerPseudoJetGetter tool. Add some debug messages on
+	successful Tool retrieval.
+
+	* TrigHLTJetRec/TrigHLTJetRec.h (FexAlgo): m_tpsjget was a pointer
+	is now a ToolHandle
+
+2014-05-01   Peter Sherwood  <peter@pb-d-128-141-242-19.cern.ch>
+
+	* reworked TrigHLTJetRecConfig.py
+
+2014-04-30   Peter Sherwood  <peter@pb-d-128-141-242-19.cern.ch>
+
+	* python/TrigHLTJetRecConfig.py (TrigHLT_AntiKt10): 
+	renamed XXX_Ktnn to XXX_AntiKtnn
+
+2014-04-10  Valentinos Christodoulou  <vchristo@lxplus0003.cern.ch>
+
+	added the following files
+
+	* python/TrigHLTJetRecConfig.py
+	* src/components/TrigHLTJetRec_load.cxx
+	* src/components/TrigHLTJetRec_entries.cxx
+	* cmt/requirements
+	* src/TrigHLTJetRec.cxx
+	* src/TriggerPseudoJetGetter.cxx
+	* TrigHLTJetRec/TrigHLTJetRec.h
+	* TrigHLTJetRec/TriggerPseudoJetGetter.h
+	* TrigHLTJetRec/ITriggerPseudoJetGetter.h
+

@@ -1,0 +1,623 @@
+2014-08-12   Peter Sherwood  <peter@pb-d-128-141-165-0.cern.ch>
+
+	* TrigJetHypo-03-00-07
+
+	* src/TrigEFHTHypo.cxx (hltExecute): convert to xAOD::Jet
+
+	* src/TrigEFJetHypo.cxx: removed commented out code.
+
+2014-07-27 sutt < sutt @ cern.ch > 
+	* tag TrigJetHypo-03-00-06
+	M    src/TrigL2JetHypo.cxx
+	M    src/TrigL2HTFullScanHypo.cxx
+	M    src/TrigL2DijetAllTE.cxx
+	* remove obsolete RoiDescriptor methods
+
+2014-07-22   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigEFDPhiMetJetAllTE.cxx: Switch to xAOD for
+	Jet and TrigMissingET classes.
+
+2014-06-25 Naoko Kanaya <naoko.kanaya @ cern.ch >
+	* Migrate to xAOD::CaloCluster(Container)
+	M       src/TrigEFJetHypoNoise.cxx
+	M       cmt/requirements
+	
+2014-06-24   Peter Sherwood  <peter@peter-8.home>
+
+	* src/TrigEFJetHypoNoise.cxx (hltExecute): 
+	CaloCluster::getBasicEnergy ->  getRawE() after request 
+	by Naoko Kanaya.
+	M       src/TrigEFJetHypoNoise.cxx
+	* tag TrigJetHypo-00-03-04
+
+2014-06-13 Mark Sutton <sutt @ cern.ch>
+	* tag TrigJetHypo-00-03-03
+	M       src/TrigEFJetHypo.cxx
+	M       src/TrigEFCentralJet.cxx
+	M       src/TrigL2CentralJetAllTE.cxx
+	M       src/TrigEFHTHypo.cxx
+	* remove roi dependence in jet hypo printout
+
+2014-05-31   Peter Sherwood  <peter@peter-8.home>
+
+	* tagging TrigJetHypo-00-03-02
+
+	* cmt/requirements: changes for xAOD jets
+	* TrigJetHypo/TrigEFJetHypo.h (HypoAlgo): changes for xAOD jets
+	* src/TrigEFJetHypo.cxx: changes for xAOD jets
+
+2014-03-27  scott snyder  <snyder@bnl.gov>
+
+	* Tagging TrigJetHypo-00-03-01.
+	* cmt/requirements: Fix dependencies.
+	* src/TrigL2HTAllTE.cxx: Fix warning.
+	* Tagging TrigJetHypo-00-03-00.
+	* Compile in 19.0.1.
+
+2014-02-24  Frank Winklmeier <fwinkl@cern>
+	* Remove AlgFactory forward declare for LCG67
+	* TrigJetHypo-00-02-52
+
+2012-12-19 Martin Rybar <martin.rybar@cern.ch>
+	Tagging 00-02-51
+	* Fixes for the CLHEP migration
+
+	
+2012-11-11 Justin Griffiths <griffith@cern.ch>
+	Tagging 00-02-49
+	Coverity:
+	M       src/TrigL2DEtaMjjAllTE.cxx
+	Monitoring Improvements:
+	M       python/TrigEFJetMassDEtaMonitoring.py
+	M       src/TrigEFJetMassDEta.cxx
+	M       TrigJetHypo/TrigEFJetMassDEta.h
+	
+
+2012-09-12 Justin Griffiths <griffith@cern.ch>
+	Tagging 00-02-48
+	A       python/TrigJetDEtaMjjAllTEMonitoring.py
+	A       python/TrigJetDEtaMjjAllTEConfig.py
+	A       src/TrigL2DEtaMjjAllTE.cxx
+	M       src/components/TrigJetHypo_entries.cxx
+	M       src/TrigEFJetMassDEta.cxx
+	A       TrigJetHypo/TrigL2DEtaMjjAllTE.h
+
+2012-08-20 Justin Griffiths <griffith@cern.ch>
+	Tagging 00-02-47
+	Add/Modify algorithms for VBF Trigger
+	* A TrigJetHypo/TrigEFJetMassDEta.h
+	* M TrigJetHypo/TrigDEtaFex.h
+	* A src/TrigEFJetMassDEta.cxx
+	* M src/TrigDEtaFex.cxx	
+	* M src/components/TrigJetHypo_entries.cxx
+	* A pythonTrigEFJetMassDEtaConfig.py
+	* A pythonTrigEFJetMassDEtaMonitoring.py
+	* M pythonTrigJetDEtaFexConfig.py
+	* M pythonTrigJetDEtaFexMonitoring.py	
+	
+	
+2012-07-11 Denis Oliveira Damazio <Denis.Oliveira.Damazio@cern.ch>
+	* Add TrigJetNoiseTight answering sav bug #93569.
+
+2012-06-26 Denis Oliveira Damazio <Denis.Oliveira.Damazio@cern.ch>
+	* Include handling for negative energies in the detection of
+		Noise.
+
+2012-05-15 Lars Beemster <lbeemste>
+	* added eta max for L1.5 n90 cut
+	* TrigJetHypo-00-02-41
+
+2012-04-23 Lars Beemster <lbeemste>
+		* added basic jet cleaning
+		* added default hypos for L1.5 L2 and EF with basic cleaning switched on
+			- should be removed after testing
+		* tagged as TrigJetHypo-00-02-39
+
+2012-03-06 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * retrieving hecF from moment store
+        * tagging TrigJetHypo-00-02-33
+
+2012-02-16 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * Fixing checkreq warnings
+        * tagging TrigJetHypo-00-02-29
+
+2012-02-14 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * Fix compilation warnigns in TrigEFJetHypo.cxx
+        * tagging TrigJetHypo-00-02-27
+
+2012-02-02 Denis Oliveira Damazio <Denis.Oliveira.Damazio@cern.ch>
+	* Inclusion of Jet Hypothesis to detect noise bursts. 
+
+2012-01-24 Lars Beemster
+	* Added jet cleaning hypo and inverse hypo
+	* TrigJetHypo-00-02-23
+
+2012-01-18 Marco Agustoni <marco.agustoni@cern.ch>
+        * update for TrigL2HTFullScanHypo added the second FEX system
+				* TrigJetHypo-00-02-20
+
+2012-01-17 Matthew Tamsett <tamsett@cern.ch>
+	* Merged TrigJetHypo-00-02-17 with TrigJetHypo-00-02-13-06.
+	    This adds the L2 Multijet HT hypo and others
+	* Fixed lack of TrigL2MultiJetHypo inclusion in src/components/TrigJetHypo_entries.cxx
+	
+2011-07-20 Susan Cheatham <susan.cheatham @ cern.ch>
+  * M: TrigJetHypo const fix required for compatibility with upcoming DataModel change
+  * T: TrigJetHypo-00-02-14
+
+2011-11-29 Marco Agustoni <marco.agustoni@cern.ch>
+        * small update for TrigL2HTFullScanHypo + correct bug in TrigJetHypoConfig.py for the NoCut instance
+
+2011-12-08 Marco Agustoni <marco.agustoni@cern.ch>
+        * small updates for TrigL2HTFullScanHypo.cxx and TrigJetHypoConfig.py 
+        * TrigJetHypo-00-02-13-05
+
+2011-11-28 Marco Agustoni <marco.agustoni@cern.ch>
+        * put new algorithm TrigL2HTFullScanHypo which compute HT at L1.5
+        * TrigJetHypo-00-02-13-04
+
+2011-09-22 Joerg Stelzer <stelzer@cern.ch>
+	* fix compilation error (dbg mode)
+	* TrigJetHypo-00-02-13-02
+
+2011-05-24 Tobias Kruker <kruker @ cern.ch>
+  * M: TrigJetHypoConfig.py. 
+       Added L2JetHypo_doCleaning_conservative
+       Added L2JetHypo_doCleaning_HECPS
+       Removed L2JetHypo_doCleaning
+  * T: TrigJetHypo-00-02-13
+
+2011-05-24 Anna Sfyrla
+	* Added leadingmct100 configuration
+	* TrigJetHypo-00-02-12
+
+2011-05-24 Anna Sfyrla
+	* Added 100J10 dphi(jet_met) configuration
+	* TrigJetHypo-00-02-11
+
+2011-05-19 Tobias Kruker <kruker @ cern.ch>
+        * M: TrigL2JetHypo.cxx/.h. Added/modified jet cleaning cuts, modified monitoring of cleaning variables.
+        * M: TrigJetHypoConfig.py. Updated the property-variable names in L2 chains.
+        * M: TrigJetHypoMonitoring.py. Modified names/binning in cleaning variable histograms.
+        * T: TrigJetHypo-00-02-10.
+
+2011-04-12 Mark Sutton <sutt @ cern.ch>
+        * Don't name TrigPassBits
+	* TrigJetHypo-00-02-09
+
+2011-04-12 Mark Sutton <sutt @ cern.ch>
+        * Don't name TrigPassBits
+	* TrigJetHypo-00-02-08
+
+2011-03-31 Anna Sfyrla
+	* Fix in dphi(jet,met) 	
+	* TrigJetHypo-00-02-07
+
+2011-04-05 Josh McFayden <mcfayden @ cern.ch> 
+        * Removed et vs eta and et vs phi from trigjethypo
+	* TrigJetHypo-00-02-06
+
+2011-03-31 Anna Sfyrla
+	* Fix in dphi(jet,met) 	
+	* TrigJetHypo-00-02-05
+
+2011-03-31 Bertrand Chapleau
+        * Typo in EFJetHypo
+        * TrigJetHypo-00-02-03
+
+2011-03-31 Anna Sfyrla
+	* Updates on monitoring of dphi(jet,met) 	
+	* TrigJetHypo-00-02-02
+
+2011-03-27 Anna Sfyrla
+	* Added configurations for dphimetjet algorithm
+	* TrigJetHypo-00-02-01
+
+2011-03-30 Anna Sfyrla
+	* Fixed TrigJetHypo typos.
+	* TrigJetHypo-00-02-00
+
+2011-03-27 Anna Sfyrla
+	* Added configurations for dphimetjet algorithm
+	* TrigJetHypo-00-01-99
+
+2011-03-27 Mark Sutton <sutt @ cern.ch>
+        * add dedicated central and forward multijet instances
+	* TrigJetHypo-00-01-98
+
+2011-03-27 Mark Sutton <sutt @ cern.ch>
+        * add dedicated central jet hypo instance
+	* TrigJetHypo-00-01-97
+
+2011-03-24 Mark Sutton <sutt @ cern.ch>
+        * modify forward jet etaMin
+	* TrigJetHypo-00-01-96
+	
+2011-03-24 Mark Sutton <sutt @ cern.ch>
+        * Allow python setting of EF etaMin and etaMax 
+	* TrigJetHypo-00-01-95
+	
+2011-03-22 Josh McFayden <mcfayden @ cern.ch> 
+        * DEta Fex algo changes
+	* TrigJetHypo-00-01-94
+
+2011-03-17 Josh McFayden <mcfayden @ cern.ch> 
+        * EF mct, dphi, HT updates
+	* TrigJetHypo-00-01-93
+
+2011-03-15 Josh McFayden <mcfayden @ cern.ch> 
+        * EF HT monitoring updates
+	* TrigJetHypo-00-01-92
+
+2011-03-15 Anna Sfyrla
+	* TrigJetHypo-00-01-91
+
+2011-03-15 Anna Sfyrla
+	* Configuration fixes and two minor fixes in cxx.
+
+2011-03-15 Anna Sfyrla
+	* Configuration fixes in DPhiJetMet and HT
+
+2011-03-15 Anna Sfyrla
+	* A first HT algorithm (validation pending)
+	* TrigJetHypo-00-01-90
+
+2011-03-14 Josh McFayden <mcfayden @ cern.ch> 
+        * EF and L2, Mct and Dphi updates
+	* TrigJetHypo-00-01-89
+
+2011-03-14 Josh McFayden <mcfayden @ cern.ch> 
+        * EF Dphi Monitoring update
+	* TrigJetHypo-00-01-88
+
+2011-03-12 Josh McFayden <mcfayden @ cern.ch> 
+        * Adding EF Dphi, EF Mct update
+	* TrigJetHypo-00-01-87
+	
+2011-03-05 Mark Sutton <sutt @ cern.ch>
+        * Flag all jets pass threshold for single jets  
+	* TrigJetHypo-00-01-86
+
+2011-02-27 Josh McFayden
+	* Update EF mct algorithm monitoring 
+	* TrigJetHypo-00-01-85
+
+2011-02-27 Josh McFayden
+	* Added EF mct algorithm 
+	* TrigJetHypo-00-01-84
+
+2011-02-27 Anna Sfyrla
+	* Minor changes in the EFDphi algorithm
+	* TrigJetHypo-00-01-83
+
+2011-02-26 Mark Sutton <sutt @ cern.ch>
+        * Sort out of order thresholds
+	* TrigJetHypo-00-01-82
+
+2011-02-18 Mark Sutton <sutt @ cern.ch>
+        * add TrigPassBits for jets passing
+	* TrigJetHypo-00-01-81
+
+2011-02-10 Mark Sutton <sutt @ cern.ch>
+        * improve error message for out of order thresholds
+	* TrigJetHypo-00-01-80
+
+2011-02-10 Mark Sutton <sutt @ cern.ch>
+        * add error if asymmetric thresholds not in decreasing order. 
+	* TrigJetHypo-00-01-79
+
+2011-02-09 Mark Sutton <sutt @ cern.ch>
+        * allow asymmetric jet thresholds in TrigEFJetHypo
+	* TrigJetHypo-00-01-78
+
+2011-02-09 Josh McFayden <mcfayden@cern.ch>
+	* Changed Error Codes and MSG levels for TrigL2DijetAllTE.cxx, TrigL2DijetCombo.cxx, TrigL2JetDphiHypo.cxx, TrigL2JetMctHypo.cxx 
+	* TrigJetHypo-00-01-77
+
+2011-02-05 Anna Sfyrla
+	* Added EF MCT (.cxx and .h written by Josh)
+	* TrigJetHypo-00-01-76
+	
+2011-01-24 ANna Sfyrla
+	* Removing caching flag from TrigDphiMetJet
+	* TrigJetHypo-00-01-75
+
+2011-01-23 Anna Sfyrla
+	* Added three new algorithms:
+	TrigEFDphiMetJet, TrigL2CentralJet and TrigEFCentralJet
+	* TrigJetHypo-00-01-74
+
+2010-10-27 Tobias Kruker <Tobias.Kruker@cern.ch>
+       * TrigL2JetHypo: implemented possibility to reject based on cleaning variables
+       * TrigJetHypoConfig: new class L2JetHypo_doCleaning for L2 jet cleaning
+       * TrigJetHypoMonitoring: added 5 histos to monitor cleaning variables
+       * tagged as TrigJetHypo-00-01-73
+
+2010-10-08 Mark Sutton <sutt@cern.ch>
+        * add instantiation of fullscan dijet hypos
+        * tagged as TrigJetHypo-00-01-72
+
+2010-10-08 Mark Sutton <sutt@cern.ch>
+        * change to generic multijet fullscan hypos
+        * tagged as TrigJetHypo-00-01-71
+
+2010-10-08 Mark Sutton <sutt@cern.ch>
+        * add fullscan dijet hypos
+        * tagged as TrigJetHypo-00-01-70
+
+2010-09-31 Xiaowen Lei <Xiaowen.Lei@cern.ch>
+        * fix CutCounter histogram for AcceptAll==True case
+        * tagged as TrigJetHypo-00-01-69
+	
+2010-09-14 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * Added a noJetCut version for EFDEtaHypo
+        * tagged as TrigJetHypo-00-01-68
+
+2010-08-12 Xiaowen Lei <Xiaowen.Lei@cern.ch>
+        * improve monitoring
+	fix histo titles and ranges
+	fill L2JetHypo and EFJetHypo histos all with events after cut
+        * tagged as TrigJetHypo-00-01-66
+
+2010-08-03 Mark Sutton <sutt@cern.ch>
+        * add etaMin and etaMax to TrigEFJetHypo
+        * tagged as TrigJetHypo-00-01-65
+
+2010-08-03 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * put forceAccept=True for noJetCut chains
+        * tagged as TrigJetHypo-00-01-64
+
+2010-07-07 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * Fixed checkreq warnings
+        * tagged as TrigJetHypo-00-01-63
+
+2010-07-06 Simon Owen <simon.owen@shef.ac.uk>>
+	* Removed eta cut in AllTE algorithm.
+	* Modified AllTE algorithm to deal with cases when highest pt jet
+	is found in low pt chain. Added more monitoring.
+	* Changed some error messages in Mct and dPhi (fex and hypo) algorithms.
+	
+2010-06-19 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+        * Fixed bug in TrigEFJetHypo.cxx
+        * tagged as TrigJetHypo-00-01-61
+
+2010-06-17 Bertrand Chapleau <bertrand.chapleau@cern.ch>
+	* python/TrigJetHypoConfig.py: added L2JetHypo_noJetCut and EFJetHypo_noJetCut o.b.o. Silke Nelson
+	* tagged as TrigJetHypo-00-01-60
+
+2010-05-14 Simon Owen <simon.owen@shef.ac.uk>
+	* Added Dijet preliminary version of AllTE algorithm which creates
+	output TE with leading two L2 jets in eta<2.5. It compiles and has
+	been tested in 15.6.9.8 with
+	testAthenaTrigRDO_MC_lumi1E31_simpleL1Calib.py and a private
+	version of TriggerMenuPython.
+	* Changes to dPhi and Mct Hypo algorithms. Added new monitoring
+	and apply min deltaPhi cut in dPhi alg.
+
+2010-04-22 Simon Owen <simon.owen@shef.ac.uk>
+	* Added preliminary version of new Mct trigger requested by SUSY group.
+	* Works identically to dPhi trigger except applies an Mct threshold on pairs of L2 jets instead of a max dPhi value.
+	* Hypo algorithm is called: TrigL2JetMctHypo.
+
+2010-04-07 Simon Owen <simon.owen@shef.ac.uk>
+	* Removed timing internal to TrigL2DijetCombo and TrigL2JetDphiHypo algorithms.
+
+2010-02-09 Simon Owen <simon.owen@shef.ac.uk>
+	* Added monitoring to hypthesis algorithm: TrigL2JetDphiHypo.
+
+2010-02-08 Teresa Fonseca <Teresa.Fonseca.Martin@cern.ch>
+	* Add preliminary version of new Dphi trigger requested by SUSY group
+	It includes a Combo algorithm to pick up L2 jets (TrigL2DijetCombo) and a hypothesis alg. to cut on Dphi and Et of both L2 jets (TrigL2JetDphiHypo)
+
+2010-01-20 Ignacio Aracena <iaracena@mail.cern.ch>
+	* Fix for bug savannah bug #59734
+
+2009-14-12 James Monk <jmonk@hep.ucl.ac.uk>
+	*  Replace HLT::MISSING_FEATURE with HLT::OK when TrigDEtaFex doesn't find jets
+
+2009-05-15 James Monk <jmonk@hep.ucl.ac.uk>
+         * Included TrigDEtaFexBase.cxx  TrigDEtaHypoBase.cxx
+
+2009-02-04 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Fixed requirements accordign to Tomasz guidelines.
+
+2008-07-07 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Included a multiplicity cut in the EF algorihm to make
+        it compatible with full detector unpacking.
+
+2008-04-18  Simon George  <S.George@rhul.ac.uk>
+
+	* src/TrigL2JetHypo.cxx: demote per-event INFO message
+	* src/TrigEFJetHypo.cxx: demote per-event INFO message
+
+2008-03-27 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Changed the return to: return ec; where ec is the HLT:ErrorCode
+        from the getFeatures result if either a
+        JetCollection or the L2 Jet are not found in the Trigger Element
+        othe WARNING messages demoted to debug.
+
+2007-10-17 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+	* Added cut counter monitoring in the Event Filter.
+	* Eliminated TriggerConfig_JetHypoMaker.py  TriggerConfig_JetSig_dict.py now in TrigMenuPython
+
+2007-10-17 Xiaowen Lei <xiaowen@physics.arizona.edu>
+	* src/TrigL2JetHypo.cxx
+	* python/TrigJetHypoMonitoring.py: update monitoring, label axis for CutCounter 
+
+2007-10-16 Ignacio Aracena <iaracena@mail.cern.ch>
+	* Include cosmic monitoring for M5.
+
+2007-06-19 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * Remove a protoction for TriggerFlags in LVL1 config.
+          This protection will be put in TriggerConfig.
+
+2007-05-25  John Baines  <baines@lxplus201.cern.ch>
+
+	* share/TriggerConfig_Jet_Level1.py: window=4 for JT04
+
+2007-05-14 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Temporarely suppresed Forward Jets (missing in L1 configuration
+        and producing a crash at the level of signature definition).
+
+2007-05-09 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * Append signature name when instanceing the hypo algorithms.
+        * Correct bug in Level 1 configuration.
+
+2007-05-07 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * fix python/TriggerConfig_JetSig_dict.py for multiple signature
+
+2007-05-07 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Fixed properly the bug in TriggerConfig_JetHypoMaker.py 
+
+2007-05-03 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Changed the L1 configuration file to the one provided by Tomasz Bold (changes Lvl1 items)
+        * Changes sig_num='1' to sig_num='0' in TriggerConfig_JetHypoMaker.py
+
+2007-04-30  J T M Baines  <jtb@heplnx103.pp.rl.ac.uk>
+
+	* share/TriggerConfig_Jet_Level1.py: correct typo : value should be 4 for 4GeV threshold
+
+2007-04-10 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+	* small bug in DQ monitoring
+
+2007-04-10 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * continued Migration use configurables. change fljet -> jet10fl and same for frjet
+	* add DQ monitoring for L2
+	
+2007-04-05 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * continued Migration use configurables.
+
+2007-04-03 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * continued Migration use configurables.
+
+2007-04-02 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+        * Migration use configurables. create python/*
+
+2007-02-23 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Migration to a hybrid thing with configurables.
+        * Clean-up and removal of the streaming tests. 
+
+2007-02-23 Tomasz.Bold@cern.ch
+        * update in the Lvl1 Configuration, ctp bits and moved threshold JT04 from BphyShypo
+
+2007-02-20 Tomasz.Bold@cern.ch
+        * update in the Lvl1 Configuration 
+
+2007-02-16 Till Eifert <Till.Eifert@cern.ch>
+	* change of some includes for new Steering
+
+2007-02-07 Till Eifert <Till.Eifert@cern.ch>
+	* TriggerConfig_j20.py: migrating to new steering, j20 is working
+
+2007-01-31 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Migration to the new Steering.
+
+2007-01-30 Monika Wielers <Monika.Wielers@cern.ch>
+
+        * Temporarely added at L1 Jet170 wiht threshold JT80 and
+        Jet300 with threshold JT150.
+        * Temporarely added for the HLT part Jet25, Jet45, Jet50,
+        Jet70, Jet90, Jet170, Jet300, Jet550.
+        * Declared the previous in TriggerConfig_Jet_flags.py.
+        * CSC-05 specified as default menu.
+
+2007-01-23 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Changing the selection variable from e to et in the L2Hypo.
+
+2007-01-17 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Deactivate the TE if the EF hypo is not validated.
+        * Include an ERROR message if no TrigT2Jet is found in TrigL2JetHypo
+
+2006-12-07 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Set L1 thresholds to JT55 for the single jet sequence
+        and JT35 for the double jet.
+
+2006-12-06 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Moved the jt400, 2jt350, 3j265 and 4j110 to jet, 2jet
+        3jet and 4jet. Set thresholds to J160, 2J120, 3J65 and 4J50
+        for the one, two, three and four jets signatures.
+
+2006-12-05 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Included accept all sequences and signatures for 2, 3 and 4 jets.
+
+2006-11-30 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Included a swith to accept all events.
+        * Activate the accept all for the hypos in the jet20 and jet20kt signatures.
+
+2006-11-27  J T M Baines  <jtb@heplnx103.pp.rl.ac.uk>
+
+	* share/TriggerConfig_Jet_Level1.py: add some higher thresholds and fix meni item name for FJ
+
+2006-11-24 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Create a complete sequence for Kt algo to make it compatible
+          with TriggerDecision.
+        * Correct TriggerConfig_j20kt.py accordingly and fixing
+        and ERROR appearing when the EF was switched off.
+
+2006-11-23 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Adapt the TE labels to the 12.0.4 steering requirements.
+
+2006-11-09 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Removed two unchecked status codes.
+        * Changed the configuration to include multi-jet signatures.
+
+2006-11-09 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Included conditionals for the messages to accomplish validation requirements:
+           if(outputLevel <= MSG::DEBUG) log<<MSG::INFO<< " ... " << endreq;
+
+2006-11-07 Jonathan Ferland <ferlandj@lps.umontreal.ca>
+	* set outputTE->setActive(false) instead of true  in TrigL2JetHypo.cxx when event is rejected
+
+2006-09-05 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+        * Included a protection against not having JetCollections hanging in the Trigger Element.
+        * Configured to split the sequence in two after the Towers (one for cone, the other for Kt)
+        in the j20 file.
+        * Changed the initial L1 TE to JT15 (instead of JT00).
+
+2006-09-02  Cibran Santamarina & P.A. Delsart <Cibran.Santamarina.Rios@cern.ch>
+        * Adapted the configuration to the new TrigCaloRec structure and to the
+        possibility of using TrigJetRec in the Kt mode.
+
+2006-08-10  J T M Baines  <jtb@heplnx103.pp.rl.ac.uk>
+
+	* share/TriggerConfig_Jet.py : remove multiple definitions of thresholds. Add an extra 15 GeV threshold
+	and forward jet threholds
+
+	* share/TriggerConfig_njxx.py : all start from J20 now that duplicate thresholds have been removed.
+	To be changed in the future when more thresholds are defined
+
+2006-08-02 Ester Segura <segura@ifae.es>
+
+	* Updates of jobOptions files to be able to run multiple sequences menu (j20 (default), j400, 2j350, 3j165, 4j110)
+
+	* bug fix in TrigL2JetHypo.cxx, remove writeHistoryOfTE(outputTE, uses, pJet)
+
+2006-07-20 Cibran Santamarina <Cibran.Santamarina.Rios@cern.ch>
+
+	* Changed Reconstruction to Reconstruction/Jet for the Jet packages.
+
+2006-06-26 Ester Segura <segura@ifae.es>
+
+        *added TrigL2JetHypo: version simple hypo algorithm for L2
+
+2006-06-16  J T M Baines  <jtb@heplnx103.pp.rl.ac.uk>
+
+	* src/TrigEFJetHypo.cxx: remove extra ";" causing gcc344 compile errors
+
+2006-05-09  Brigitte Vachon <brigitte.vachon@cern.ch>
+
+	* Update cmt/requirements file to pick up new TriggerConfig_Jet.py file.
+
+2006-04-06  John Baines  <baines@lxplus067.cern.ch>
+
+	* share/TriggerConfig_Jet.py (TE): add config file
+
+2005-11-29  Ester Segura <segura@ifae.es>
+	*first EF hypothesis algorithm for jets. Performs a cut in jet Et.
+
+2005-11-22  Kyle Stuart Cranmer  <cranmer@lxplus014.cern.ch>
+
+	* initial import
+
+	* requirements: added

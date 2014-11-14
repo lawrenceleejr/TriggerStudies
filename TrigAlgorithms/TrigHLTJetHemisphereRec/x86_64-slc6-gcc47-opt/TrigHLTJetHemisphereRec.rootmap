@@ -1,0 +1,6 @@
+# ROOT map file generated automatically by genmap on Thu Oct 23 14:21:41 2014
+
+Library.__pf__@@Muon__MuonIdHelperTool: libTrigHLTJetHemisphereRec.so
+Library.__pf__@@LumiBlockRangeCnv_p1: libTrigHLTJetHemisphereRec.so
+Library.__pf__@@LumiBlockCollectionCnv_p1: libTrigHLTJetHemisphereRec.so
+Library.__pf__@@TrigHLTJetHemisphereRec: libTrigHLTJetHemisphereRec.so

@@ -1,0 +1,1718 @@
+2014-11-10 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v3.xml updated to use old CTPID (to get ZDC rates right)
+        * TriggerMenuXML-04-00-42
+
+2014-11-07 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v3.xml updated to fix ATR-9217
+	* TriggerMenuXML-04-00-41
+
+2014-10-07 Iwona Grabowska-Bold
+        * Physics_HI_v3 menu enabled in generation
+	* TriggerMenuXML-04-00-40
+
+2014-10-03 Joerg Stelzer
+	* L1Topo menus produced automatically each night
+	* TriggerMenuXML-04-00-39
+
+2014-08-15 Yu Nakahama
+	* Added new LVL1config_Physics_HI_v3.xml (#8083)
+	* Enabled Physics_HI_v3 menu in AtlasP1HLT
+	* TriggerMenuXML-04-00-38
+
+2014-07-16 Moritz Backes
+	* Updated DC14 LVL1 menu
+	* Added (!) LS1 LVL1 menu
+	* TriggerMenuXML-04-00-37
+
+2014-06-30 Yu Nakahama
+	* Enabled DC14_{tight,loose}_mc_prescale in ATLASProduction
+	* TriggerMenuXML-04-00-36
+
+2014-06-19  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* LVL1config_DC14.xml updated
+	* TriggerMenuXML-04-00-35
+
+	* LVL1config_MC_pp_v5.xml and LVL1config_Physics_pp_v5.xml updated
+	* TriggerMenuXML-04-00-34
+
+2014-06-14 Catrin Bernius
+	* Added DC14_tight/loose_mc_prescale to ATLASProduction menus (commented out atm)
+	* TriggerMenuXML-04-00-33
+
+2014-06-14 Catrin Bernius
+	* Added new LVL1config_MC_pp_v5.xml: added new L1 items for bjet chains (#104525)
+	* TriggerMenuXML-04-00-32
+
+2014-06-14 Catrin Bernius
+	* Added new LVL1config_DC14.xml (added bphys chains to DC14 (104225))
+	* TriggerMenuXML-04-00-31
+
+2014-06-14 Catrin Bernius
+	* Added new LVL1config_DC14.xml
+	* TriggerMenuXML-04-00-30
+
+2014-06-13  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* LVL1config_Physics_pp_v5.xml and LVL1config_MC_pp_v5.xml updated (#104236)
+	* TriggerMenuXML-04-00-29
+
+2014-05-20  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* Add new DC14 menu to requirements
+	* TriggerMenuXML-04-00-28
+	
+2014-05-20  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* LVL1config_Physics_pp_v5.xml updated (#104237)
+	* TriggerMenuXML-04-00-27
+
+2014-05-19 Catrin Bernius
+	* updating LVL1config_MC_pp_v5.xml with changes made to L1MC menu in TM-00-01-29 (#104237)
+	* TriggerMenuXML-04-00-26
+
+2014-05-14 Catrin Bernius
+	* new LVL1config_Physics_pp_v5.xml which is the same as the one for MC v5
+	* TriggerMenuXML-04-00-25
+
+2014-04-17  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* LVL1config_Physics_pp_v5.xml updated with L1_TAU12 (#104324)
+	* TriggerMenuXML-04-00-23
+
+	* xml files updated: #103935 and e24_medium_iloose added in Physics_pp_v5 menu
+	  (requested by Stefania)
+	* TriggerMenuXML-04-00-22
+	* TriggerMenuXML-04-00-21
+
+2014-04-15 Joerg Stelzer
+	* data/LVL1config_Physics_pp_v5.xml updated
+	* bug in threshold multiplicities
+	* ctp version included
+	* TriggerMenuXML-04-00-20
+
+2014-04-14  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* data/LVL1config_Physics_pp_v5.xml updated (#104270)
+	* TriggerMenuXML-04-00-19
+
+2014-04-11 Catrin Bernius
+	* Removing V4, V3, V2 menus from list of menus to test
+	* ONLY V5 and LS1 menus in now!
+	* TriggerMenuXML-04-00-18
+
+2014-04-10 Frank Winklmeier <fwinkl@cern>
+	* scripts/XMLDumperFromAthena.sh: Set USE_NEW_TM variable correctly
+	* TriggerMenuXML-04-00-17
+
+	* Install static XML files in package as the first step in the build
+	* Continue menu building and file installation even if one menu fails
+	* TriggerMenuXML-04-00-16
+	
+2014-04-09 Catrin Bernius
+	* Added LS1_v1 menu to list of menu
+	* TriggerMenuXML-04-00-15
+
+2014-04-07 Catrin Bernius
+	* Added LS1_v1 menu to use USE_NEW_TM flag in XMLDumperFromAthena.sh
+	* TriggerMenuXML-04-00-14
+
+2014-04-01 Catrin Bernius
+	* Added MC v5 to cmt/requirements
+	* TriggerMenuXML-04-00-13
+	
+2014-03-29 Joerg Stelzer <stelzer@cern.ch>
+	* Automatically produces Physics_pp_v5
+	* TriggerMenuXML-04-00-12
+
+2014-02-16 Joerg Stelzer <stelzer@cern.ch>
+	* A scripts/CreateTriggerMenuXML.sh : a new slimmed-down script to generate
+	menu xml files (based on XMLDumperFromAthena.sh)
+	* TriggerMenuXML-04-00-11
+
+2014-02-15 Joerg Stelzer <stelzer@cern.ch>
+	* scripts/XMLDumperFromAthena.sh: Protect against output from importing TriggerFlags
+	* TriggerMenuXML-04-00-10
+
+2014-02-06 Yu Nakahama <yu.nakahama@cern.ch>
+	* Disabled v2/v3/HIV1 menus in requirement due to disabling MuonDef_v2v3.py in TMP
+	* TriggerMenuXML-04-00-09	
+	
+2015-01-25 Joerg Stelzer <stelzer@cern.ch>
+	* Update LVL1config_Physics_pp_v5
+	* TriggerMenuXML-04-00-08
+
+2014-01-16 Joerg Stelzer <stelzer@cern.ch> 
+	* A LVL1config_Physics_pp_v5.xml
+	* TriggerMenuXML-04-00-07
+
+2013-11-12 Joerg Stelzer <stelzer@cern.ch>
+	* cmt/requirements: Add MC_pp_v4 to Prod target (needed by subsequent
+	tests)
+	* TriggerMenuXML-04-00-06
+
+2013-09-09 Frank Winklmeier <fwinkl@cern>
+	* cmt/requirements: Remove TriggerMenuXML-release.txt file generation
+	* TriggerMenuXML-04-00-05
+
+2013-08-12 Joerg Stelzer <stelzer@cern> (with Frank)
+	* cmt/requirements: add dependencies build_menu requires install_jo
+	* TriggerMenuXML-04-00-04
+
+2013-08-09  Frank Winklmeier  <fwinkl@cern>
+	* share/runHLT_forXMLgeneration.py: In case specified menu is no available, print error but
+	exit gracefully without error code. Should show up as build warning in NICOS.
+	* TriggerMenuXML-04-00-03
+	
+	* cmt/requirements: add some more comments and target name cleanup
+	* share/runHLT_forXMLgeneration.py: from TriggerMenuPython/share/runHLT_forXMLgeneration.py
+	* scripts/XMLDumperFromAthena.sh: use new script above
+	* TriggerMenuXML-04-00-02
+
+2013-08-06  Frank Winklmeier  <fwinkl@cern>
+	* cmt/requirements: Remove all use statements (build order is ensured by NICOS as per Savannah #93077)
+	* TriggerMenuXML-04-00-01
+
+2013-08-05  Frank Winklmeier  <fwinkl@cern>
+	* Parallelize XML menu file generation: this is done by definining separate cmt actions for
+	each trigger menu. The menus to be generated are now defined in the requirements file itself
+	and no longer in separate text files
+	* Sqlite file upload is temporarily disabled (Savannah #102038)
+	* M cmt/requirements: Add -no_auto_imports to avoid checkreq warning
+	* M scripts/XMLDumperFromAthena.sh: Main script to generate XML files
+	* D scripts/TriggerMenuXML-MenuAtlasProduction.txt: obsolete, see requirements file
+	* D scripts/TriggerMenuXML-MenuAtlasP1HLT.txt: obsolete, see requirements file
+	* D scripts/exitAfterConfig.py: obsolete
+	* D scripts/TriggerMenuXML-auxiliaryJobOptions.py: obsolete, in main shell script now
+	* D scripts/XMLDumperFromAthena-main.sh: obsolete, in main shell script now
+	* TriggerMenuXML-04-00-00
+
+2013-06-18 Joerg Stelzer
+	* Remove TrigT1Config from requirements
+	* TriggerMenuXML-03-05-41
+
+2013-02-21 Catrin Bernius
+	* Removed TrigEFIDCosmic dependency from cmt/requirements
+	* TriggerMenuXML-03-05-40
+
+2013-02-19 Brian Petersen
+	* Add new "MC_pp_v4_upgrade_mc_prescale" prescale set for v4 menu for high luminosity
+	* TriggerMenuXML-03-05-39
+
+2013-02-05 Yu Nakahama
+        * Changed L1_ZB based on ZB_J10 in HIV2 (#100276)
+        * TriggerMenuXML-03-05-38
+	
+2013-01-03 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-37
+
+2012-12-19 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-36
+
+2012-12-16 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-35
+
+2012-12-12 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-34
+
+2012-11-29 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-33
+
+2012-11-27 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-32
+
+2012-11-22 Iwona Grabowska-Bold
+        * update of L1 for HIV2  
+        * TriggerMenuXML-03-05-31
+
+2012-11-16 Iwona Grabowska-Bold
+        * update of L1 for HIV2 
+        * TriggerMenuXML-03-05-30
+
+2012-11-14 Iwona Grabowska-Bold
+        * update of L1 for HIV2 (LHCF added)
+	* TriggerMenuXML-03-05-29
+
+2012-11-13 Elisabetta Pianori
+        * fix MBTS_2_BGRP7 definition (#91968,comment 134)
+	* TriggerMenuXML-03-05-28 
+	
+2012-10-17  Jiri Masik  <Jiri.Masik@cern.ch>
+
+	* retag as TriggerMenuXML-03-05-27
+
+2012-10-06 Iwona Grabowska-Bold
+        * requirements updated with TrigSecVtxFinder
+	* TriggerMenuXML-03-05-25 
+
+2012-10-02 Elisabetta Pianori
+	* Implement new VBF and MU6 L1 items (#97938)
+	* TriggerMenuXML-03-05-24
+
+2012-10-02 Catrin Bernius
+	* Updated L1 alfa v2 xml (#91968)
+	* based on change done in TMP-00-27-19 (3 new L1 items)
+	* TriggerMenuXML-03-05-23
+
+2012-10-02 Catrin Bernius
+	* Updated L1 alfa v2 xml (#91968)
+	* TriggerMenuXML-03-05-22
+
+2012-09-18 Iwona Grabowska-Bold
+        * updates for TrigMC 17.2.X.Y.Z-VAL which brings the HIV_v2 menu
+	* TriggerMenuXML-03-05-21
+
+2012-09-14 Iwona Grabowska-Bold
+        * fix of dependencies for EXP nightlies
+        * TriggerMenuXML-03-05-20
+
+2012-09-04 Iwona Grabowska-Bold
+        * update to L1 for HIV2 (L1_MBTS_1_1_OVERLAY and L1_BGRP1)  
+        * TriggerMenuXML-03-05-19
+
+2012-08-30 Iwona Grabowska-Bold
+	* update to L1 for HIV2
+	* TriggerMenuXML-03-05-18
+
+2012-08-28 Yu Nakahama
+        * Moving back individual MBTS items to the L1 HIV2 menu (#96605)
+	* TriggerMenuXML-03-05-17
+
+2012-08-23 Frank Winklmeier
+	* cmt/requirements: Remove commented lines
+	* TriggerMenuXML-03-05-16
+
+2012-08-22 Frank Winklmeier
+	* A LVL1config_Physics_pp_v4_preJuneTS.xml: LVL1 menu used before the June
+	technical stop. The CTPID of L1_2MU3_MU6 changes acccidentally from 30 to 9.
+	To reprocess any data from before June 2012 this L1 menu has to be used.
+	* TriggerMenuXML-03-05-15
+
+2012-08-22 Yu Nakahama
+        * Removing individual MBTS items from the L1 HIV2 menu (#96605)
+	* TriggerMenuXML-03-05-14
+	
+2012-08-09 Elisabetta Pianori
+        * Add L1_XE35_GVRP7
+	* TriggerMenuXML-03-05-13
+
+2012-08-08 Iwona Grabowska-Bold
+        * savannah : 96605 update of L1 for HIV2
+	* TriggerMenuXML-03-05-12
+
+2012-07-02 Catrin Bernius
+	* reverting scripts file to normal again
+	* TriggerMenuXML-03-05-11
+
+2012-07-02 Catrin Bernius
+	* UPdated L1 alfa v2 xml (#91968)
+	* TriggerMenuXML-03-05-10
+
+2012-06-30 Iwona Grabowska-Bold
+        * Add MC_HI_v2_pPb_prescales to TriggerMenuXML-MenuAtlasP1HLT.txt and L1 menu
+        * TriggerMenuXML-03-05-09
+
+2012-06-28 Elisabetta Pianori
+	* Add Physics_HI_v2 and MC_HI_v2 to TriggerMenuXML-MenuAtlasP1HLT.txt
+ 	* TriggerMenuXML-03-05-08
+	
+2012-06-18 Catrin Bernius
+	* Updates to L1 part of alfa menu -> new xml file (#91968)
+	* TriggerMenuXML-03-05-07
+	
+2012-05-30 Catrin Bernius
+	* removed unused cosmic trigger packages (#94745)
+	* TriggerMenuXML-03-05-06
+
+2012-04-25 Catrin Bernius	
+	* L1 alfa xml update (to be sent off to CTP)
+	* Fix of ZB_EM14->ZB_EM12 threshold
+	* TriggerMenuXML-03-05-05
+
+2012-04-24 Joerg Stelzer
+	* Now fix this properly
+	* TriggerMenuXML-03-05-05
+
+2012-04-23 Joerg Stelzer
+	* Fix TMXML build (not sure it works, since NICOS build system seems to behave differently)
+	* TriggerMenuXML-03-05-04
+
+2012-04-20 Catrin Bernius	
+	* L1 alfa xml update (to be sent off to CTP)
+	* TriggerMenuXML-03-05-03
+	
+2012-04-19 Catrin Bernius
+	* Updated L1 alfa xml (#91968)
+	* TriggerMenuXML-03-05-02
+
+2012-04-13 Catrin Bernius
+	* Updated L1 alfa xml (#91968)
+	* TriggerMenuXML-03-05-01
+
+2012-04-02 Joerg Stelzer
+	* extent scripts to new project AtlasTestHLT
+	* TriggerMenuXML-03-05-00
+
+2012-03-31 Joerg Stelzer
+	* Last fix for creation of sqlite file
+	* TriggerMenuXML-03-04-99
+
+2012-03-29 Catrin Bernius
+	* restoring scripts/TriggerMenuXML-MenuAtlasP1HLT.txt to how it should be
+	* TriggerMenuXML-03-04-98
+
+2012-03-29 Joerg Stelzer
+	* Using TriggerFlags.triggerMenuSetup._default_menu for creation of sqlite file (to match ATN tests)
+	* TriggerMenuXML-03-04-97
+
+2012-03-28 Catrin Bernius
+	* added InDetTrigPriVxFinder to requirements
+	* TriggerMenuXML-03-04-96
+
+2012-03-28 Joerg Stelzer
+	* more output from nightly build, including TriggerTool upload log file
+	* temporary sqlite file now has unique name
+	* TriggerMenuXML-03-04-95
+
+2012-03-27 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-94
+
+2012-03-26 Catrin Bernius
+	* Updated L1 alfa xml, changed ZB_EM14 to ZB_EM12
+	* TriggerMenuXML-03-04-93
+
+2012-03-26 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-92
+	
+2012-03-26 Catrin Bernius
+	* Added LVL1config_L1_alfa_v2.xml
+	* TriggerMenuXML-03-04-91
+
+2012-03-25 Catrin Bernius
+	* added modified LVL1config_L1_alfa_v2.xml (removed all non OD items for now)
+	* TriggerMenuXML-03-04-90
+
+2012-03-24 Catrin Bernius
+	* added fixed LVL1config_L1_alfa_v2.xml (removed ORs from BGRP*)
+	* TriggerMenuXML-03-04-89
+
+2012-03-23 Catrin Bernius
+	* added LVL1config_L1_alfa_v2.xml
+	* TriggerMenuXML-03-04-88
+
+2012-03-19 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-87
+	
+
+2012-03-06 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-86
+	
+
+2012-03-06 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-85
+
+2012-03-03 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file (#90300#21)
+	* TriggerMenuXML-03-04-84
+
+2012-02-27 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-83
+
+2012-02-24 Monica Dunford
+	* Adding 3J15_J50 (#91535)
+	* TriggerMenuXML-03-04-82
+	
+2012-02-23 Monica Dunford
+	* adding 5J15 (#91535)
+	* TriggerMenuXML-03-04-81
+	
+2012-02-20 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-80
+	
+2012-02-17 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-79
+
+2012-02-01 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-78
+
+2012-01-25 Zofia Czyczula
+	* Updated LVL1config_Physics_pp_v4.xml file
+	* TriggerMenuXML-03-04-77
+
+2012-01-19 Frank Winklmeier
+	* Added TrigL2MuonSA as package dependency
+	* TriggerMenuXML-03-04-76
+
+2012-01-13 Zofia Czyczula
+	* Added v4 menus for 2012 in scripts/TriggerMenuXML-MenuAtlasProduction.txt and  scripts/TriggerMenuXML-MenuAtlasP1HLT.txt
+	* TriggerMenuXML-03-04-75
+
+2012-01-11 Catrin Bernius
+	* Removed Physics_lumi1E34 from TriggerMenuMXL-MenuAtlasProduction.py
+	* TriggerMenuXML-03-04-74
+	
+2012-01-09 Catrin Bernius
+	* Removed Physics_lumi1E34 from TriggerMenuMXL-MenuAtlasP1HLT.py
+	* TriggerMenuXML-03-04-73
+
+2011-11-10 Iwona Grabowska-Bold
+	* pPb_mc_prescale defined
+	* TriggerMenuXML-03-04-72
+
+2011-10-31 Iwona Grabowska-Bold
+	* update of L1 for HI	
+	* TriggerMenuXML-03-04-71
+
+2011-10-17 Iwona Grabowska-Bold
+	* fix of the XB trigger for HI	
+	* TriggerMenuXML-03-04-70
+
+2011-10-10 Iwona Grabowska-Bold
+        * update to L1 for HI
+        * TriggerMenuXML-03-04-69
+
+2011-10-10 Iwona Grabowska-Bold
+	* update to L1 for HI
+	* TriggerMenuXML-03-04-68
+
+2011-10-07 Iwona Grabowska-Bold
+	* update to L1 for HI
+	* TriggerMenuXML-03-04-67
+
+2011-09-26 Iwona Grabowska-Bold
+        * update for HI
+        * TriggerMenuXML-03-04-66
+
+2011-09-23 Iwona Grabowska-Bold
+	* update for HI
+	* TriggerMenuXML-03-04-65
+
+2011-09-19 Iwona Grabowska-Bold
+	* TrigHIHypo added to a list of dependencies
+	* TriggerMenuXML-03-04-64
+
+2011-09-16 Iwona Grabowska-Bold
+	* another update of L1 for HI
+	* TriggerMenuXML-03-04-63
+
+        * update of LVL1 for HI
+        * TriggerMenuXML-03-04-62
+
+2011-09-12 Paul Bell
+	* correction to below: the three menus are
+	* -Physics_pp_v3
+        * -MC_pp_v3_loose_mc_prescale
+        * -MC_pp_v3_tight_mc_prescale 
+	* TriggerMenuXML-03-04-61
+	
+2011-09-12 Paul Bell
+	* 3 flavours of MC_pp_v3 menus now generated for ATLAS production (#86523)
+	* TriggerMenuXML-03-04-60
+
+2011-09-12 Iwona Grabowska-Bold  
+        * update of the L1 for HI
+        * MC_InitialBeam_HI_v1 removed from menu lists
+	* TriggerMenuXML-03-04-59
+
+2011-09-09 Iwona Grabowska-Bold
+	* update of the L1 for HI
+	* TriggerMenuXML-03-04-58
+	
+2011-08-31 Yu Nakahama                                                                                                               
+        * Add more forced L1 thresholds on TE to match  the number of
+        * defined TE thresholds as the assigned number (8) in Physics_pp_v3
+	* TriggerMenuXML-03-04-57
+	
+2011-08-29 Yu Nakahama
+	*Added L1_EM7_XS30 to pp_v3 for W T&P (#85832)
+	*TriggerMenuXML-03-04-56
+	
+2011-08-29 Yu Nakahama
+	* Modified L1 items for pp_v3 as in the (hopefully) final round request #84860/#23
+	* Added L1_EM12_XS30 for W T&P, corrected L1 seed of e20_etcut_xs40_noMu_dphi2j10xe20 #85832
+	* TriggerMenuXML-03-04-55
+	
+2011-08-29 Catrin Bernius
+	* Enable all menus in scrips/TriggerMenuXML-MenuAtlasP1HLT.txt
+	* TriggerMenuXML-03-04-54
+
+2011-08-26 Catrin Bernius
+	* Commenting MC_pp_v3 in
+	* TriggerMenuXML-03-04-53
+
+2011-08-22 Catrin Bernius
+	* Adding MC_pp_v3 to TriggerMenuXML-MenuAtlasP1HLT.txt
+	* TriggerMenuXML-03-04-52
+
+2011-08-21 Yu Nakahama
+	* Added L1_ZDC_A_C in pp_3 (#85161)
+	* TriggerMenuXML-03-04-51
+
+2011-08-19 Yu Nakahama
+        * Added L1_EM12_XE30 in pp_v3 for W tag and probe trigger (#84860)
+	* TriggerMenuXML-03-04-50
+	
+2011-08-19 Yu Nakahama
+        * Added combined L1 items for H+ in pp_v3 (#85795,#84860) 
+        * Removed unused L1 items in pp_v3 (L1_EM3_MU4 and L1_2EM5_EM10VH)
+	* TriggerMenuXML-03-04-49
+	
+2011-08-17 Yu Nakahama
+	* Replace L1_2EM7_EM10VH with L1_2EM5_EM16VH in Physics_pp_v3 (#85701)
+	* TriggerMenuXML-03-04-48
+	
+2011-08-16 Yu Nakahama
+	* Updated L1 items in Physics_pp_v3 (#84860)
+	* New tau L1 thresholds, tau L1 items
+	* Added L1_EM7_XS45 instead of L1_EM12_XS50   
+	* TriggerMenuXML-03-04-47
+	
+2011-08-16 Monica Dunford
+	* adding L1 alfa xml to data/ (84719)
+	* TriggerMenuXML-03-04-46
+	
+2011-08-15 Emanuel Strauss
+	* Added LVL1config_Physics_pp_v3.xml
+	* TriggerMenuXML-03-04-45
+
+2011-08-15 Emanuel Strauss
+	* Fixed TrigMenuRulebook scripts
+	* Requires TrigMenuRulebook-00-00-02
+	* TriggerMenuXML-03-04-44
+
+2011-08-06
+	* Changing L1_ZCD_AND to L1_ZCD_A_C also in the MC menu
+	* TriggerMenuXML-03-04-43
+
+2011-08-05 Monica Dunford 
+	* Changing L1_ZCD_AND to L1_ZCD_A_C (#85161)
+	* TriggerMenuXML-03-04-42
+
+2011-08-05 Emanuel Strauss
+	* Updated for new location of rulebook (#84215)
+	* TriggerMenuXML-03-04-41
+	
+2011-08-02 Monica Dunford
+	* adding LVL1config_L1_pp_v3 (#84860)
+	* TriggerMenuXML-03-04-40
+	
+2011-08-02 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v1.xml updated
+        * TriggerMenuXML-03-04-39
+
+2011-08-01 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v1.xml updated
+	* TriggerMenuXML-03-04-38
+
+2011-07-25 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v1.xml updated
+        * TriggerMenuXML-03-04-37
+	
+2011-07-22 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v1.xml updated
+        * TriggerMenuXML-03-04-36
+
+2011-07-21 Monica Dunford
+	* Adding 2MU0_XE20/25 to MC_pp_v2
+	* TriggerMenuXML-03-04-35
+	
+2011-07-21 Iwona Grabowska-Bold
+        * LVL1config_Physics_HI_v1.xml updated
+        * TriggerMenuXML-03-04-34
+
+2011-07-20 Iwona Grabowska-Bold
+	* LVL1config_Physics_HI_v1.xml added
+	* TriggerMenuXML-03-04-33
+
+        * Physics_HI_v1 and MC_HI_v1 generated in Production releases
+	* TriggerMenuXML-03-04-32
+
+2011-07-01 Iwona Grabowska-Bold
+        * rules read from python again
+	* Physics_HI_v1 and MC_HI_v1 generated
+	 * TriggerMenuXML-03-04-31
+
+2011-06-24 Iwona Grabowska-Bold
+        * rules are read from the DB now
+	* TriggerMenuXML-03-04-30
+
+2011-06-24 Monica Dunford
+	* adding 2EM3_EM12, 3EM5_EM10 and 2J20_XE20
+	* TriggerMenuXML-03-04-29
+	
+2011-06-23 Monica Dunford
+	* adding MU10_XE20 to physics_pp
+	* TriggerMenuXML-03-04-28
+	
+2011-06-22 Emanuel Strauss
+	* PSXMLGetFromDB.sh wasn't copying all files needed for processRules.py
+	* TriggerMenuXML-03-04-27
+
+2011-06-22 Monica Dunford
+	* New MC and Physics pp L1 menu
+	* TriggerMenuXML-03-04-26
+	
+2011-06-21 Monica Dunford
+	* Adding new L1 items to physics_pp (#83443)
+	* remove from L1 items from MC_pp (#83441)
+	* TriggerMenuXML-03-04-25
+
+2011-06-18 Monica Dunford
+	* Adding L1_J50_XE35 and L1_J50_XE40 (#83048)
+	* Adding L1_2J30_XE20 (#83050)
+	* TriggerMenuXML-03-04-24
+
+2011-06-17 Monica Dunford
+	* adding L1_3J75 to mc_pp_v2 (#83035)
+	* TriggerMenuXML-03-04-23
+	
+2011-06-05 Yu Nakahama
+	* update of LVL1 xml file for MC_pp_v2 including L1_2EM3_EM10, L1_2EM5_EM10, and L1_2EM5_EM12 (#82643)
+	* TriggerMenuXML-03-04-22
+	
+2011-05-30 Yu Nakahama
+	* update of LVL1 xml file for MC_pp_v2 (#82100)
+	* TriggerMenuXML-03-04-21
+	
+2011-05-09 Catrin Bernius
+	* update of LVL1 xml file for MC_pp_v2 (#81901)
+	* TriggerMenuXML-03-04-19	
+
+2011-05-06 Monica Dunford
+	* update of LVL1 xml file for MC_pp_v2 (#81652)
+	* TriggerMenuXML-03-04-18
+
+2011-05-05 Catrin Bernius
+	* update of LVL1 xml file for MC_pp_v2 (#81798)
+	* TriggerMenuXML-03-04-17
+
+
+2011-05-05 Catrin Bernius
+	* update of LVL1 xml file for Physics_pp_v2 (#81798)
+	* TriggerMenuXML-03-04-16
+
+2011-04-06 Anna Sfyrla
+	* Added forced TE1000 at Physics and MC v2
+	* TMXML-03-04-15
+
+2011-04-06 Iwona Grabowka-Bold
+        * savannah : 80418 update of the LVL1 xml file for Physics/MC_pp_v2 
+	* TriggerMenuXML-03-04-14
+
+2011-04-05 Iwona Grabowka-Bold
+        * scripts/PSXMLGetFromDB.sh disabledOK.py from Olya
+	* TriggerMenuXML-03-04-13
+
+2011-03-11 Anna Sfyrla
+	* New Physics_pp_v2 L1 menu
+	* TMXML-03-04-12
+
+2011-03-11 Anna Sfyrla
+	* New MC_pp_v2 L1 menu
+	* TMXML-03-04-11
+
+2011-03-11 Anna Sfyrla
+	* New MC_pp_v2 L1 menu
+	* TMXML-03-04-10
+
+2011-03-11 Iwona Grabowka-Bold
+        * switch to a new xml conversion script
+        * TriggerMenuXML-03-04-09
+
+2011-03-08 Iwona Grabowka-Bold
+        * some cleanup of old menus which did not work any more
+	* * TriggerMenuXML-03-04-08
+
+2011-03-07 Iwona Grabowka-Bold
+        * useDB flag introduced to give possibility to generate PS sets from python
+	* TriggerMenuXML-03-04-07
+ 
+2011-02-28 Iwona Grabowka-Bold
+        * updated of a list of generated menus: 1E31 + L1_pp_v2/v3 menus removed
+	* TriggerMenuXML-03-04-06
+
+2011-02-11 Anna Sfyrla
+	* MC_pp_v2 LVL1
+	* TMXML-03-04-05
+
+2011-02-11 Anna Sfyrla
+	* new Physics_pp_v2 LVL1 menu , same as L1_pp_v2
+	*TMMXL-03-04-04
+
+2011-02-08 Iwona Grabowka-Bold 
+        * fix of the problem with a release name 
+	* TriggerMenuXML-03-04-03
+
+2011-02-07 Iwona Grabowka-Bold
+	* fixes of dependencies
+	* TriggerMenuXML-03-04-02
+
+	* update of the PS generation script and its first activation
+        * update to the PS generation script - close to final version now
+	* TriggerMenuXML-03-04-01
+
+2011-02-04 Iwona Grabowka-Bold
+        * update to the PS generation script - non-functional yet
+
+2011-01-28 Iwona Grabowka-Bold
+        * first draft of a script to generate PS sets from a new rule book in place (waits for new code to be part of P1HLT nightlies)
+
+2011-01-27 Anna Sfyrla
+	* Added L1_pp_v3
+	* TMXML-03-03-65
+
+2011-01-18 Anna Sfyrla
+	* Added first l1 xml for v2 menu
+	* TMXML-03-03-64
+
+2011-01-14 Anna Sfyrla
+	* Added L1_pp_v2
+	* TMXML-03-03-63
+
+2011-01-10 Anna Sfyrla
+	* All v2 menus in AtlasProduction
+	* TMXML-03-03-62
+
+2010-11-29 Iwona Grabowka-Bold
+        * MC_InitialBeam_HI_v1 generated in AtlasProduction
+        * TriggerMenuXML-03-03-61
+
+2010-11-03 Iwona Grabowka-Bold
+	* MC_InitialBeam_HI_v1 generated
+	* TriggerMenuXML-03-03-60
+
+	* final LVL1 update for HI to be in sync with hardware
+	* TriggerMenuXML-03-03-59
+
+2010-11-02 Iwona Grabowska-Bold
+	* forced thresholds added to LVL1 of HI
+	* TriggerMenuXML-03-03-58
+
+	* update to the LVL1 of HI (TAU6 removed)
+	* TriggerMenuXML-03-03-57
+
+2010-11-02 Anna
+	* script fix
+	* TMXML-03-03-56
+
+2010-11-02 Anna
+	* _v2 menus
+	* TMXML-03-03-55
+
+2010-11-02 Iwona Grabowska-Bold
+	* XE and NIMDIR inputs added to LVL1 of HI
+	* TriggerMenuXML-03-03-54
+
+2010-11-01 Iwona Grabowska-Bold
+	* update of LVL1 for HI
+	* TriggerMenuXML-03-03-53
+
+2010-10-28 Iwona Grabowska-Bold
+	* TriggerMenuXML-03-03-52
+	* update of the LVL1 in HI
+	* TriggerMenuXML-03-03-51
+
+2010-10-26 Iwona Grabowska-Bold
+	* update of the LVL1 for HI
+	* TriggermenuXML-03-03-50
+
+2010-10-20 Iwona Grabowska-Bold
+        * updated of the LVL1 for HI
+        * TriggerMenuXML-03-03-49
+
+2010-10-06 Iwona Grabowska-Bold
+        * updated of the LVL1 for HI (needed for BS production)
+        * TriggerMenuXML-03-03-48
+
+2010-10-04 Iwona Grabowska-Bold  
+        * savannah : 73079 Physics_pp_v1_cosmics_prescale menu generated 
+        * TriggerMenuXML-03-03-47
+
+2010-09-30 Iwona Grabowska-Bold
+        * number of menus reduced
+        * TriggerMenuXML-03-03-46
+
+2010-09-24 Iwona Grabowska-Bold
+        * reverted changes from the branch
+	* TriggerMenuXML-03-03-45
+
+2010-09-23 Iwona Grabowska-Bold
+        * branch for some major development - TMXML will compile by means of gmake; cmt do post_install
+	* bugfixes
+	* TriggerMenuXML-03-03-44-01
+
+2010-09-22 Iwona Grabowska-Bold
+        * InitialBeam_v2 enabled again as it is requetsed for MBTS 32-bits tests
+	* TriggerMenuXML-03-03-44
+
+2010-09-20 Iwona Grabowska-Bold
+        * disable old menus for generation (lumi1E31, Cosmic_v2, InitialBeam_v2)
+	* upload only one menu to the DB
+        * TriggerMenuXML-03-03-43
+
+2010-09-03 Iwona Grabowska-Bold
+        * new production menus added for MC_pp_v1
+	* TriggerMenuXML-03-03-42
+
+2010-08-31 Anna Sfyrla
+	* New LVL1 for Physics_pp : Unpaired items
+	* TMXML-03-03-41
+
+2010-08-25 Iwona Grabowska-Bold
+	* LVL1 file for InitialBeam_HI_v1 added
+	* TriggerMenuXML-03-03-40
+
+2010-08-19 Anna Sfyrla	
+	* updated LVL1 IBv3 and Physics_pp with the right ZB configuration
+	* TMXML-03-03-39
+
+2010-07-29 Anna Sfyrla
+	* Physics_pp LVL1 update
+	* TMXML-03-03-38
+
+2010-07-28 Iwona Grabowska-Bold
+        * Test_pp_v1 replaced by MC_pp_v1
+        * TirggerMenuXML-03-03-36
+
+2010-07-20 Iwona Grabowska-Bold
+        * Physics_HI_v1 renamed to be InitialBeam_HI_v1
+	* TirggerMenuXML-03-03-35
+
+2010-07-15 Anna Sfyrla
+	* updated LVL1 for physics_pp
+	* TirggerMenuXML-03-03-33 
+
+2010-07-15 Anna Sfyrla	
+	* updated LVL1 for Physics_pp
+	* TriggerMenuXML-03-03-32
+
+2010-07-03 Iwona Grabowska-Bold
+	* enable menus in P1HLT
+	* TriggerMenuXML-03-03-31
+
+2009-06-26 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Test_pp_v1 generated in AtlasProduction
+	* TriggerMenuXML-03-03-29
+
+2010-06-23 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* Physics_HI_v1_no_prescale generated in AtlasProduction
+
+        * lumi1E32 menu dropped from generation in P1HLT
+	* TriggerMenuXML-03-03-28
+
+2009-06-18 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added Physics_pp_v1 to XMLDumperFromAthena-main.sh
+	* Dropped 1e32 flavours as well as Physics_lumi1E31_simpleL1Calib
+	* TriggerMenuXML-03-03-27
+
+2010-06-10 Anna Sfyrla
+	* Physics_pp_v1 updated
+	* TMXML-03-03-26
+
+2010-06-10 Rustem Ospanov <rustem@cern.ch>
+	* Add Physics_pp_v1 LVL1 xml file
+	* TriggerMenuXML-03-03-25
+	
+2010-06-01 Anna Sfyrla
+ 	* Change L1_ZB to use thr EM10 (updated LVL1_IBv3)
+	* TriggerMenuXML-03-03-23
+
+2010-05-31 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Physics_pp_v1 and Physics_HI_v1 get default LVL1 xml files
+        * TriggerMenuXML-03-03-22
+
+2010-05-29 Silke Nelson 
+        * Updated IBv3 L1 xml
+        * TriggerMenuXML-03-03-21
+
+2010-05-17 Anna Sfyrla
+        * Updated IBv3 L1 xml
+        * TriggerMenuXML-03-03-20
+
+2010-05-17 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Test_pp_v1 generated
+        * TriggerMenuXML-03-03-19
+
+2010-04-30 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Physics/MC_pp_v1 generated
+	* TriggerMenuXML-03-03-18
+
+2010-04-26 Anna Sfyrla
+	* Updated Lvl1 IBv3 xml with ZB change and 3 new items
+	* TriggerMenuXML-03-03-17	
+
+2010-04-20 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * updated L1 xml with a tt change for CaloEM items
+	* IB_v2 and Cosmic_v2 excluded from menu generation in P1HLT
+	* TriggerMenuXML-03-03-16
+
+2010-04-12 Anna Sfyrla
+	* Updated XML with mu streaming fix
+	* TMXML-03-03-15
+
+2010-04-09 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * minor update
+        * TriggerMenuXML-03-03-14
+
+2010-04-07 Anna Sfyrla <Anna.Sfyrla@cern.ch>
+	* From Silke: Updated LVL1_InitialBeam_v3 with corrected JB thresholds
+	* TMXML-03-03-13
+
+2010-04-07 Anna Sfyrla <Anna.Sfyrla@cern.ch>
+	* Updated LVL1_InitialBeam_v3 with MBTSSI
+	* TMXML-03-03-12
+
+2010-04-07 Tomasz Bold
+
+	* Added Heavy Ion menu generation
+
+2010-04-07  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* scripts/TriggerMenuXML-MenuAtlasProduction.txt: 
+	Change InitialBeam_v3_no_prescale to MC_InitialBeam_v3_no_prescale
+        * TriggerMenuXML-03-03-09
+
+2010-04-07 Anna Sfyrla <Anna.Sfyrla@cern.ch>
+	* Updated LVL1_InitialBeam_v3
+	* TMXML-03-03-08
+
+2010-04-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Physics_lumi1E34 menu back as it is fixed after the migration to EM scale
+        * TriggerMenuXML-03-03-07
+
+2010-04-01 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * get rid of old menus at had scale at LVL1
+	* TriggerMenuXML-03-03-06
+
+2010-03-25 Anna Sfyrla <anna.sfyrla@cern.ch>
+	* Updated InitiaBeam_v3 LVL1 xml
+
+2010-03-25 Anna Sfyrla <anna.sfyrla@cern.ch>
+	* Added InitiaBeam_v3 LVL1 xml
+
+2010-03-19 Anna Sfyrla <anna.sfyrla@cern.ch>
+        * Add Cosmic_v3 
+	* TriggerMenuXML-03-03-05
+
+2010-03-19 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * InitialBeam_v3 and Physics_lumi1E32_simpleL1calib added to P1HLT
+	* TriggerMenuXML-03-03-04
+
+2010-03-01 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * savannah : 63508 fix of the compilation-time error 
+        * TriggerMenuXML-03-03-03
+
+2010-02-26 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* Fix for AtlasCAFHLT and Physics menu added to AtlasProduction
+        * TriggerMenuXML-03-03-02
+
+2010-02-24 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * MenuAtlasProduction and MenuAtlasP1HLT files separated out
+        * TriggerMenuXML-03-03-01
+
+2010-02-18 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* Physics_lumi1E31_simpleL1Calib back on - needed for BS generation
+	* TriggerMenuXML-03-02-18
+
+        * _v2 menus added to all releases, Physics_ ones suppressed
+        * TriggerMenuXML-03-02-17
+
+2010-02-12 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * more robust against missing MenuKeys.txt
+	* TriggerMenuXML-03-02-16
+
+2010-02-04 Rustem Ospanov <rustem@cern.ch>
+	* Add L1_MU10_EMPTY to L1 xml for IntialBeam_v2
+	* Job used to generate menu used 15.5.X.Y/AtlasP1HLT-VAL/rel_4
+	* TriggerMenuXML-03-02-14
+	* Add L1 changes from Iwona for MBTS thresholds and some prescales
+	* TriggerMenuXML-03-02-15
+	
+2010-02-03 Rustem Ospanov <rustem@cern.ch>
+	* Add L1 xml file for InitialBeam_v2
+	* Job used to generate menu used 15.5.X.Y/AtlasP1HLT/rel_2
+	* TriggerMenuXML-03-02-13
+	
+2010-01-15 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Cosmic_v2, InitialBeam_v2 and MC_InitialBeam_v2 added for 2010 running to P1HLT
+	* TriggerMenuXML-03-02-12
+
+2009-12-17 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Physics_lumi1E34_no_prescale added for simulation (Test menu disabled as it points to the all L1 calib)
+	* TriggerMenuXML-03-02-11
+
+2009-12-07 Rustem
+	* Copy 1E34 menu from 15.3.X.Y production branch
+	* TriggerMenuXML-03-02-10
+	
+2009-11-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * MC_InitialBeam_v1_no_prescale added to AtlasProduction
+	* Cosmic2009_simpleL1Calib removed from the list 
+        * TriggerMenuXML-03-02-09
+
+2009-11-26 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* MC_InitialBeam_v1 added instead of InitialBeam_v1_offline
+        * TriggerMenuXML-03-02-08
+        * InitialBeam_v1_offline added
+        * TriggerMenuXML-03-02-07
+
+2009-11-17 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updates to Cosmic2009_inclMuons L1 menu
+        * TriggerMenuXML-03-02-06
+	
+2009-11-06 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Cosmic2009_inclMuons included to the menu generation
+        * TriggerMenuXML-03-02-05
+
+2009-11-05 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added the LVL1config_Cosmic2009_inclMuons L1 menu
+        * TriggerMenuXML-03-02-04	
+
+2009-10-30 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * ERRORS are not caught by NICOS in Cosmic/InitialBeam
+        * TriggerMenuXML-03-02-03
+        * 15.5.2 LVL1 menu downloaded for BS files with simpleL1Calib
+        * TriggerMenuXML-03-02-02
+        * Cosmic and InitialBeam menus generated by a standard jobO rather than runHLT_standalone.py, the LVL1 menu is regenarated
+        * TriggerMenuXML-03-02-01
+
+2009-10-29 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* ERRORS are not caught by NICOS
+        * TriggerMenuXML-03-01-26
+	* suppres ERROR output for InitialBeam_v1 (the corresponding LVL1 file missing)
+	* TriggerMenuXML-03-01-25
+	* Cosmic2009_v1 menu removed and InitialBeam_v1 added in place
+        * TriggerMenuXML-03-01-24
+        * 15.5.2 LVL1 menu downloaded for BS files
+        * TriggerMenuXML-03-01-23
+
+2009-10-28 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * $AtlasProject used instead of $AtlasPatch
+        * TriggerMenuXML-03-01-21
+
+2009-10-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Some changes for a P1HLT build to speed up compilation
+        * TriggerMenuXML-03-01-20
+
+2009-10-16 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* Cosmic menus get existing LVL1 as input
+        * TriggerMenuXML-03-01-19
+        * MC_lumi1E31_no_prescale menu generated instead of MC_lumi1E31. It is a reference in validation.
+        * TriggerMenuXML-03-01-18
+
+2009-10-15 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * _simpleL1Calib menus uploaded to the DB
+	* TriggerMenuXML-03-01-17
+
+2009-10-15 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * switch from the old calib menus to _simpleL1Calib ones
+	* Cosmic2009_simpleL1Calib menu generated insted of Cosmic2009_v2
+        * TriggerMenuXML-03-01-16
+
+2009-10-13 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Castor related change
+        * TriggerMenuXML-03-01-15
+	
+2009-10-13 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Bugfix in Cosmic2009_simpleL1Calib menu
+        * TriggerMenuXML-03-01-14
+	
+2009-10-08 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added the Cosmic2009_simpleL1Calib menu
+        * TriggerMenuXML-03-01-13
+
+2009-10-06 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * _simpleL1Calib menus generated (requires TriggerJobOpts-00-02-74 and TriggerMenuPython-00-06-74)
+        * TriggerMenuXML-03-01-12
+
+2009-10-05 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * 10^33 menu removed from the generation, grep ERRORs caught 
+        * TriggerMenuXML-03-01-11
+
+2009-07-24 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* L1 item priority and deadtimes updated in Cosmic2009_v2 L1 menu
+        * TriggerMenuXML-03-01-10
+
+2009-09-22 Paul Bell<paul.bell@cern.ch> 
+	* Download 15.5 L1 xml file from MC DB
+        * Also download other L1 xmls from same DB
+        * TriggerMenuXML-03-01-09
+
+2009-07-24 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Cosmic2009_v2 L1 menu updated
+        * TriggerMenuXML-03-01-08
+
+2009-09-14 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * export DISPLAY removed as it crashes 
+        * TriggerMenuXML-03-01-07
+
+2009-09-01 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * export DISPLAY added on Joerg's request
+        * TriggerMenuXML-03-01-06
+
+2009-08-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Cosmic2009_v2 menu generated
+        * TriggerMenuXML-03-01-05
+
+2009-07-24 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updates for Cosmic2009_v2 L1 menu
+        * TriggerMenuXML-03-01-04
+
+2009-08-03 Paul Bell<paul.bell@cern.ch>
+        * Put LVL1config_Physics_lumi1E31_15.4.0.xml into install area from DB
+        * TriggerMenuXML-03-01-03
+	
+2009-07-24 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updates for Cosmic2009_v2 L1 menu
+        * TriggerMenuXML-03-01-02
+
+2009-07-24 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updates for Cosmic2009_v2 L1 menu
+        * TriggerMenuXML-03-01-01
+	
+2009-07-17 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * savannah : 53250 no dependancy on $AtlasVersion anymore 
+        * TriggerMenuXML-03-01-00
+
+2009-07-16 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * dependancy on TrigRingerTools removed from cmt/requirements
+        * TriggerMenuXML-03-00-03
+
+2009-07-14 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * MC_lumi1E31_physics_prescale menu for mc09 production added
+        * TriggerMenuXML-03-00-02
+
+2009-07-10 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added LVL1config_Cosmic2009_v2.xml
+        * TriggerMenuXML-03-00-01
+
+2009-07-10 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * get rid of _rel_ xml files, we don't rely on $AtlasVersion anymore  (TriggerJobOpts-00-02-35 and higher)
+        * TriggerMenuXML-03-00-00
+
+2009-07-09 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fix for the Cosmic2009_v1 menu during a DB upload
+        * TriggerMenuXML-02-02-07
+
+2009-07-08 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * small fix for the Cosmic2009_v1 menu
+        * TriggerMenuXML-02-02-06
+	* fixes requirements
+        * TriggerMenuXML-02-02-05
+
+2009-07-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * dependance on TrigCaloRinger removed
+        * TriggerMenuXML-02-02-04
+
+2009-06-19 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * LVL1 menu v1_v1 removed
+        * TriggerMenuXML-02-02-03
+
+2009-06-18 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * switch to MC/Physics_lumi1E33 and Cosmic2009_v1
+        * TriggerMenuXML-02-02-02
+
+2009-06-11 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * old xml files removed from /data
+        * TriggerMenuXML-02-02-01
+
+2009-06-10 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * menus are not uploaded to DB while compiling locally 
+        * TriggerMenuXML-02-01-28
+
+2009-05-22 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* data/LVL1config_Physics_lumi1E31_15.2.0.xml added to cvs
+	* TriggerMenuXML-02-01-27
+        * MC_lumi1E31_no_prescale uploaded first to have 1,1,1 keys needed for ATN
+        * TriggerMenuXML-02-01-26
+
+2009-05-20 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * MC_lumi1E31_no_prescale, MC_lumi1E31, Cosmic_v1 in a sqlite file, a text file TriggerMenuXML-release.txt created
+        * TriggerMenuXML-02-01-25
+
+2009-05-12 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Fixed naming of LVL1config_Cosmic2009_v1_7-bit_trigger_types.xml
+        * TriggerMenuXML-02-01-24
+
+2009-05-12 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added LVL1config_Cosmic2009_v1_v1_7-bit_trigger_types.xml
+	* Adding Cosmic2009_v1 to the automatic runs awaits a TriggerRelease tag
+        * TriggerMenuXML-02-01-23
+	
+2009-05-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * MC_lumi1E31_no_prescale menu uploaded to the DB
+        * TriggerMenuXML-02-01-22
+
+2009-05-01  Simon George  <S.George@rhul.ac.uk>
+
+	* cmt/requirements: add dependency on TrigL2LongLivedParticles and TrigLongLivedParticlesHypo to get build order right.
+	* TriggerMenuXML-02-01-21
+
+2009-04-30 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fixes for the TriggerTool which did not exist sometimes
+        * TriggerMenuXML-02-01-20
+
+2009-04-29 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fix for DB download (the TT is used in place of TrigConf2XMLApp)
+        * TriggerMenuXML-02-01-19
+
+2009-04-25 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fix for MC DB download 
+        * TriggerMenuXML-02-01-18
+
+2009-04-24 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* fix for _JAVA_OPTIONS 
+        * TriggerMenuXML-02-01-17
+        * a command line for the TT menu upload changes, no need to create an sqlite file in the first step, the TT will do it
+        * TriggerMenuXML-02-01-16
+
+2009-04-20 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * protection against existing links in MIG nightlies
+        * TriggerMenuXML-02-01-15
+
+2009-04-08 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * 15.0.0 LVL1 file removed from cvs, MC_ and Physics_lumi1E31 menus added
+        * TriggerMenuXML-02-01-14
+
+2009-04-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * 15.0.0 lumi1E31 MC downloaded from the MC DB
+        * TriggerMenuXML-02-01-13
+
+2009-03-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>   
+        * data/LVL1config_lumi1E31_15.0.0.xml added to cvs. It will be removed while we have an alias to the MC DB.
+        * TriggerMenuXML-02-01-12
+
+2009-24-03 Paul Bell <paul.bell@cern.ch>
+        * Fix the XML dump from DB script
+        * TriggerMenuXML-02-01-11
+
+2009-03-23 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * some clean-up, fix for a Cosmic_v1 output xml file
+        * TriggerMenuXML-02-01-10
+
+2009-03-12 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * full menu removed from a list (not supported after 15.0.0), test_lumi1E31 menu added
+        * TriggerMenuXML-02-01-09
+
+2009-02-25 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * changes access rights to the sqlite file (hopefully it will help to read it from afs)
+        * TriggerMenuXML-02-01-08
+
+2009-02-24 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * TriggerMenuXML-02-01-07
+        * cosmetic update to ease reading
+        * TriggerMenuXML-02-01-06
+
+2009-02-23 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * configuartion ERRORS are printed during compilation
+        * TriggerMenuXML-02-01-05
+
+2009-02-18 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * dependancy on TrigT1Calo removed
+        * TriggerMenuXML-02-01-04
+
+2009-02-12 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Update for the TriggerTool command line -dbConn
+        * TriggerMenuXML-02-01-03
+
+2009-02-09 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * TrigT2InDetMonitoring removed from requirements
+        * TriggerMenuXML-02-01-02
+
+2009-01-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+	* LVL1 Cosmic_v1 menu renamed
+        * TriggerMenuXML-02-01-01
+
+        * Cosmic_v1 menu enabled (LVL1 copied from the online menu, only HLT generated)
+        * TriggerMenuXML-02-01-00
+
+2009-01-22 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * finally we converged on a set of menus to be generated
+        * TriggerMenuXML-02-00-12
+
+2009-01-22 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * platform-dependent output copied to ../$CMTCONFIG
+        * TriggerMenuXML-02-00-11
+
+2009-01-20 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * 14.5.0 DB menu fixed, a number of generated menus limited to full and full_no_Bphysics_no_Prescale
+        * TriggerMenuXML-02-00-10
+
+2009-01-13 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * TrigL2TRTSegFinder in place of TrigTRTxK in requirements
+        * TriggerMenuXML-02-00-09
+
+2009-01-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Minor fix for DB
+        * TriggerMenuXML-02-00-08
+        * Try to generate a LVL1 menu in case of HLT config failure
+        * TriggerMenuXML-02-00-07
+
+2008-12-18 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * TrigMoore dependencies removed
+        * TriggerMenuXML-02-00-06
+
+2008-12-10 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * lumi1E31 14.5.0 menu dumped from the DB
+        * TriggerMenuXML-02-00-05
+
+2008-12-08 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * _JAVA_OPTIONS increased
+        * TriggerMenuXML-02-00-04
+        * lumi1E31_no_Bphysics_no_prescale menu uploaded
+        * TriggerMenuXML-02-00-03
+        * Attemp to fix MenusKeys*txt to be copied to InstallArea/share
+        * TriggerMenuXML-02-00-02
+
+2008-12-05 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * -offlineconfig flag added (indicates MC production)
+        * TriggerMenuXML-02-00-01
+
+2008-12-03 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * SQLite file with menu (lumi1E31) generated
+        * TriggerMenuXML-02-00-00
+
+2008-11-27 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * logfiles renamed and clean-up
+        * TriggerMenuXML-01-00-09
+
+2008-11-24 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * removing lumi1E33*no_prescale from the menu, setting up symbolic links towards nightly tests
+        * TriggerMenuXML-01-00-08
+
+2008-11-19 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fix of "bad floating point constant"
+        * TriggerMenuXML-01-00-07
+
+2008-11-17 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * logfiles not copied to /data anymore, make use of NICOS_ATLAS_RELEASE
+        * TriggerMenuXML-01-00-06
+
+2008-11-15 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * full set of menus generated, debug options switched off
+        * TriggerMenuXML-01-00-05
+
+2008-11-14 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * change of dependency in requirements
+        * TriggerMenuXML-01-00-04
+	
+2008-11-11 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * change of dependency in requirements
+        * TriggerMenuXML-01-00-03
+
+2008-11-10 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * dumping xml files from the DB on the fly
+        * TriggerMenuXML-01-00-02
+
+2008-11-07 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fixes problems in generation of xml files on the fly
+        * TriggerMenuXML-01-00-01
+
+2008-11-06 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * generation of xml files on the fly
+        * TriggerMenuXML-01-00-00
+
+2008-11-05 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * enabled generation of xml files on the fly from the TriggerDB
+        * TriggerMenuXML-00-01-02
+
+2008-10-31 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * generation of xml files on the fly from the TriggerDB - disabled (not tested yet)
+        * xml files for 14.4.0 regenerated
+        * TriggerMenuXML-00-01-01
+
+2008-10-30 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * generation of xml files on the fly from the TriggerDB
+	* TriggerMenuXML-00-01-00
+        * another update of 14.4.0 files
+        * TriggerMenuXML-00-00-93
+	* update of 14.4.0 files
+        * TriggerMenuXML-00-00-92
+	
+2008-10-29 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * xml files added for 14.4.0 and 14.2.24 for lumi1E33
+        * generation of xml files on the fly from the TriggerDB disabled
+        * TriggerMenuXML-00-00-91
+
+2008-10-29 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * menu update for 14.2.24, new menu for 14.4.0
+	* generation of xml files on the fly from the TriggerDB
+        * TriggerMenuXML-00-00-90
+
+2008-10-22 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * menu update for 14.2.24
+        * TriggerMenuXML-00-00-89
+
+2008-10-21 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * fix savannah bug #43084
+	* TriggerMenuXML-00-00-88
+
+2008-10-13 Iwona Grabowska-Bold <Iwona.Grabowska@cern.ch>
+        * Bunch group 1 added to NIMDIR13 in data/LVL1config_SingleBeam_v1_7-bit_trigger_types.xml
+
+2008-10-05 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updated 14.2.22 files
+	* Removed 14.2.30 files (release dropped)
+	* Tagged as TriggerMenuXML-00-00-86
+
+2008-09-26 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updated CALREQ trigger types
+	* Taged as TriggerMenuXML-00-00-85
+	
+2008-09-26 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* SingleBeam_v1 and Collision_v1 in 14.2.22 versions without cosmics
+	* Taged as TriggerMenuXML-00-00-84
+	
+2008-09-26 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Added 1E31, 1E32 and full in 14.2.22 versions
+	* Taged as TriggerMenuXML-00-00-83
+
+2008-09-18 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Uploaded single beam L1 menu added
+	* Taged as TriggerMenuXML-00-00-82	
+
+2008-09-13 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Updates to single beam and collision menu
+	* Taged as TriggerMenuXML-00-00-81	
+
+2008-09-13 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch> 
+	* Startup menu update
+	* Taged as TriggerMenuXML-00-00-80	
+
+2008-09-01 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch>
+	* Added startup menus as uploaded to P1
+	* Taged as TriggerMenuXML-00-00-79
+	
+2008-09-01 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch>
+	* Added a 14.2.20 version of the SingleBeam_v1 menu using AtlasP1HLT
+	* Taged as TriggerMenuXML-00-00-78
+
+2008-09-01 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch>
+	* Updated menus for 14.2.30
+	* Added SingleBeam_v1 menu
+	* Taged as TriggerMenuXML-00-00-77
+
+2008-08-05 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch>
+	* Added menus for 14.2.30
+	* Taged as TriggerMenuXML-00-00-75
+
+2008-08-05 Rasmus Mackeprang <Rasmus.Mackeprang@cern.ch>
+	* Updated menus for 14.2.20
+	* Taged as TriggerMenuXML-00-00-74
+	
+2008-07-17  Takanori KONO (PH)  <tkohno@pcatr16.cern.ch>
+	* data/L1Menu_Cosmics_20080703.xml: comment out the DTD check
+
+2008-07-08  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* data/L1Menu_Cosmics_20080703.xml:
+	  Add 30 MBTS inputs and corresponding items
+	  Remove most of NIM thresholds except for 
+	  NIM0, NIM1, NIM2, NIM4, NIM27, NIM28, NIM29, NIM30
+
+2008-07-03  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* data/L1Menu_Cosmics_20080703.xml: Updating the commissioning menu 
+	  Changed forward jet thresholds to 3,4,5,10 GeV
+	  Filled the threshold value information correctly
+
+2008-06-27  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* Adding L1 menu used in the commissioning
+
+2008-06-26  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* Adding XML files for 14.2.10
+
+2008-06-25  Takanori KONO  <Takanori.Kohno@cern.ch>
+	* Adding XML files for 14.2.0.Y
+
+2008-06-10 Joerg Stelzer <stelzer@cern.ch>
+	* Added ChainTagMap.xml that contains the link between chain names and bit position for TAG files/DB
+
+2008-05-29  Bilge Demirkoz <demirkoz@cern.ch>
+        * Commit of menu for 14.2.0
+	
+2008-04-27  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Fixing calibration stream tag
+
+2008-04-22  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Updating XML files for 14.1.0 (with TriggerMenuPython-00-01-17)
+	  update on Bphysics configuration
+
+2008-04-21  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating XML files for 14.1.0 (with TriggerMenuPython-00-01-15)
+	* Updating XML files for 14.1.0 again (with TriggerMenuPython-00-01-16)
+
+2008-04-18  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating XML files for 14.1.0 (default, full, full_no_prescale) menus
+	  Removing L1_EM7I from the full menu
+	  (for TriggerMenuPython-00-01-12)
+
+2008-04-16  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating XML files for FDR-2 menu (for TriggerMenuPython-00-00-47-39)
+
+2008-04-15  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* XML files for 14.1.0 (default, full, full_no_prescale) menus
+
+2008-04-10  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Generating XML files for FDR2 menu after updating the express stream
+	  (based on TriggerMenuPython-00-00-47-37)
+
+2008-04-03  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Generating XML files for FDR2 menu adding MinBiasRandom to the
+	express stream. (based on TriggerMenuPython-00-00-47-36)
+
+2008-03-31  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Generating XML files for FDR2 menu, fixing mu6_Jpsie5e3 chain.
+	* In sync with TriggerMenuPython-00-00-47-35
+
+2008-03-07  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Generating XML files for all menus
+
+2008-03-06  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* data/HLTconfig_FDR2_lumi1E33_no_prescale_13.0.40.4.xml: no prescale
+	* Adding menus for FDR2_lumi1E33 with 60%, 80% prescale sets
+	
+2008-03-05  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Changing names to *_13.0.40.4.xml for 13.0.40.4
+
+2008-01-31  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Adding data/L1MenuM4.xml, L1MenuM5.xml for cosmic L1 configuration
+
+2008-01-22  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating *13.0.40.2.xml files for TriggerMenuPython-00-00-47-21
+	* (LVL1 random trigger to fire for all events)
+
+2008-01-21  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating *13.0.40.2.xml files for TriggerMenuPython-00-00-47-20
+	* Prescale adjustments for L=10^32 menu.
+	* Fix typos in Lvl1.py
+
+2007-12-17  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating *13.0.40.xml files for TriggerMenuPython-00-00-47-17
+	* Fixing L1_RD0 rate.
+
+2007-12-14  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Updating *13.0.40.xml files for TriggerMenuPython-00-00-47-16
+	* (fixing sequences for trk*i_calib chains)
+
+2007-12-11  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-15
+
+2007-12-10  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-13
+	* Update in prescale/pass-through for 10^31 and 10^32 menus
+
+2007-12-07  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-12
+	* Update in streamtags for different lumi.
+
+2007-12-06  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-11
+	* (fix in e10_tight and e25i prescales)
+
+2007-12-05  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-10, fixes L1_2EM23I logic
+
+2007-12-03  Takanori KONO  <Takanori.Kohno@cern.ch>
+
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-08 (TriggerMenuXML-00-00-29), fixes B-physics chain_counter
+	* Update *13.0.40.xml files for TriggerMenuPython-00-00-47-09 (TriggerMenuXML-00-00-30), fixed *trk*i_calib chain names
+
+2007-11-30  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* New xml files *13.0.40.xml for TriggerMenuPython-00-00-47-06
+
+2007-11-03  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Update 13.0.30.3 XML files for TriggerMenuPython-00-00-44-26
+
+2007-11-02  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Update 13.0.30.3 XML files for TriggerMenuPython-00-00-44-25
+	  (fix of lower_chain_name of L2_2g10)
+	
+2007-10-31  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Update 13.0.30.3 XML files for TriggerMenuPython-00-00-44-24
+	
+2007-10-30  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* UPdate XML files (*_13.0.30.3.xml) for TriggerMenuPython-00-00-44-23
+
+2007-10-25  Takanori Kono  <Takanori.Kohno@cern.ch>
+
+	* Add 13.0.30.3 files for TriggerMenuPython-00-00-44-19
+
+2007-10-22  John Baines  <baines@lxplus238.cern.ch>
+
+	* Add 13.0.30.3 files
+
+2007-10-17  John Baines  <baines@lxplus207.cern.ch>
+
+	* data Update 13.0.30.2 file for TriggerMenuPython-00-00-44-15
+
+2007-10-10 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* updated files as generated by 13.0.30.2 with TriggerMenuPython-00-00-44-12
+
+2007-10-11  John Baines  <baines@lxplus209.cern.ch>
+
+	* HLTconfig_default_13.0.30.1.xml Restore to match config in 13.0.30.1
+	* LVL1config_default_13.0.30.1.xml Restore to match config in 13.0.30.1
+	*  Delete all other 13.0.30.1 xml files (now superceeded by 13.0.30.2 files) 
+
+2007-10-10 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* updated files as generated by 13.0.30.2 with TriggerMenuPython-00-00-44-07
+
+2007-10-10 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* removed files with no release name
+	* updated files as generated by 13.0.30.2 with TriggerMenuPython-00-00-44-05
+
+2007-10-09 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* added new files as generated by 13.0.30.2 with TriggerMenuPython-00-00-44-04
+
+2007-10-09 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+        * moved files with names with lumi0.01 to lumi1E31
+	* moved files with V1.0 to reflect that they were produced with 13.0.30.1
+
+2007-09-21 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* files for lumi =0.01 produced by TriggerMenuPython-00-00-37-04
+
+2007-09-19 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+        * files for lumi =0.01 produced by TriggerMenuPython-00-00-37
+
+2007-09-19 Bilge Demirkoz <Bilge.Demirkoz@cern.ch>
+	* added first menu files for lumi = 0.01 and 0.1, prescaled and unprescaled
+	
+2007-09-04 Tomasz Bold <Tomasz.Bold@cern.ch>
+	* added first menu files (complete as for today unprescaled)
+	
+2007-06-29 Tomasz Bold <Tomasz.Bold@cern.ch>
+	* initiated changelog and added doxygen mainpage

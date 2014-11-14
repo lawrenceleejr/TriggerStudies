@@ -1,0 +1,69 @@
+#CMT---> (constituents.make) Starting checkreq
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRec
+#CMT---> (constituents.make) Starting install_includes
+#CMT---> (constituents.make) Starting check_install_python_modules
+Files from standard ../TrigHLTJetHemisphereRec already installed
+#CMT---> (constituents.make) install_includes done
+#CMT---> (constituents.make) check_install_python_modules done
+#CMT---> (constituents.make) Starting install_python_modules
+installation done
+#CMT---> (constituents.make) install_python_modules done
+#CMT---> compiling ../src/TrigHLTJetHemisphereRec.cxx
+
+CHECKREQ---> checkreq SUCCESS
+#CMT---> (constituents.make) checkreq done
+../src/TrigHLTJetHemisphereRec.cxx: In member function 'virtual HLT::ErrorCode TrigHLTJetHemisphereRec::hltExecute(const HLT::TriggerElement*, HLT::TriggerElement*)':
+../src/TrigHLTJetHemisphereRec.cxx:135:40: warning: comparison between signed and unsigned integer expressions [-Wsign-compare]
+../src/TrigHLTJetHemisphereRec.cxx:133:8: warning: unused variable 'foundGood' [-Wunused-variable]
+#CMT---> building shared library ../x86_64-slc6-gcc47-opt/libTrigHLTJetHemisphereRec.so
+#CMT---> TrigHLTJetHemisphereRec : library ok
+#CMT---> installing file libTrigHLTJetHemisphereRec.so into /afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/x86_64-slc6-gcc47-opt/lib
+#CMT---> TrigHLTJetHemisphereRec ok
+#CMT---> installation done
+#CMT---> (constituents.make) TrigHLTJetHemisphereRec done
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRecRootMap
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRec_optdebug_library
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRecConf
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRecCLIDDB
+Generating rootmap file for libTrigHLTJetHemisphereRec.so
+cd ../x86_64-slc6-gcc47-opt;/afs/cern.ch/sw/lcg/app/releases/ROOT/5.34.13/x86_64-slc6-gcc47-opt/root/bin/genmap -i libTrigHLTJetHemisphereRec.so -o ../x86_64-slc6-gcc47-opt/TrigHLTJetHemisphereRec.rootmap 
+#CMT---> stripping dbg symbols into separate file ../x86_64-slc6-gcc47-opt/libTrigHLTJetHemisphereRec.so.debug
+:::::: libraries : [ TrigHLTJetHemisphereRec ] ::::::
+:::: processing library: TrigHLTJetHemisphereRec...
+WARNING: library [TrigHLTJetHemisphereRec] requested factory from another library [libMuonIdHelpersLib.so] ==> [Muon::MuonIdHelperTool] !!
+WARNING: library [TrigHLTJetHemisphereRec] requested factory from another library [libLumiBlockTPCnv.so] ==> [LumiBlockRangeCnv_p1] !!
+WARNING: library [TrigHLTJetHemisphereRec] requested factory from another library [libLumiBlockTPCnv.so] ==> [LumiBlockCollectionCnv_p1] !!
+ - component: TrigHLTJetHemisphereRec
+ - component: TrigHLTJetDiagnostics
+ - component: TrigHLTClusterDiagnostics
+ - component: TrigHLTCellDiagnostics
+ - component: TrigHLTRoIDiagnostics
+ - component: TrigHLTHypoDiagnostics
+ - component: TrigHLTPSvsFSDiagnostics
+ - component: TriggerPseudoJetGetter
+:::::: libraries : [ TrigHLTJetHemisphereRec ] :::::: [DONE]
+Installing /afs/cern.ch/user/l/leejr/work/TriggerStudies/Trigger/TrigAlgorithms/TrigHLTJetHemisphereRec/genConf/TrigHLTJetHemisphereRec in /afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/python
+Copy '../../../Trigger/TrigAlgorithms/TrigHLTJetHemisphereRec/genConf/TrigHLTJetHemisphereRec/TrigHLTJetHemisphereRecConf.py' -> '/afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/python/TrigHLTJetHemisphereRec/TrigHLTJetHemisphereRecConf.py'
+Copy '../../../Trigger/TrigAlgorithms/TrigHLTJetHemisphereRec/genConf/TrigHLTJetHemisphereRec/TrigHLTJetHemisphereRec_confDb.py' -> '/afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/python/TrigHLTJetHemisphereRec/TrigHLTJetHemisphereRec_confDb.py'
+#CMT---> (constituents.make) TrigHLTJetHemisphereRecConf done
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRecConfDbMerge
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRec_python_init
+Running merge_genconfDb  TrigHLTJetHemisphereRecConfDbMerge
+python /afs/cern.ch/atlas/software/builds/GAUDI/v24r1p2-lcg67b/GaudiPolicy/scripts/merge_files.py \
+          --do-merge \
+          --input-file /afs/cern.ch/user/l/leejr/work/TriggerStudies/Trigger/TrigAlgorithms/TrigHLTJetHemisphereRec/genConf/TrigHLTJetHemisphereRec/TrigHLTJetHemisphereRec_confDb.py \
+          --merged-file /afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/python/leejr_merged_confDb.py
+#CMT---> (constituents.make) TrigHLTJetHemisphereRec_python_init done
+------> genCLIDDB.exe [TrigHLTJetHemisphereRec]
+#CMT---> (constituents.make) TrigHLTJetHemisphereRecCLIDDB done
+#CMT---> (constituents.make) TrigHLTJetHemisphereRecRootMap done
+#CMT---> (constituents.make) Starting TrigHLTJetHemisphereRecMergeMap
+Running merge_rootmap  TrigHLTJetHemisphereRecMergeMap
+/afs/cern.ch/atlas/offline/external/LCGCMT/LCGCMT_67b/LCG_Policy/cmt/fragments/merge_files.py --do-merge \
+         --input-file ../x86_64-slc6-gcc47-opt/TrigHLTJetHemisphereRec.rootmap --merged-file /afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/x86_64-slc6-gcc47-opt/lib/leejr.rootmap
+#CMT---> (constituents.make) TrigHLTJetHemisphereRecMergeMap done
+#CMT---> (constituents.make) TrigHLTJetHemisphereRecConfDbMerge done
+#CMT---> installing file libTrigHLTJetHemisphereRec.so.debug into /afs/cern.ch/work/l/leejr/TriggerStudies/InstallArea/x86_64-slc6-gcc47-opt/lib
+#CMT---> libTrigHLTJetHemisphereRec.so.debug installation done
+#CMT---> (constituents.make) TrigHLTJetHemisphereRec_optdebug_library done
+#CMT---> all ok.
