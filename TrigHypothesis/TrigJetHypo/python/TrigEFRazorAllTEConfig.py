@@ -24,4 +24,3 @@ class EFRazor (EFRazorBase):
         super( EFRazor, self ).__init__( name )
 
         self.Razorcut = Razor_cut
-        self.Etcut = 30*GeV

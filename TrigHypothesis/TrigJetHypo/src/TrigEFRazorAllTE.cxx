@@ -42,8 +42,6 @@ class ISvcLocator;
 TrigEFRazorAllTE::TrigEFRazorAllTE(const std::string& name, ISvcLocator* pSvcLocator):
   HLT::AllTEAlgo(name, pSvcLocator) {
 
-
-  declareProperty("Etcut",        m_EtCut        = 30*CLHEP::GeV  );   // Default: 30 GeV
   declareProperty("Razorcut",     m_RazorCut        = 300*CLHEP::GeV );   // Default: 300 GeV
   declareProperty("doMonitoring", m_doMonitoring = true  );
 
@@ -105,7 +103,7 @@ HLT::ErrorCode TrigEFRazorAllTE::hltInitialize()
 
   if (msgLvl() <= MSG::DEBUG) {
     msg() << MSG::DEBUG << "Initialization:" << endreq;
-    msg() << MSG::DEBUG	  << "ptJetCut: " << m_EtCut << endreq;
+    msg() << MSG::DEBUG	  << "RazorCut: " << m_RazorCut << endreq;
   }  
 
   m_accepted=0;

@@ -41,11 +41,7 @@ class TrigEFRazorAllTE : public HLT::AllTEAlgo {
 
   // Cuts to be applied:
 
-  double     m_EtCut;
   double     m_RazorCut;
-
-  double     m_etaMinCut;
-  double     m_etaMaxCut;
 
   int m_accepted;
   int m_rejected;
