@@ -17,10 +17,10 @@
 #include "TrigJetHypo/TrigL2CentralJetAllTE.h"
 #include "TrigJetHypo/TrigEFCentralJet.h"
 #include "TrigJetHypo/TrigEFDPhiMetJetAllTE.h"
+#include "TrigJetHypo/TrigEFRazorAllTE.h"
 #include "TrigJetHypo/TrigEFJetMctHypo.h"
 #include "TrigJetHypo/TrigEFJetDphiHypo.h"
 #include "TrigJetHypo/TrigEFHTHypo.h"
-#include "TrigJetHypo/TrigEFRazorAllTE.h"
 #include "TrigJetHypo/TrigEFJetMassY.h"
 #include "TrigJetHypo/TrigEFJetMassDEta.h"
 #include "TrigJetHypo/TrigL2DEtaMjjAllTE.h"
@@ -45,10 +45,10 @@ DECLARE_ALGORITHM_FACTORY( TrigL2HTAllTE )
 DECLARE_ALGORITHM_FACTORY( TrigL2DijetAllTE )
 DECLARE_ALGORITHM_FACTORY( TrigL2CentralJetAllTE )
 DECLARE_ALGORITHM_FACTORY( TrigEFDPhiMetJetAllTE )
+DECLARE_ALGORITHM_FACTORY( TrigEFRazorAllTE )
 DECLARE_ALGORITHM_FACTORY( TrigEFJetMctHypo )
 DECLARE_ALGORITHM_FACTORY( TrigEFJetDphiHypo )
 DECLARE_ALGORITHM_FACTORY( TrigEFHTHypo )
-DECLARE_ALGORITHM_FACTORY( TrigEFRazorAllTE )
 DECLARE_ALGORITHM_FACTORY( TrigEFJetMassY )
 DECLARE_ALGORITHM_FACTORY( TrigEFJetMassDEta )
 DECLARE_ALGORITHM_FACTORY( TrigL2DEtaMjjAllTE )
@@ -73,10 +73,10 @@ DECLARE_FACTORY_ENTRIES( TrigJetHypo ) {
   DECLARE_ALGORITHM( TrigL2CentralJetAllTE )
   DECLARE_ALGORITHM( TrigEFCentralJet )
   DECLARE_ALGORITHM( TrigEFDPhiMetJetAllTE )
+  DECLARE_ALGORITHM( TrigEFRazorAllTE )
   DECLARE_ALGORITHM( TrigEFJetMctHypo )
   DECLARE_ALGORITHM( TrigEFJetDphiHypo )
   DECLARE_ALGORITHM( TrigEFHTHypo )
-  DECLARE_ALGORITHM( TrigEFRazorAllTE )
   DECLARE_ALGORITHM( TrigEFJetMassY )
   DECLARE_ALGORITHM( TrigEFJetMassDEta )
   DECLARE_ALGORITHM( TrigL2DEtaMjjAllTE )

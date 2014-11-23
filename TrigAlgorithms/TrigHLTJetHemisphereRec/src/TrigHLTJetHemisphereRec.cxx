@@ -50,19 +50,14 @@ HLT::ErrorCode TrigHLTJetHemisphereRec::hltInitialize() {
   ATH_MSG_INFO("Leaving initialize in "  << name()  );
 
   return HLT::OK;
+
 }
-
-
-
 
 
 HLT::ErrorCode TrigHLTJetHemisphereRec::hltFinalize() {
   ATH_MSG_INFO ("Finalizing " << name() << "...");
   return HLT::OK;
 }
-
-
-
 
 
 HLT::ErrorCode TrigHLTJetHemisphereRec::acceptInput(const HLT::TriggerElement* inputTE, bool& pass){
@@ -73,9 +68,6 @@ HLT::ErrorCode TrigHLTJetHemisphereRec::acceptInput(const HLT::TriggerElement* i
 
 
   ATH_MSG_INFO("In acceptInput() for " << name() << "...");
-
-
-
 
   // Incoming jet container //////////////////////////////////////////
 
@@ -95,8 +87,6 @@ HLT::ErrorCode TrigHLTJetHemisphereRec::acceptInput(const HLT::TriggerElement* i
   ATH_MSG_DEBUG("Number of incoming jets: " << jetContainer->size());
 
   // Got input jet collection /////////////////////////////////////////
-
-
 
   // Preselected jet container - May be removed ///////////////////////
 

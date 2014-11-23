@@ -12,8 +12,4 @@ S'../../../Trigger/TrigHypothesis/TrigJetHypo/genConf/TrigJetHypo/TrigJetHypoCon
 p6
 S'../../../../InstallArea/python/TrigJetHypo/TrigJetHypoConf.py'
 p7
-ssS'../../../../../../../atlas/software/builds/nightlies/devval/GAUDI/rel_5/GaudiPolicy/cmt/fragments/__init__.py'
-p8
-S'../../../../InstallArea/python/TrigJetHypo/__init__.py'
-p9
-ssb.
+sssb.

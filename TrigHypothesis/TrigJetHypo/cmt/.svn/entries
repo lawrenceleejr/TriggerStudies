@@ -1,8 +1,8 @@
 10
 
 dir
-628359
-svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TrigHypothesis/TrigJetHypo/trunk/cmt
+630443
+svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TrigHypothesis/TrigJetHypo/tags/TrigJetHypo-03-00-07/cmt
 svn+ssh://svn.cern.ch/reps/atlasoff
 
 
@@ -32,7 +32,7 @@ file
 
 
 
-2014-11-14T10:51:05.000000Z
+2014-11-23T14:12:22.000000Z
 f30506b0f32af88ea47c6e9481d48894
 2014-06-25T15:40:42.827886Z
 603592
