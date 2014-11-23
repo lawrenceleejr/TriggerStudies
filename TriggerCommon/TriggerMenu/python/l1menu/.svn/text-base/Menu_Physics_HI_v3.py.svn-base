@@ -41,10 +41,10 @@ def defineMenu():
         'BCM_AtoC' , 'BCM_CtoA', 'BCM_Wide', 'BCM_Comb',
         'ZDC_A', 'ZDC_C', 'ZDC_AND',
         # Direct NIMs
-        'NIMDIR5', 'NIMDIR6', 'NIMDIR7', 'NIMDIR8',
-        'NIMDIR14', 'NIMDIR25', 'NIMDIR26',
+        #'NIMDIR5', 'NIMDIR6', 'NIMDIR7', 'NIMDIR8',
+        #'NIMDIR14', 'NIMDIR25', 'NIMDIR26',
         #CALREQ
-        'NIM28', 'NIM29', 'NIM30',
+        #'NIM28', 'NIM29', 'NIM30',
         #ZB
         'ZB_J75',
         ### The following are added in as forced thresholds (MBTSSI).
@@ -119,7 +119,7 @@ def defineMenu():
                        'L1_LUCID_C',
                        'L1_LUCID_A_C',
                        'L1_LUCID',
-                       'L1_LUCID_COMM',
+                       #'L1_LUCID_COMM',
                        'L1_MBTS_2',
                        'L1_MBTS_2_EMPTY',
                        'L1_MBTS_2_UNPAIRED_ISO',
@@ -250,7 +250,7 @@ def defineMenu():
                        'L1_MBTS_4_4_UNPAIRED_ISO',
                        #LUCID
                        'L1_LUCID_EMPTY',
-                       'L1_LUCID_UNPAIRED_ISO','L1_LUCID_COMM_UNPAIRED_ISO',
+                       'L1_LUCID_UNPAIRED_ISO',#'L1_LUCID_COMM_UNPAIRED_ISO',
                        'L1_LUCID_A_C_EMPTY',
                        'L1_LUCID_A_C_UNPAIRED_ISO',
                        'L1_LUCID_A_C_UNPAIRED_NONISO',
@@ -385,7 +385,7 @@ def defineMenu():
         'L1_L1_BCM_Wide_UNPAIRED_NONISO' : 109,
         'L1_J10_UNPAIRED_ISO' : 110,
         'L1_J10_UNPAIRED_NONISO' : 111,
-        'L1_LUCID_COMM_UNPAIRED_ISO' : 112,
+        #'L1_LUCID_COMM_UNPAIRED_ISO' : 112,
         'L1_LUCID_UNPAIRED_ISO' : 113,
         'L1_TAU8_FIRSTEMPTY' : 114,
         'L1_TAU8_UNPAIRED_ISO' : 115,
@@ -518,9 +518,9 @@ def defineMenu():
         #'L1_BCM_MUL_5_EMPTY' : 246,
         'L1_LHCF' : 247,
         #'L1_BGRP0' : 248,
-        'L1_LUCID_COMM' : 249,
+        #'L1_LUCID_COMM' : 249,
         'L1_ZB' : 250,
-        'L1_LUCID_COMM_EMPTY' : 251,
+        #'L1_LUCID_COMM_EMPTY' : 251,
         'L1_BGRP1' : 252,
         'L1_CALREQ0': 253,
         'L1_CALREQ1' : 254,

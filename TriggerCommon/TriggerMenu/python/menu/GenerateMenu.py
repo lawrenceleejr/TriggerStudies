@@ -443,7 +443,7 @@ class GenerateMenu:
                     log.info(traceback.print_exc())
                     continue
 
-            elif chainDict["signature"] == "MET" and self.doMETChains:
+            elif (chainDict["signature"] == "MET" or chainDict["signature"] == "XS" or chainDict["signature"] == "TE") and self.doMETChains:
                 try:
                     chainDef = TriggerMenu.met.generateMETChainDefs.generateChainDefs(chainDict)
                 except:
@@ -695,9 +695,38 @@ class GenerateMenu:
     def generate(self):
         log.info('GenerateMenu.py:generate ')
 
-        ############################
-        # Start L1 menu generation #
-        ############################
+        ###########################
+        # L1 Topo menu generation #
+        ###########################
+        if TriggerFlags.doL1Topo():
+            if not TriggerFlags.readL1TopoConfigFromXML() and not TriggerFlags.readMenuFromTriggerDb():
+
+                log.info('Generating L1 topo configuration for %s' % TriggerFlags.triggerMenuSetup() )
+
+                from TriggerMenu.TriggerConfigL1Topo import TriggerConfigL1Topo
+                self.trigConfL1Topo = TriggerConfigL1Topo( outputFile = TF.outputL1TopoConfigFile(), menuName = TF.triggerMenuSetup() )
+
+                # build the menu structure
+                self.trigConfL1Topo.generateMenu()        
+                log.info('Topo Menu has %i trigger lines' % len(self.trigConfL1Topo.menu) )
+                # write xml file
+                self.trigConfL1Topo.writeXML()
+
+
+            elif TriggerFlags.readL1TopoConfigFromXML():
+
+                log.info("Reading L1 topo configuration from '%s'" % TriggerFlags.inputL1TopoConfigFile())
+
+                from TriggerMenu.TriggerConfigL1Topo import TriggerConfigL1Topo
+                self.trigConfL1Topo = TriggerConfigL1Topo( inputFile = TriggerFlags.inputL1TopoConfigFile() )
+
+            else:
+                log.info("Doing nothing with L1 topo menu configuration...")
+
+
+        ######################
+        # L1 menu generation #
+        ######################
         if not TriggerFlags.readLVL1configFromXML() and not TriggerFlags.readMenuFromTriggerDb():
 
             log.info('Generating L1 configuration for %s' % TriggerFlags.triggerMenuSetup() )

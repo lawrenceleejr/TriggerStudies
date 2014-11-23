@@ -21,6 +21,9 @@ def make_menu_data(k):
                       )
 
     jet_fex = ('jetrec',)
+
+    energyDensity_alg = ('energyDensityAlg',)
+    
     cluster_fex = ('topoClusterMaker_partial','topoClusterMaker_fullcalo')
 
     if k in mult_1_hypo:
@@ -32,6 +35,9 @@ def make_menu_data(k):
     if k in jet_fex:
         return make_jetfex_menudata()
 
+    if k in energyDensity_alg:
+        return True
+        
     if k in cluster_fex:
         return make_clusterfex_menudata()
 

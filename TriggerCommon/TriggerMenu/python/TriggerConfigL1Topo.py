@@ -35,7 +35,7 @@ class TriggerConfigL1Topo:
 
             # defines the menu (algo only for now)
             self.defineMenu(self.menuName)
-        
+
             # registers all items ever defined
             self.registerMenu()
 
@@ -113,7 +113,6 @@ class TriggerConfigL1Topo:
         Has to run AFTER defineMenu
         """
         algodefmodule = __import__('l1topomenu.TopoAlgoDef', globals(), locals(), ['TopoAlgoDef'], -1)
-
         algodefmodule.TopoAlgoDef.registerTopoAlgos(self)
         log.info("Registered %i algos." % ( len(self.registeredAlgos) ) )
 

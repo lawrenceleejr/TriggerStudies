@@ -28,11 +28,16 @@ class SequenceTree(object):
     def _make_sequences(self, alglist, te_in):
         """Convert alglist objects to sequence objects"""
 
-        # ensure te_out names do not upset people
+        # use te_in and the seuquence alias to form te_out.
+        # the formeer defines the input, the latter defines
+        # the sequence state (alg parameters).Both are needed to
+        # specify what the sequence calculates. 
         if te_in:
             te_out = te_in + '__' + alglist.alias
         else:
             te_out = alglist.alias
+
+        # te_out = alglist.alias
 
         #if not te_out.startswith('HLT_'):
         #    te_out = 'HLT_' + te_out

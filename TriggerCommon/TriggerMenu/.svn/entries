@@ -1,15 +1,15 @@
 10
 
 dir
-628339
-svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/trunk
+630427
+svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/tags/TriggerMenu-00-04-92
 svn+ssh://svn.cern.ch/reps/atlasoff
 
 
 
-2014-11-14T00:35:31.617843Z
-628299
-nakahama
+2014-11-22T11:30:57.485126Z
+630319
+sherwood
 has-props
 
 
@@ -47,11 +47,11 @@ file
 
 
 
-2014-11-14T09:38:40.000000Z
-20b48ec46bebe196f36b6b7cfb11ad79
-2014-11-14T00:35:31.617843Z
-628299
-nakahama
+2014-11-23T09:23:01.000000Z
+eb8f62670db44b7ed0944e898c135d4c
+2014-11-22T11:29:53.546320Z
+630318
+sherwood
 has-props
 
 
@@ -73,7 +73,7 @@ has-props
 
 
 
-68670
+73595
 
 data
 dir
@@ -84,7 +84,7 @@ file
 
 
 
-2014-11-14T09:38:40.000000Z
+2014-11-23T09:23:01.000000Z
 d920e0a781c072e6a7aff86cd6936ff4
 2014-05-12T12:53:44.929398Z
 596579

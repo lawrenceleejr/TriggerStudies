@@ -29,11 +29,11 @@ class L2EFChain_met(L2EFChainDef):
         l2_name = 'L2_'+self.chainPart['chainPartName']
         ef_name = 'EF_'+self.chainPart['chainPartName']
         self.mult = int(self.chainPart['multiplicity'])
+
         chainName = chainDict['chainName']
         sig_id = self.chainPart['chainPartName']
         self.sig_id_noMult = sig_id[1:] if self.mult > 1 else sig_id
                
-         
         self.setup_xeXX()
             
         L2EFChainDef.__init__(self, chainName, l2_name, chain_counter, l1_item_name, ef_name, chain_counter, self.l2_input_tes)
@@ -56,6 +56,7 @@ class L2EFChain_met(L2EFChainDef):
 
 
 ############################### DEFINE GROUPS OF CHAINS HERE ##############################
+
     def setup_xeXX(self):
 
         ##EF only chain, run FEB or topo_cluster
@@ -174,7 +175,16 @@ class L2EFChain_met(L2EFChainDef):
                 #TC hypo
                 mucorr=  '_wMu' if EFmuon else ''      
                 from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoTCXE           
-                theEFMETHypo = EFMetHypoTCXE('EFMetHypo_TC_xe%s_tc%s%s'%(threshold,calibration,mucorr),ef_thr=float(threshold)*GeV)  
+
+                if self.chainPart['trigType'] == "xs":
+                    from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoXS_2sided
+                    theEFMETHypo = EFMetHypoXS_2sided('EFMetHypo_xs_2sided_%i%s' % (threshold, mucorr),ef_thr=float(threshold)*0.1)
+                elif  self.chainPart['trigType'] == "te":
+                    from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoTE
+                    theEFMETHypo = EFMetHypoTE('EFMetHypo_te%d' % threshold,ef_thr=float(threshold)*GeV)
+                else:               
+                    theEFMETHypo = EFMetHypoTCXE('EFMetHypo_TC_xe%s_tc%s%s'%(threshold,calibration,mucorr),ef_thr=float(threshold)*GeV)  
+                
 
         
             ##Topo-cluster with Pile-up suppression
@@ -187,8 +197,11 @@ class L2EFChain_met(L2EFChainDef):
                 theEFMETMuonFex = EFTrigMissingETMuon_Fex_topoclPS()        
 
                 mucorr=  '_wMu' if EFmuon else ''      
+
                 from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoTCPSXE                          
                 theEFMETHypo = EFMetHypoTCPSXE('EFMetHypo_TCPS_xe%s_tc%s%s'%(threshold,calibration,mucorr),ef_thr=float(threshold)*GeV)
+
+
 
         ##2-SidedNoise Cell
         elif EFrecoAlg=='cell':
@@ -201,8 +214,16 @@ class L2EFChain_met(L2EFChainDef):
             theEFMETMuonFex = EFTrigMissingETMuon_Fex()        
             
             #Hypo
-            from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoXE 
-            theEFMETHypo = EFMetHypoXE('EFMetHypo_xe%s%s'%(threshold,mucorr),ef_thr=float(threshold)*GeV)  
+            if self.chainPart['trigType'] == "xs":
+                from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoXS_2sided
+                theEFMETHypo = EFMetHypoXS_2sided('EFMetHypo_xs_2sided_%d%s' % (threshold, mucorr),ef_thr=float(threshold)*0.1)                    
+            elif  self.chainPart['trigType'] == "te":
+                from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoTE
+                theEFMETHypo = EFMetHypoTE('EFMetHypo_te%d'% threshold,ef_thr=threshold*GeV)
+            else:               
+                from TrigMissingETHypo.TrigMissingETHypoConfig import EFMetHypoXE 
+                theEFMETHypo = EFMetHypoXE('EFMetHypo_xe%s%s'%(threshold,mucorr),ef_thr=float(threshold)*GeV)  
+
         else:
             logMETDef.warning("MET EF algorithm not recognised")
         
@@ -242,6 +263,7 @@ class L2EFChain_met(L2EFChainDef):
             self.EFsequenceList +=[[ 'EF_full',[cell_maker_fullcalo_topo, topocluster_maker_fullcalo],'EF_full_cluster']]            
             self.EFsequenceList +=[[ ['EF_full_cluster'],          [theEFMETFex],  'EF_xe_step1' ]]            
             self.EFsequenceList +=[[ ['EF_xe_step1',muonSeed],     [theEFMETMuonFex, theEFMETHypo],  'EF_xe_step2' ]]
+            
 
         #cell based MET
         elif EFrecoAlg=='cell':
@@ -269,6 +291,7 @@ class L2EFChain_met(L2EFChainDef):
 
         self.EFsignatureList += [ [['EF_xe_step1']] ]
         self.EFsignatureList += [ [['EF_xe_step2']] ]
+
 
 
         ########### TE renaming ###########

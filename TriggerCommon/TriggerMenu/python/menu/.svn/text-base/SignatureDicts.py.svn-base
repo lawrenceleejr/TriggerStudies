@@ -14,6 +14,8 @@ SliceIDDict = {
     'Muon'    : 'mu',
     'Tau'     : 'tau',
     'MET'     : 'xe',
+    'XS'      : 'xs',
+    'TE'      : 'te',
     'MinBias' : 'mb',
     'Cosmic'  : 'cosmic',
     'Calibration'   : 'calib',
@@ -63,6 +65,7 @@ AllowedTopos_bphys = ['bJpsi', 'bTau', 'bDimu',
                       '02dr-2mu6', '2invm', 
                       'BcmumuDs' ,   'BcmumuDsloose' , 
                       '7invm9', 'noos', 'noid', 'novtx',
+                      '11invm60','18invm60', 'bUpsi',
                       'Trkloose', 'Zmumu']
 #AllowedTopos_jet = ['dPhi', 'dEta', 'dR', 'muvtx']
 AllowedTopos_jet = ['muvtx']
@@ -92,6 +95,7 @@ JetChainParts = {
     'bTag'         : ['bloose', 'bmedium', 'btight', 'bperf','boffperf'],
     'bTracking'    : ['EFID'],
     'bConfig'      : ['split', 'hybrid', 'singlepass'],
+    'dataScouting' : ['ds1', 'ds2'],
 }
 # ---- Jet Dictinary of default Values ----
 JetChainParts_Default = {
@@ -111,6 +115,7 @@ JetChainParts_Default = {
     'bTag'         : '',
     'bTracking'    : '',
     'bConfig'      : [],
+    'dataScouting' : '',
 
     }
 
@@ -160,7 +165,7 @@ MuonChainParts = {
     'reccalibInfo'   : ['msonly', 'idperf','muoncalib'],
     'trkInfo'        : ['fasttr', 'hlttr', 'ftk', 'IDT'],
     'hypoInfo'       : [],
-    'FSinfo'         : ['ftkFS'],
+    'FSinfo'         : ['ftkFS', 'nscan03', 'l2nscan03', 'nscan05', 'l2nscan05',],
     'L2IDAlg'        : ['L2Star','IdScan','FTK'],
     'L2SAAlg'        : ['muFast', 'l2muonSA',],
     'L2CBAlg'        : ['muComb',],
@@ -276,6 +281,34 @@ METChainParts_Default = {
     'addInfo'        : '',
     }
 
+
+#==========================================================
+# XS
+#==========================================================
+# ---- xs Dictinary of all allowed Values ----
+XSChainParts = METChainParts 
+XSChainParts['signature'] = ['XS']
+XSChainParts['trigType']  = ['xs'],   
+
+# ---- xs Dictinary of default Values ----
+XSChainParts_Default = METChainParts_Default
+XSChainParts_Default['signature'] = ['XS']
+XSChainParts_Default['trigType']  = ['xs']
+
+#==========================================================
+# TE
+#==========================================================
+# ---- te Dictinary of all allowed Values ----
+TEChainParts = METChainParts 
+TEChainParts['signature'] = ['TE']
+TEChainParts['trigType']  = ['te'],   
+
+# ---- te Dictinary of default Values ----
+TEChainParts_Default = METChainParts_Default
+TEChainParts_Default['signature'] = ['TE']
+TEChainParts_Default['trigType']  = ['te']
+
+
 #==========================================================
 # Electron Chains
 #==========================================================
@@ -375,9 +408,9 @@ MinBiasChainParts = {
     'extra'          : ['noisesup', ],
     'IDinfo'         : [],
     'trkInfo'        : ['hlttr', 'ftk', 'costr'],
-    'hypoL2Info'       : ['sp2000',  ],
-    'pileupInfo'       : ['pusup600', 'pusup700', 'pusup800',],
-    'hypoEFInfo'       : ['trk70',],
+    'hypoL2Info'     : ['sp2000', 'sp2500', 'sp3000', ],
+    'pileupInfo'     : ['pusup600', 'pusup700', 'pusup750', 'pusup800',],
+    'hypoEFInfo'     : ['trk60', 'trk70', 'trk90', 'trk120',],
     'recoAlg'        : ['mbts', 'sptrk', 'noalg', 'perf', 'hmt', 'idperf'],
     'addInfo'        : [ ],
     }
@@ -565,7 +598,7 @@ EnhancedBiasChainParts = {
     'signature'      : ['EnhancedBias'],
     'chainPartName'  : '',
     'L1item'       : '',
-    'algType'        : ['physics','high','firstempty','empty','unpairediso','unpairednoniso'],
+    'algType'        : ['high','firstempty','empty','unpairediso','unpairednoniso', 'low'],
     'threshold'      : '',
     'multiplicity'   : '',
     'trigType'       : '',
@@ -662,6 +695,10 @@ def getSignatureInformation(signature):
         return [BphysicsChainParts_Default, BphysicsChainParts]
     if signature == "MET":
         return [METChainParts_Default, METChainParts]
+    if signature == "XS":
+        return [XSChainParts_Default, XSChainParts]
+    if signature == "TE":
+        return [TEChainParts_Default, TEChainParts]
     if signature == "MinBias":
         return [MinBiasChainParts_Default, MinBiasChainParts]
     if signature == "Cosmic":

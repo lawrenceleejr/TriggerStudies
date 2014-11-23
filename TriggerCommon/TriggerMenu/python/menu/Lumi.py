@@ -111,6 +111,10 @@ def lumi(triggerPythonConfig):
             L1Prescales = Prescales.L1Prescales_loose_mc_prescale
             HLTPrescales = Prescales.HLTPrescales_loose_mc_prescale
             log.info(" HLTPrescales %s" % HLTPrescales)
+        elif 'no_prescale' in menu_name:
+            L1Prescales = Prescales.L1Prescales_no_prescale
+            HLTPrescales = Prescales.HLTPrescales_no_prescale
+            log.info(" HLTPrescales %s" % HLTPrescales)
         elif 'upgrade_mc_prescale' in menu_name:
             L1Prescales = Prescales.L1Prescales_upgrade_mc_prescale
             HLTPrescales = Prescales.HLTPrescales_upgrade_mc_prescale            

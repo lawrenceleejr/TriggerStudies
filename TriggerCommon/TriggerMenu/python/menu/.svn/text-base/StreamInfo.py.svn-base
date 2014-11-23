@@ -5,7 +5,9 @@ log = logging.getLogger( 'TriggerMenu.menu.StreamInfo' )
 
 def getStreamTag(streams):
 
-    monStreams = ['monitoring_random']
+    monStreams = ['monitoring_random', 
+                  'CSC',
+                  ]
 
     physicsStreams = ['Main',
                       'Physics',
@@ -34,7 +36,6 @@ def getStreamTag(streams):
                     'LArCellsEmpty',
                     'PixelNoise', 'PixelBeam', 
                     'SCTNoise',
-                    'calibration_CSC',
                     'CostMonitoring',
                     'beamspot',
                     'Muon_Calibration',
@@ -43,6 +44,8 @@ def getStreamTag(streams):
     dataScoutingStreams = ['DataScouting_01_CosmicMuons',
                            'DataScouting_02_CosmicMuons',
                            'DataScouting_02_IDCosmic',                    
+                           'DataScouting_01_Jets',
+                           'DataScouting_02_Jets',
                            ]
 
     expressStreams = ['express']

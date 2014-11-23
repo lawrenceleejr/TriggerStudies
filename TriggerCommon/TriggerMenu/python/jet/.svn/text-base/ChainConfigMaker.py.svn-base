@@ -76,6 +76,17 @@ class ChainConfigMaker(object):
         convey information about different thresholds in for the
         jet hypo"""
 
+        ds = part.get('dataScouting', '')
+        ds1 = 'ds1' if 'ds1' in ds  else ''
+        ds2 = 'ds2' if 'ds2' in ds  else ''
+
+        if ds1 and ds2:
+            msg = '%s both "ds1" and "ds2" present in data scouting' \
+            'string: %s' % (self.err_hdr, ds)
+            raise RuntimeError(msg)
+
+        self.check_and_set('data_scouting', ds1 + ds2)
+
         data_type = part['dataType']
         self.check_and_set('data_type', data_type)
 
@@ -182,4 +193,5 @@ class ChainConfigMaker(object):
                            seed=self.seed,
                            run_hypo=self.run_hypo,
                            test=self.test,
+                           data_scouting=self.data_scouting,
                            **kwds)

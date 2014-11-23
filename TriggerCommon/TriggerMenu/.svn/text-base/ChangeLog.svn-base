@@ -1,13 +1,180 @@
+2014-11-22   Peter Sherwood  <peter@peter-8.fritz.box>
+
+	* TriggerMenu-00-04-92
+	* add scheduling of the for the jet EnergyDensity algorithm.
+
+2014-11-21 Iwona Grabowska-Bold
+	* ATR-9419 TE60 added to MC_pp_v5
+        * ATR-9419 Track based HMT triggers added to MC_pp_v5
+	* TriggerMenu-00-04-91
+
+2014-11-21 Yu Nakahama
+	* L1Topo menu (ATR-9101): added NumResultBits as generic parameters to all decision
+	algos 
+	* Need L1TopoAlgorithms-00-00-26
+	* TriggerMenu-00-04-90
+	
+2014-11-21 Catrin Bernius
+	* Added Bphysics chains (ATR-8195) to MC v5 menu
+	* TriggerMenu-00-04-89
+
+2014-11-21   Peter Sherwood  <peter@peter-8.fritz.box>
+	* bug fix for jets datascouting (ATR-9359)
+	* TriggerMenu-00-04-88
+
+2014-11-21 Catrin Bernius
+	* Changes in datascouting container names for jets (ATR-9359)
+	* Added two jet ds  chains to LS1_v1
+	* TriggerMenu-00-04-87
+
+2014-11-21   Peter Sherwood  <peter@peter-8.fritz.box>
+	* Added support for jet slice data scouting. (ATR-9359)
+	lines 391 and 399 giving the CollectionTypeName 
+	in algFactories.py are to be updated by the menu group.
+	* TriggerMenu-00-04-86
+
+2014-11-20 Joerg Stelzer
+	* Added L1Topo menu generation to generateMenu, protected with TriggerFlag
+	doL1Topo
+	* TriggerMenu-00-04-85
+
+2014-11-20 Moritz Backes
+	* Remove print statement
+	* TriggerMenu-00-04-84
+
+2014-11-20 Moritz Backes
+	* Added remaining xe, xs, te chains requested in ATR-9405
+	* TriggerMenu-00-04-83
+
+2014-11-20 Catrin Bernius
+	* Change of stream for noalg_eb_L1RD0_EMPTY chain (ATR-9265)
+	* TriggerMenu-00-04-82
+
+2014-11-20 Moritz Backes
+	* Added more of the xe chains requested in ATR-9405
+	* TriggerMenu-00-04-81
+
+2014-11-20 Moritz Backes
+	* Fix ATR-9472
+	* Triggermenu-00-04-80
+
+2014-11-20 Catrin Bernius
+	* Fix in CSC chain in L1 seed in Physics v5
+	* Triggermenu-00-04-79
+
+2014-11-20 Catrin Bernius
+	* Removed EB chains added earlier from Physics v5 again due to crashes
+	* TriggerMenu-00-04-78
+
+2014-11-20 Catrin Bernius
+	* Added narrow scan entries to FSinfo in muon dictionary (ATR-9292)
+	* TriggerMenu-00-04-77
+
+2014-11-20 Catrin Bernius
+	* Added dataScouting to jet dictionary (ATR-9359)
+	* TriggerMenu-00-04-76
+
+2014-11-20 Catrin Bernius
+	* Change of stream type from calibration to monitoring for CSC chains, done in LS1 and Physics v5 (ATR-8082)
+	* Triggermenu-00-04-75 (-74 wrong tag message)x
+
+2014-11-20 Catrin Bernius
+	* Enhanced bias fixes (ATR-9265)
+	* Added EB chains also to PHysics v5 for consistency
+	* TriggerMenu-00-04-73
+
+2014-11-19 Moritz Backes
+	* Corrected naming convention for L1 part of HLT chains requested
+	in ATR-8192
+	* TriggerMenu-00-04-72
+
+2014-11-19 Moritz Backes
+	* Implemented part of the xe chains requested in ATR-9405
+	* TriggerMenu-00-04-71
+
+2014-11-19 Yu Nakahama
+	* Fixed MetSort in L1Topo (ATR-9101)
+	* Need L1TopoAlgorithms-00-00-25, L1TopoCommon-00-00-09 and L1TopoHardware-00-00-04
+	* TriggerMenu-00-04-70
+
+2014-11-19  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
+	* Fix streams (ATR-9442)
+	* TriggerMenu-00-04-69
+
+	* Tau chains implemented for M7 (ATR-9442)
+	* Needs TrigTauRec-00-09-23
+	* TriggerMenu-00-04-68
+
+
+	* W T&P triggers updated in MC_pp_v5 menu (ATR-9342)
+	* TriggerMenu-00-04-67
+
+2014-11-19 Moritz Backes
+	* Implement prescale sets for MC_pp_v5 menu (ATR-9366)
+	* Adjustments in TriggerConfigLVL1.py to handle prescaled menus
+	* Adjust generateL1Menu.py to handle prescale sets
+	* TriggerMenu-00-04-66
+
+2014-11-18 Yu Nakahama
+	* L1Topo menu (ATR-9101): switched to NoSort from GenericListGenerator for
+	all-lists, and fixed sorting algos for muns. Confirmed the change in -64.
+	* Need L1TopoAlgorithms-00-00-24
+	* TriggerMenu-00-04-65
+
+2014-11-18 Joerg Stelzer
+	* Temporarily needed to revert some of Yu changes, since the topo menu
+	would not compile anymore
+	* TriggerMenu-00-04-64
+
+2014-11-18 Joerg Stelzer
+	* L1Topo algo ID should start with 0
+	* TriggerMenu-00-04-63
+
+2014-11-17 Moritz Backes
+	* Comment NIMTRT, NIML1A, NIMLHCF, L1_CALREQ2, L1_TRT to remove
+	crash reported in ATR-9441
+	* TriggerMenu-00-04-62
+
+2014-11-17 Moritz Backes & Joerg Stelzer
+	* Fix cabling error ATR-9441
+	* Need L1Common-00-00-06
+	* TriggerMenu-00-04-61
+
+2014-11-17 Moritz Backes & Kunihiro Nagano
+	* Updated stream assignment in MC_pp_v5
+	* TriggerMenu-00-04-60
+
+2014-11-16 Joerg Stelzer
+	* Fix the EM/TAU isolation bit
+	* Fix the L1 input cabling (NIM and CAL inputs)
+	* TriggerMenu-00-04-59
+
+2014-11-14 Moritz Backes
+	* Added HLT_noalg_.._L1RD0_EMPTY, HLT_noalg_..L1MU4,
+	HLT_noalg.._L1MU4_EMPTY to express stream in LS1 menu (ATR-9404)
+	* Updated ZH triggers xe L1 seeds (ATR-8192) 
+	* TriggerMenu-00-04-58
+
+2014-11-14 Moritz Backes
+	* Added L1_2J15_XE55 (replacing XE90 with XE55), ATR-9291
+	* Added 8 L1Topo seeded ZH triggers, ATR-8192
+	* TriggerMenu-00-04-57
+
+2014-11-14 Yu Nakahama
+	* Added InputWidth1stStage to all sorting algos in L1Topo (ATR-9101) 
+	* TriggerMenu-00-04-56
+
 2014-11-13 Yu Nakahama
 	* Updated M7 topo menu: parameter-order in algos aligned with Sebastian's requests
 	* Adjusted xml formats: added "input name and value",
 	tentatively added "NumResultBits" in xml generation, fixed eta-range [0-31]
 	* TriggerMenu-00-04-55
-	
+
 2014-11-13  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
 	* Added xAOD conversion sequence to L2 muon (ATR-9364)
 	* TriggerMenu-00-04-54
 
+2014-11-13  Arantxa Ruiz Martinez  <aranzazu.ruiz.martinez@cern.ch>
 	* Added W T&P triggers to MC_pp_v5 menu (ATR-9342)
 	* TriggerMenu-00-04-53
 
@@ -18,7 +185,7 @@
 2014-11-11 Catrin Bernius
 	* ATR-8195 Added some more  Bphysics trigges
 	* TriggerMenu-00-04-51
-	
+
 2014-11-11 Catrin Bernius
 	* ATR-8195 Added some first Bphysics trigges
 	* TriggerMenu-00-04-50
@@ -30,7 +197,7 @@
 2014-11-10 Catrin Bernius
 	* added ht0_perf_L1J10/J12 to LS1 and Physics v5 (ATR-9354)
 	* TriggerMenu-00-04-48
-	
+
 2014-11-10 Iwona Grabowska-Bold
         * ATR-9166: single muon triggers added to HIV3
 	* TriggerMenu-00-04-47

@@ -1,4 +1,4 @@
-#Fri Nov 14 14:41:17 2014"""Automatically generated. DO NOT EDIT please"""
+#Sun Nov 23 10:36:02 2014"""Automatically generated. DO NOT EDIT please"""
 from GaudiKernel.GaudiHandles import *
 from GaudiKernel.Proxy.Configurable import *
 
@@ -576,7 +576,6 @@ class TrigEFRazorAllTE( ConfigurableAlgorithm ) :
     'AthenaMonTools' : PrivateToolHandleArray([]), # GaudiHandleArray
     'ErrorCodeMap' : {  }, # list
     'provideInactiveTEs' : False, # bool
-    'Etcut' : 30000.000, # float
     'Razorcut' : 300000.00, # float
     'doMonitoring' : True, # bool
   }

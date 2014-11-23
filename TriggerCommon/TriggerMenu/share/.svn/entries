@@ -1,8 +1,8 @@
 10
 
 dir
-628339
-svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/trunk/share
+630427
+svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/tags/TriggerMenu-00-04-92/share
 svn+ssh://svn.cern.ch/reps/atlasoff
 
 
@@ -32,7 +32,7 @@ file
 
 
 
-2014-11-14T09:38:38.000000Z
+2014-11-23T09:22:59.000000Z
 855d41de44475a9bec27c588974b2ea3
 2013-12-08T18:29:18.005808Z
 574490

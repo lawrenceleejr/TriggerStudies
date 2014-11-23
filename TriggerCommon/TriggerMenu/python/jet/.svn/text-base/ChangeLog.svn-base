@@ -1,3 +1,37 @@
+2014-11-22   Peter Sherwood  <peter@peter-8.fritz.box>
+
+	* SequenceTree.py (SequenceTree._make_sequences): add the
+	intput te name to the output te name.
+
+	* JetSequenceRouter.py (_make_cmfs): added Energy density
+	alg to Cell and Cluster sequence.
+	(_make_cm): as for _make_cmfs.
+
+	* algFactories.py: increase modularity by adding '_' to 
+	ffactory function names (provents them from being importable),
+	updated the dispatch table accordingly. Added support for 
+	EnergyDensity algs.
+
+	* jetDefInstantiator.py: remove dead imports. Add imports for
+	EnergyDensity algs. Improve error reporting.
+
+	* algFactories_test.py (make_menu_data): add support for
+	testing EnergyDensity algo creation.
+
+	* JetDef.py (usage): add help message for 'python JetDef.py -h'
+
+	* JetDef_test.py (TestJetDef.test_0): add to print out
+	what is a real error rather than an intentionally test
+	triggered error.
+
+2014-11-21   Peter Sherwood  <peter@peter-8.fritz.box>
+
+	* algFactories.py (_dataScoutingAlg1, _dataScoutingAlg1):
+	supplied missing argument to Algorithm
+
+	* add support for data scouting. Fixed bug in algFactories that
+	prevented diagnostics from running.
+
 2014-10-24   Peter Sherwood  <peter@peter-8.local>
 
 	* JetSequenceRouter.py (_make_cmfs): mods to handle

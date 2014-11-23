@@ -95,7 +95,7 @@ class TauHypoProvider:
                     currentHypo = HLTTrackTauHypo(currentHypoKey, theVars, theThresh)
                 else:
                     theVars = ['LowerPtCut', 'TracksInCoreCut', 'TracksInIsoCut', 'DeltaZ0Cut']
-                    theThresh = [int(threshold)*self.GeV, 9999., 9999., 9999.]
+                    theThresh = [int(threshold)*self.GeV, 9999, 9999, 9999.]
                     currentHypo = HLTTrackTauHypo(currentHypoKey, theVars, theThresh)
 
         assert currentHypo, 'unable to find hypothesis algorithm: '+currentHypoKey

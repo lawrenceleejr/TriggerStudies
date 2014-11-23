@@ -105,7 +105,6 @@ class DecisionAlgo(TopoAlgo):
         s+='      </Output>\n'
         for gene in self.generics:
             s += '      <Generic name="%s" value="%s"/>\n' % (gene.name, gene.value)
-        s+='      <Generic name="NumResultBits" value="'+str(len(self.outputs))+'"/>\n'    # tentatively in for M7 algos, later should be defined in algos
         s+='    </Fixed>\n'     
         s+='    <Variable>\n'
         

@@ -1,8 +1,8 @@
 10
 
 dir
-628339
-svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/trunk/scripts/oldScripts
+630427
+svn+ssh://svn.cern.ch/reps/atlasoff/Trigger/TriggerCommon/TriggerMenu/tags/TriggerMenu-00-04-92/scripts/oldScripts
 svn+ssh://svn.cern.ch/reps/atlasoff
 
 
@@ -32,7 +32,7 @@ file
 
 
 
-2014-11-14T09:38:39.000000Z
+2014-11-23T09:23:00.000000Z
 e3d6392d37c71e507e65c1c6b43e6371
 2014-02-11T16:36:41.812017Z
 582614
@@ -66,7 +66,7 @@ file
 
 
 
-2014-11-14T09:38:39.000000Z
+2014-11-23T09:23:00.000000Z
 927050ebd14f6a9d086e3721f504e9ee
 2014-02-11T16:36:41.812017Z
 582614
@@ -100,7 +100,7 @@ file
 
 
 
-2014-11-14T09:38:39.000000Z
+2014-11-23T09:23:00.000000Z
 45d68ac4cec9e1a4b8324070fffe8ef2
 2014-02-11T16:36:15.017629Z
 582612

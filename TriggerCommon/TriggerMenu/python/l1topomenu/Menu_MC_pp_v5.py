@@ -16,7 +16,7 @@ def defineMenu():
         TopoOutput( algoname='DPhi_EMsTAUs',          module=0, fpga=0, clock=0, firstbit=11 ),
         TopoOutput( algoname='DEta_AJabAJab',         module=0, fpga=0, clock=0, firstbit=12 ),
         TopoOutput( algoname='DEta_EMabTAUab',        module=0, fpga=0, clock=0, firstbit=13 ),
-        TopoOutput( algoname='HT0_AJs',             module=0, fpga=0, clock=0, firstbit=14 ),        
+        TopoOutput( algoname='HT0-AJ0all.ETA49',      module=0, fpga=0, clock=0, firstbit=14 ),        
         ]
 
     Full_topomenu = [
@@ -83,7 +83,7 @@ def defineMenu():
         TopoOutput( algoname='HT190-AJ20s5.ETA49',                          module=0, fpga=1, clock=1, firstbit=6 ),
         TopoOutput( algoname='HT150-AJj15all.ETA49',                        module=0, fpga=1, clock=1, firstbit=7 ),
         TopoOutput( algoname='HT20-AJj0all.ETA49',                          module=0, fpga=1, clock=1, firstbit=8 ),
-        TopoOutput( algoname='HT0-AJ0all.ETA49',                           module=0, fpga=1, clock=1, firstbit=9 ),
+        #TopoOutput( algoname='HT0-AJ0all.ETA49',                           module=0, fpga=1, clock=1, firstbit=9 ),
                                                                             
         # DETA for SUSY                                                     
         TopoOutput( algoname='0DETA10-Js1-Js2',                             module=0, fpga=1, clock=1, firstbit=10 ),

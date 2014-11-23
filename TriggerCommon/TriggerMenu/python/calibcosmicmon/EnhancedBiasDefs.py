@@ -17,7 +17,7 @@ from TriggerJobOpts.TriggerFlags  import TriggerFlags
 if TriggerFlags.triggerMenuSetup() == 'LS1_v1':        
     l1_seeds ={ 
                 
-        'physics'       : ['L1_2EM3_EM12', 'L1_XS45', 'L1_J50', 'L1_MU4_J15', 'L1_FJ30', 'L1_MU10', 'L1_J30', 'L1_TE500', 'L1_EM10VH', 'L1_EM16VH', 'L1_TE700', 'L1_XE30', 'L1_XE20', 'L1_3J15', 'L1_TAU20', 'L1_MU6', 'L1_EM12'],
+        'low'       : ['L1_2EM3_EM12', 'L1_XS45', 'L1_J50', 'L1_MU4_J15', 'L1_FJ30', 'L1_MU10', 'L1_J30', 'L1_TE500', 'L1_EM10VH', 'L1_EM16VH', 'L1_TE700', 'L1_XE30', 'L1_XE20', 'L1_3J15', 'L1_TAU20', 'L1_MU6', 'L1_EM12'],
         
         'high' : ['L1_EM6_MU6','L1_2EM6_EM16VH',
                          'L1_2MU4',  'L1_2MU4_MU6', 'L1_2MU4_BARREL', 
@@ -50,7 +50,7 @@ if TriggerFlags.triggerMenuSetup() == 'LS1_v1':
 else:
     l1_seeds ={ 
 
-        'physics'       : ['L1_MU6','L1_MU10','L1_TAU20',
+        'low'       : ['L1_MU6','L1_MU10','L1_TAU20',
                            'L1_EM12','L1_EM10VH', 'L1_EM18VH',
                            'L1_J50',  'L1_J30','L1_3J15', 'L1_J30.32ETA49'                           
                            'L1_XE35' ],
@@ -97,11 +97,7 @@ class L2EFChain_EnhancedBiasTemplate(L2EFChainDef):
         self.hypoEB = L1InfoHypo("EF_Hypo_%s" %(self.algType))
         
         if self.algType in l1_seeds:
-            self.hypoEB.L1ItemNames = l1_seeds[self.algType]
-        else:
-            log.error("No configuration exist for EB chain: %s" %(self.algType))
-            self.hypoEB.L1ItemNames = []
-            
+            self.hypoEB.L1ItemNames = l1_seeds[self.algType]        
             self.hypoEB.AlwaysPass                = False
             self.hypoEB.InvertSelection           = False
             self.hypoEB.InvertL1ItemNameSelection = False
@@ -109,16 +105,18 @@ class L2EFChain_EnhancedBiasTemplate(L2EFChainDef):
             self.hypoEB.TriggerTypeBitMask        = 0
             self.hypoEB.UseBeforePrescaleBit      = True
 
-
-        self.EFsequenceList += [[self.L2InputTE, 
-                                 [self.dummyAlg, self.hypoEB],
-                                 'EF_eb']]
-
-        self.EFsignatureList += [[['EF_eb']]]
-        self.TErenamingDict = {
-            'EF_eb':     'EF_' + self.chainName,
-            }
+            self.EFsequenceList += [[self.L2InputTE, 
+                                     [self.dummyAlg, self.hypoEB],
+                                     'EF_eb']]            
+            self.EFsignatureList += [[['EF_eb']]]
+            self.TErenamingDict = {
+                'EF_eb':     'EF_' + self.chainName,
+                }
         
+        else:
+            log.error("No configuration exist for EB chain: %s" %(self.algType))
+            self.hypoEB.L1ItemNames = []
+
 
         L2EFChainDef.__init__(self, self.chainName, self.L2Name, self.chainCounter,
                               newL1items, self.EFName, self.chainCounter, self.L2InputTE)

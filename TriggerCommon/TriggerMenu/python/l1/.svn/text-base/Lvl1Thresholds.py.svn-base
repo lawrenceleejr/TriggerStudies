@@ -26,8 +26,7 @@ class ThresholdValue:
                              'em_isolation' : IsolationOff,
                              'had_isolation' : IsolationOff,
                              'had_veto' : IsolationOff,
-                             'em_isobits' : '00000',
-                             'had_isobits' : '00000',
+                             'isobits' : '00000',
                              'use_relIso' : False,
                              })
         if ttype == 'JET':
@@ -53,19 +52,19 @@ class ThresholdValue:
         self.priority = priority
 
 
-    def setIsolation(self, em_isolation, had_isolation, had_veto, em_isobits, had_isobits, use_relIso):
+    def setIsolation(self, em_isolation, had_isolation, had_veto, isobits, use_relIso):
         self.em_isolation = em_isolation
         self.had_isolation = had_isolation
         self.had_veto = had_veto
-        self.em_isobits = em_isobits
-        self.had_isobits = had_isobits
+        self.isobits = isobits
         self.use_relIso = use_relIso
-
+        if self.use_relIso:
+            self.had_veto=99
 
     def xml(self, ind=1, step=2):
         s  = ind * step * ' ' + '<TriggerThresholdValue em_isolation="%i" etamin="%i" etamax="%i" had_isolation="%i" had_veto="%i" ' % (self.em_isolation, self.etamin, self.etamax, self.had_isolation, self.had_veto)
         if self.type=='EM' and self.use_relIso:
-            s += 'em_isobits="%s" had_isobits="%s" ' % (self.em_isobits, self.had_isobits)
+            s += 'isobits="%s" ' % self.isobits
         s += 'name="%s" phimin="%i" phimax="%i" priority="%i" thresholdval="%g" type="%s" window="%i"' % (self.name, self.phimin, self.phimax, self.priority, self.value, self.type, self.window)
         if self.type=='JET':
             s += ' windowSize="%s"' % 'LARGE' # FIX
@@ -143,7 +142,7 @@ class LVL1Threshold(object):
 
     def addEMThresholdValue(self, value, *args, **kwargs):
         defargs = ThresholdValue.getDefaults('EM')
-        posargs = dict(zip(['etamin', 'etamax', 'phimin', 'phimax', 'em_isolation', 'had_isolation', 'had_veto', 'priority', 'em_isobits', 'had_isobits', 'use_relIso'], args))
+        posargs = dict(zip(['etamin', 'etamax', 'phimin', 'phimax', 'em_isolation', 'had_isolation', 'had_veto', 'priority', 'isobits', 'use_relIso'], args))
         
         # then we evaluate the arguments: first defaults, then positional arguments, then named arguments
         p = deepcopy(defargs)
@@ -154,7 +153,7 @@ class LVL1Threshold(object):
                               etamin = p['etamin'], etamax=p['etamax'], phimin=p['phimin'], phimax=p['phimax'],
                               priority = p['priority'], name = self.name+'full')
 
-        thrv.setIsolation(em_isolation = p['em_isolation'], had_isolation = p['had_isolation'], had_veto = p['had_veto'], em_isobits = p['em_isobits'], had_isobits = p['had_isobits'], use_relIso = p['use_relIso'])
+        thrv.setIsolation(em_isolation = p['em_isolation'], had_isolation = p['had_isolation'], had_veto = p['had_veto'], isobits = p['isobits'], use_relIso = p['use_relIso'])
 
         self.thresholdValues.append(thrv)
         return self
@@ -223,6 +222,14 @@ class LVL1TopoInput(LVL1Threshold):
     In the menu it is treated like a threshold, only the naming
     convention is less strict (allows"-" and can start with a number)
     """
+    def __init__(self, triggerline):
+        super(LVL1TopoInput,self).__init__(name=triggerline.trigger, ttype='TOPO', mapping=triggerline.ordinal)
+        self.cable = triggerline.cable      # 0 .. 1
+        self.bitOnCable = triggerline.bit   # 0 .. 31
+        self.fpga  = triggerline.fpga       # 0 .. 1
+        self.bitOnFpga = triggerline.firstbit # 0 .. 15
+        self.clock = triggerline.clock
+
     def getVarName(self):
         """returns a string that can be used as a varname"""
         return ("TOPO_" + self.name).replace('.','').replace('-','_') # we can not have '.' or '-' in the variable name

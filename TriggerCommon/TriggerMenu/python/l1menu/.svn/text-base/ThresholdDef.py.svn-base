@@ -184,12 +184,12 @@ class ThresholdDef:
 
 
         # TE
-        for thrV in [5, 10, 20, 30, 40, 50, 2000, 4000]:
+        for thrV in [5, 10, 20, 30, 40, 50, 60, 2000, 4000]:
             tc.registerThr('TE%i' % thrV, 'TE').addThrValue(thrV)
 
 
         # XE
-        for thrV in [35, 40, 45, 50, 60, 70, 80, 90]:
+        for thrV in [35, 40, 45, 50, 55, 60, 70, 80]:
             tc.registerThr('XE%i' % thrV, 'XE').addThrValue(thrV)
 
         # XS
@@ -197,11 +197,10 @@ class ThresholdDef:
             tc.registerThr('XS%i' % thrV, 'XS').addThrValue(thrV)
 
 
-        # CALREQ (needs mapping defined)
+        # CALREQ
 
         for i in range(3):
-            tc.registerThr('NIM%i' % (i+28), 'CALREQ', mapping=i).addThrValue(40)
-
+            tc.registerThr('CAL%i' % i, 'CALREQ', mapping=i).addThrValue(40)
 
 
         ## MBTS
@@ -260,21 +259,28 @@ class ThresholdDef:
 
         ## Other NIMs
 
-        for i in [5,6,7,8,14,25,36]:
-            tc.registerThr('NIMDIR%i' % i, 'NIM', mapping=i).addThrValue(40)
-        tc.registerThr('NIMDIR26', 'NIM', mapping=35).addThrValue(40)
+        tc.registerThr('NIML1A', 'NIM', mapping=0).addThrValue(40)
+        tc.registerThr('NIMLHCF', 'NIM', mapping=1).addThrValue(40)
+        tc.registerThr('NIMTGC', 'NIM', mapping=12).addThrValue(40)
+        tc.registerThr('NIMRPC', 'NIM', mapping=13).addThrValue(40)
+        tc.registerThr('NIMTRT', 'NIM', mapping=14).addThrValue(40)
+
+        #for m,i in enumerate([5,6,7,8,14,25,36]):
+        #for m,i in enumerate([5,25]):
+        #    tc.registerThr('NIMDIR%i' % i, 'NIM', mapping=m+2).addThrValue(40)
+        #tc.registerThr('NIMDIR26', 'NIM', mapping=35).addThrValue(40)
 
 
-        # ALFA NIMS
+        # ALFA NIMS will not exist in run 2
         
-        for i, alfa in enumerate( ['B7R1L', 'B7R1U', 'A7R1L', 'A7R1U', 'A7L1L', 'A7L1U', 'B7L1L', 'B7L1U', 'ALFA_LOG'] ):
-            tc.registerThr('NIM_%s' % alfa,    'NIM', mapping=14+i).addThrValue(40) 
-            tc.registerThr('NIM_%s_OD' % alfa, 'NIM', mapping=26+i).addThrValue(40) 
+        #for i, alfa in enumerate( ['B7R1L', 'B7R1U', 'A7R1L', 'A7R1U', 'A7L1L', 'A7L1U', 'B7L1L', 'B7L1U', 'ALFA_LOG'] ):
+        #    tc.registerThr('NIM_%s' % alfa,    'NIM', mapping=14+i).addThrValue(40) 
+        #    tc.registerThr('NIM_%s_OD' % alfa, 'NIM', mapping=26+i).addThrValue(40) 
 
         # Muon NIMS for Barrel and Endcap
         
-        tc.registerThr('NIM_MUB', 'NIM', mapping=23).addThrValue(40)
-        tc.registerThr('NIM_MUE', 'NIM', mapping=24).addThrValue(40)
+        #tc.registerThr('NIM_MUB', 'NIM', mapping=23).addThrValue(40)
+        #tc.registerThr('NIM_MUE', 'NIM', mapping=24).addThrValue(40)
 
 
         # DIRECT INPUTS

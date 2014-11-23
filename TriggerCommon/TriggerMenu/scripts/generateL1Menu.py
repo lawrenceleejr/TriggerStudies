@@ -129,6 +129,9 @@ def main():
         generateL1Menu(menu="MC_pp_v5")
         generateL1Menu(menu="LS1_v1" )
         generateL1Menu(menu="DC14")
+        generateL1Menu(menu="MC_pp_v5_no_prescale")
+        generateL1Menu(menu="MC_pp_v5_loose_mc_prescale")
+        generateL1Menu(menu="MC_pp_v5_tight_mc_prescale")
         generateL1Menu(menu="Physics_HI_v3")  # currently disabled since not defined in JobProp
         return 0
 
@@ -148,6 +151,12 @@ def main():
 
     if sys.argv[1].lower().startswith("mc"):
         generateL1Menu(menu="MC_pp_v5")
+        return 0
+
+    if sys.argv[1].lower().startswith("mcp"):
+        generateL1Menu(menu="MC_pp_v5_no_prescale")
+        generateL1Menu(menu="MC_pp_v5_loose_mc_prescale")
+        generateL1Menu(menu="MC_pp_v5_tight_mc_prescale")
         return 0
 
     if sys.argv[1].lower().startswith("ls"):

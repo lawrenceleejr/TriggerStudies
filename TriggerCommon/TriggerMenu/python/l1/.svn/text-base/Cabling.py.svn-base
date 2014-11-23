@@ -6,27 +6,55 @@ log.setLevel(logging.INFO)
 """
 Thilo's proposal in the CTP meeting Oct 13
 
-* Cable to slot assignments:
+* Run2 Cable to slot assignments:
 
-CTPIN-slot7   : EM1, EM2, TAU1, TAU2
-CTPIN-slot8   : JET1, JET2, EN1, EN2
-CTPIN-slot9   : MUCTPI, CTPCAL, NIM1, NIM2
-CTPCORE-slot10: L1Topo0, L1Topo1, ALFA
+CTPIN-slot7
+-----------
+EM1  : 8x3b EM - mapping 0-7
+EM2  : 8x3b EM - mapping 8-15
+TAU1 : 8x3b TAU - mapping 0-7
+TAU2 : 8x3b TAU - mapping 8-15
 
-* Cable contents:
+CTPIN-slot8
+-----------
+JET1 : 10x3b JET - mapping 0-9
+JET2 : 15x2b JET - mapping 10-24
+EN1  : 8x1b TE [0..7] (SumET)
+       8x1b XE [8..15] (missing ET)
+       8x1b XS [16..23] (missing ET significance)
+EN2  : 8x1b weighted SumET
+       8x1b restricted range MissET
 
-EM1: 8x3b
-EM2: 8x3b
-TAU1: 8x3b
-TAU2: 8x3b
-JET1: 10x3b (jet multiplicities)
-JET2: 15x2b (jet multiplicities)
-EN1: 24x1b (SumET, MissET, MissETSign) 
-EN2: 16x1b (weighted SumET, restricted range MissET)
-MUCTPI: first bit unused, 6x3b
-CTPCAL: 6x1b BCM [0], 8x1b DBM [6], 2x1b BPTX [14], 6x1b LUCID [16], 3x1b ZDC [22], 3x1b (calreq, last 3 bits) [28,29,30]
-NIM1: 12x1b MBTS-A, 4 unused MBTS, 1x3b MBTS-A mult, 1b L1A, 1b LHCf
-NIM2: 12x1b MBTS-C, 4 unused MBTS, 1x3b MBTS-C mult, 1b TGC-burst, 1b RPC-burst, 1b TRT-FastOR
+
+CTPIN-slot9
+-----------
+MUCTPI : first bit unused,
+         6x3b MU [1..18] - mapping 0-5
+CTPCAL : 6x1b BCM [0..5] - mapping 0-5
+         8x1b DBM [6..13] - mapping 0-7
+         2x1b BPTX [14..15] - mapping 0-1
+         6x1b LUCID [16..21] - mapping 0-5
+         3x1b ZDC [22..24] - mapping 0-2
+         3x1b CALREQ [28..30] last 3 bits! - mapping 0-2
+NIM1   : 12x1b MBTSSI [0..11] - mapping 0-11 A-side
+         4x1b NO [12..15] unused
+         1x3b MBTS [16..18]  A-side multiplicity
+         1x1b NIM [19] L1A  - mapping 0
+         1x1b NIM [20] LHCf - mapping 1
+         10x1b NIM [21..30] - mapping 2-11
+NIM2   : 12x1b MBTSSI [0..11]  - mapping 12-23 C-side 
+         4x1b NO [12..15] unused
+         1x3b MBTS [16..18] C-side multiplicity
+         1x1b NIM TGC-burst [19] - mapping 12
+         1x1b NIM RPC-burst [20] - mapping 13
+         1x1b NIM TRT-FastOR [21] - mapping 14
+         9x1b NIM [22..30] - mapping 15-23
+
+CTPCORE-slot10
+--------------
+L1Topo0 : 64x1b TOPO mapping 0-63
+L1Topo1 : 64x1b TOPO mapping 64-127
+ALFA    : 64x1b ALFA mapping 0-63
 
 * Notes:
 - JET1: 8x3b will occupy all CTPIN LUTs, leaving only 2b per LUT.
@@ -53,27 +81,54 @@ class Cabling:
 
     @staticmethod
     def getCableName(thrtype,mapping):
-        type2cablename  = { 'MUON'   : [(0,6,'MUCTPI')],
-                            'EM'     : [(0,8,'EM1'), (8,16,'EM2')],
-                            'TAU'    : [(0,8,'TAU1'), (8,16,'TAU2')],
-                            'JET'    : [(0,10,'JET1'), (10,25,'JET2')],
-                            'TE'     : [(0,8,'EN1')],
-                            'XE'     : [(0,8,'EN1')],
-                            'XS'     : [(0,8,'EN1')],
-                            'MBTSSI' : [(0,16,'NIM1'),(16,32,'NIM2')],
-                            'MBTS'   : [(0,1,'NIM1'), (1,2,'NIM2')],
-                            'LUCID'  : [(0,6,'CTPCAL')],
-                            'ZDC'    : [(0,3,'CTPCAL')],
-                            'CALREQ' : [(0,3,'CTPCAL')],
-                            'TOPO'   : [(0,64,'TOPO1'), (64,128,'TOPO2')],
-                            'ALFA'   : [(0,64,'ALFA')],
-                            'JF'     : [(0,4,'JET1')],
-                            'JB'     : [(0,4,'JET1')],
-                            'BCM'    : [(0,3,'NIM1')],
-                            'BCMCMB' : [(0,3,'NIM1')],
-                            'NIM'    : [(0,2,'NIM'), (5,9,'NIM'), (14,37,'NIM')],
-                            'JE'     : [(0,4,'JET2')],
-                            }
+
+        from TriggerMenu.l1.Lvl1Flags import Lvl1Flags
+        run1 = Lvl1Flags.CTPVersion()<=3
+        
+        if run1:
+            type2cablename  = { 'MUON'   : [(0,6,'MUCTPI')],
+                                'EM'     : [(0,8,'EM1'), (8,16,'EM2')],
+                                'TAU'    : [(0,8,'TAU1'), (8,16,'TAU2')],
+                                'JET'    : [(0,10,'JET1'), (10,25,'JET2')],
+                                'TE'     : [(0,8,'EN1')],
+                                'XE'     : [(0,8,'EN1')],
+                                'XS'     : [(0,8,'EN1')],
+                                'MBTSSI' : [(0,16,'NIM1'),(16,32,'NIM2')],
+                                'MBTS'   : [(0,1,'NIM1'), (1,2,'NIM2')],
+                                'LUCID'  : [(0,6,'CTPCAL')],
+                                'ZDC'    : [(0,3,'CTPCAL')],
+                                'CALREQ' : [(0,3,'CTPCAL')],
+                                'TOPO'   : [(0,64,'TOPO1'), (64,128,'TOPO2')],
+                                'ALFA'   : [(0,64,'ALFA')],
+                                'BCM'    : [(0,3,'CTPCAL')],
+                                'BCMCMB' : [(0,3,'CTPCAL')],
+                                'NIM'    : [(0,30,'NIM1'), (30,60,'NIM2')],
+                                'JF'     : [(0,4,'JET1')],
+                                'JB'     : [(0,4,'JET1')],
+                                'JE'     : [(0,4,'JET2')],
+                                }
+        else:
+            type2cablename  = { 'MUON'   : [(0,6,'MUCTPI')],
+                                'EM'     : [(0,8,'EM1'), (8,16,'EM2')],
+                                'TAU'    : [(0,8,'TAU1'), (8,16,'TAU2')],
+                                'JET'    : [(0,10,'JET1'), (10,25,'JET2')],
+                                'TE'     : [(0,8,'EN1')],
+                                'XE'     : [(0,8,'EN1')],
+                                'XS'     : [(0,8,'EN1')],
+                                'MBTSSI' : [(0,12,'NIM1'),(12,24,'NIM2')],
+                                'MBTS'   : [(0,1,'NIM1'), (1,2,'NIM2')],
+                                'LUCID'  : [(0,6,'CTPCAL')],
+                                'ZDC'    : [(0,3,'CTPCAL')],
+                                'CALREQ' : [(0,3,'CTPCAL')],
+                                'TOPO'   : [(0,64,'TOPO1'), (64,128,'TOPO2')],
+                                'ALFA'   : [(0,64,'ALFA')],
+                                'BCM'    : [(0,3,'CTPCAL')],
+                                'BCMCMB' : [(0,3,'CTPCAL')],
+                                'NIM'    : [(0,12,'NIM1'), (12,24,'NIM2')],
+                                'JF'     : [(0,4,'JET1')],
+                                'JB'     : [(0,4,'JET1')],
+                                'JE'     : [(0,4,'JET2')],
+                                }
 
         x = type2cablename[thrtype]
         for (minthr, maxthr, name) in x:
@@ -92,51 +147,29 @@ class Cabling:
         return nbits
 
 
-    @classmethod
-    def getCableAssignment(cls, thrtype):
-        """
-        Gets the cable assignment from L1Common
-        """
-        if thrtype=='TOPO' or thrtype=='ALFA':
-            directInput = True
-            cableAssign = [ (0, 0, 0, 31, 1), (0, 1, 0, 31, 1), (0, 2, 0, 31, 1) ] # mapping 0-63, 64-127, 128-191
-        else:
-            directInput = False
-            exec("cable = Limits.%s_cable" % thrtype)
-
-            # we change the format for run 2, the tuple now contains also the bit multiplicity, as it is not constant per type
-            infosize = (len(cable)-1)/cable[0]
-
-            if infosize==5:
-                cableAssign = [tuple(cable[x:x+5]) for x in range(1,len(cable),5)]
-            else:
-                #print "Cabling for threshold type %s is not yet defined for Run 2" % thrtype
-                bitnum = Cabling.calcBitnum(thrtype)
-                cableAssign = [tuple(cable[x:x+4] + [bitnum]) for x in range(1,len(cable),4)]
-
-        return directInput, cableAssign
-
-
 
 class InputCable:
     def __init__(self, thrtype, mapping):
-        self.thrtype = thrtype
-        self.mapping = mapping
 
+        self.thrtype = thrtype
+        self.mapping = int(mapping)
         self.isDirectIn  = False # True for TOPO and ALFA which go into CTPCore
-        self.slot        = 0     # input cable slot, possible values 7..9
-        self.connector   = 0     # input cable connector, possible values 0..3
+        self.slot        = None  # input cable slot, possible values 7..9
+        self.connector   = None  # input cable connector, possible values 0..3
         self.clock       = 0     # for direct inputs this can be 0 or 1 since they are overclocked x2
         self.bitnum      = 0     # number of bits for multiplicity transmittion, possible values 1..3 
         self.range_begin = 0     # first bit of range, possible values 0..30
         self.range_end   = 0     # last bit of range, possible values 0..30 (should be first bit + bitnum - 1)
 
-        self.calcSlotAndConnector(self.thrtype, self.mapping)
+        if thrtype=='TOPO' or thrtype=='ALFA':
+            self.isDirectIn = True
 
-        self.name    = Cabling.getCableName(thrtype,self.mapping)
+        self.name = Cabling.getCableName(self.thrtype,self.mapping)
 
-        #if thrtype=='EM' and mapping>=8: self.name = 'CP2'  # need to understand this
-        #if thrtype=='TOPO' and mapping>=64: self.name = 'TOPO2'
+        #if self.thrtype=='NIM':
+        #    print str(self)
+
+        self.calcSlotAndConnector()
 
         if self.isDirectIn:
             log.debug( 'Threshold type %s (mapping=%i) comes in on CTPCore on cable %s, bit %s, clock %i' % ( self.thrtype, self.mapping, self.connector,
@@ -147,28 +180,39 @@ class InputCable:
                                                                                                          ("%i" % self.range_begin) if self.bitnum==1
                                                                                                          else ("%i-%i" % (self.range_begin, self.range_end)) ) )
 
+        if not self.connector:
+            raise RuntimeError("No cable has been assigned to threshold type '%s' with mapping %i" % (self.thrtype,self.mapping))
+
+
 
     def __str__(self):
-        return "%s (%s/%s) with %i bits [%i-%i]" % (self.name, self.slot, self.connector, self.bitnum, self.range_begin, self.range_end)
+        return "%s %r  (%s/%s) with %i bits [%i-%i] clock=%i" % (self.thrtype, self.mapping, self.slot, self.connector, self.bitnum, self.range_begin, self.range_end, self.clock)
 
-    def calcSlotAndConnector(self, thrtype, mapping):
 
-        #self.bitnum = Cabling.calcBitnum(thrtype)
+
+    def calcSlotAndConnector(self):
+
+        #self.bitnum = Cabling.calcBitnum(self.thrtype)
         #if self.bitnum == 0:
         #    return;
 
-        isDirectInput, cableAssign = Cabling.getCableAssignment(thrtype)
-
         # CTPIN
-        if not isDirectInput:
-            self.isDirectIn = False
-            offset = mapping
+        if not self.isDirectIn:
+
+            cableAssign = self.getCTPINCableAssignment(self.thrtype)
+
+            from TriggerMenu.l1.Lvl1Flags import Lvl1Flags
+            run1 = Lvl1Flags.CTPVersion()<=3
+            if run1 and self.thrtype=="EM":
+                cableAssign += self.getCTPINCableAssignment("TAU")
+
+            offset = self.mapping
             for (slot, connector, start, stop, bitnum) in cableAssign:
                 
                 self.bitnum = bitnum
                 
                 delta = (stop - start + 1) / self.bitnum
-                log.debug( 'Cable SLOT%i / CON%i has room for %i thresholds of type %s' % (slot, connector, delta, thrtype) )
+                log.debug( 'Cable SLOT%i / CON%i has room for %i thresholds of type %s' % (slot, connector, delta, self.thrtype) )
 
                 if offset >= delta: # does not fit on this connector (only 0 to offset-1 will fit)
                     offset -= delta # move to the next cable for checking
@@ -180,26 +224,40 @@ class InputCable:
                 self.range_end   = self.range_begin + self.bitnum-1
                 break
 
+            if not self.connector:
+                print "Cable mapping ",cableAssign
+                raise RuntimeError("No cable has been assigned to threshold type '%s' with mapping %i" % (self.thrtype,self.mapping))
+
+
+
         else:
-            self.isDirectIn = True
-            offset = mapping
-            for (connector, clock, start, stop, bitnum) in cableAssign:
+            # CTPCORE
+            self.bitnum = 1
+            module = int(self.mapping) / 64
+            self.connector   = "CON%i" % module
+            self.clock = (self.mapping % 64) / 32
+            self.range_begin = self.mapping % 32
+            self.range_end   = self.range_begin
+            #print "Connectpr ",self.connector,"  clock=",self.clock," range",self.range_begin," ",self.range_end
 
-                self.bitnum = bitnum
-                
-                delta = clock * (stop - start + 1) / self.bitnum
-                log.debug( 'Cable CON%i has room for %i thresholds of type %s' % (connector, delta, thrtype) )
 
-                if offset >= delta: # does not fit on this connector (only 0 to offset-1 will fit)
-                    offset -= delta # move to the next cable for checking
-                    continue
 
-                w = int( (stop - start + 1) / self.bitnum )
+    def getCTPINCableAssignment(self,thrtype):
+        """
+        Gets the cable assignment from L1Common
+        """
+        exec("cable = Limits.%s_cable" % thrtype)
 
-                self.connector   = "CON%i" % connector
-                self.clock       = int(offset / w)
-                self.range_begin = start + (offset % w) * self.bitnum
-                self.range_end   = self.range_begin + self.bitnum-1
-                break
-            
+        # we change the format for run 2, the tuple now contains also the bit multiplicity, as it is not constant per type
+        infosize = (len(cable)-1)/cable[0]
+
+        if infosize==5:
+            cableAssign = [tuple(cable[x:x+5]) for x in range(1,len(cable),5)]
+        else:
+            #print "Cabling for threshold type %s is not yet defined for Run 2" % thrtype
+            bitnum = Cabling.calcBitnum(thrtype)
+            cableAssign = [tuple(cable[x:x+4] + [bitnum]) for x in range(1,len(cable),4)]
+
+        return cableAssign
+
 

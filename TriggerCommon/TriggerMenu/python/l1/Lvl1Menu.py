@@ -110,6 +110,9 @@ class Lvl1Menu:
                     log.error('Menu item %s contains threshold %s which is not part of the menu!' % (item.name,thrName))
                     success = False
 
+        if not success:
+            raise RuntimeError("There is a problem in the menu that needs fixing")
+
         # Check that the threshold multiplicities don't exceed the number of encodable values give the available bits
         for item in self.items:
             conditions = item.conditions()
@@ -121,6 +124,8 @@ class Lvl1Menu:
                               (item.name, c, c.threshold.name, c.threshold.cableinfo.name, maxAllowMult) )
                     success = False
                     
+        if not success:
+            raise RuntimeError("There is a problem in the menu that needs fixing")
 
         # Check all items are in the correct partition
         for item in self.items:
@@ -129,6 +134,8 @@ class Lvl1Menu:
                 log.error('Item %s (ctpid %i, partition %i) outside allowed range for partition %r!' % (item.name, item.ctpid, item.partition, partitionRange))
                 success = False
 
+        if not success:
+            raise RuntimeError("There is a problem in the menu that needs fixing")
 
         # Check all items if bunchgroups are in the same partition
         bgpart = dict( [("BGRP%i" % bg.internalNumber, bg.menuPartition) for bg in self.CTPInfo.bunchGroupSet.bunchGroups] )
@@ -143,6 +150,8 @@ class Lvl1Menu:
                     log.error('Item %s (partition %i) uses BG %s which is in partition %i!' % (item.name,item.partition,bg,bgpart[bg]))
                     success = False
 
+        if not success:
+            raise RuntimeError("There is a problem in the menu that needs fixing")
 
         # check that L1 CalReq are the last 3 items of the menu (509,510,511) - check with Thilo/Ralf
 

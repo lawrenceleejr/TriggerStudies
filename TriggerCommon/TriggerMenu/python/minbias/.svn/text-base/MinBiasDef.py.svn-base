@@ -311,19 +311,19 @@ class L2EFChain_MB(L2EFChainDef):
         l2th2=l2hypo2.lstrip('pusup')
         efth1=efhypo.lstrip('trk')
 
-        #print 'igb:', l2hypo1
-        #print 'igb:', l2hypo2
+        #print 'igb:', l2th1
+        #print 'igb:', l2th2
         
         ########## L2 algos ##################
         if "hmt" in self.chainPart['recoAlg']:
             chainSuffix = "hmt"
             chainSuffix1 = "hmt"
             theL2Fex1  = L2MbSpFex_noPix
-            theL2Hypo1 = L2MbSpMhNoPixHypo_hip("L2MbSpMhNoPixHypo_hip_"+l2th1, l2th1)
+            theL2Hypo1 = L2MbSpMhNoPixHypo_hip("L2MbSpMhNoPixHypo_hip_"+l2th1, float(l2th1))
             if "pusup" in self.chainPart['pileupInfo']:
                 chainSuffix1=chainSuffix1+'_'+l2hypo2
                 theL2Fex2  = theL2PileupSup
-                theL2Hypo2 = HIL2VtxMultHypo("HIL2VtxMultHyp_"+l2th2, l2th2)
+                theL2Hypo2 = HIL2VtxMultHypo("HIL2VtxMultHyp_"+l2th2, int(l2th2))
         ########## EF algos ##################
             theEFFex1 =  efid
             theEFFex2 =  EFMbTrkFex

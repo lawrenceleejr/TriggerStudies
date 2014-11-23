@@ -40,7 +40,6 @@ class TriggerConfigLVL1:
 
         # menu
         self.menu = Lvl1Menu(self.menuName)
-
         
         if self.inputFile != None:
             """Read menu from XML"""
@@ -56,6 +55,10 @@ class TriggerConfigLVL1:
             # registers all items ever defined
             self.registerMenu()
 
+    # remove prescale suffixes
+    def getMenuBaseName(self, menuName):
+        return menuName.replace("_tight_mc_prescale","").replace("_loose_mc_prescale","").replace("_no_prescale","")
+
 
     ## L1 Topo connection
     def getL1TopoTriggerLines(self, menu):
@@ -68,9 +71,11 @@ class TriggerConfigLVL1:
         else:
             triggerLines = None
             try:
-                tpcl1 = TriggerConfigL1Topo( menuName = menu )
+                tpcl1 = TriggerConfigL1Topo( menuName = self.getMenuBaseName(menu) )
                 tpcl1.generateMenu()
                 triggerLines = tpcl1.menu.getTriggerLines()
+                #for tr in triggerLines:
+                #    print "        ",tr
             except Exception, ex:
                 print "Topo menu generation inside L1 menu failed, but will be ignored for the time being",ex 
                 
@@ -115,10 +120,10 @@ class TriggerConfigLVL1:
         if not self.topotriggers:
             return
         from l1.Lvl1Thresholds import LVL1Threshold, LVL1TopoInput
-        for topotrigger in self.topotriggers:
-            thr = LVL1TopoInput( topotrigger.trigger, 'TOPO', mapping = topotrigger.ordinal)
+        for triggerline in self.topotriggers:
+            thr = LVL1TopoInput( triggerline )
             thr.setCableInput()
-            self.registeredThresholds[topotrigger.trigger] = thr
+            self.registeredThresholds[thr.name] = thr
             
     def getRegisteredThreshold(self, name):
         if name in self.registeredThresholds:
@@ -182,7 +187,7 @@ class TriggerConfigLVL1:
             menuName = TriggerFlags.triggerMenuSetup()
 
         from TriggerJobOpts.TriggerFlags import TriggerFlags
-        menumodule = __import__('l1menu.Menu_%s' % menuName.replace("_tight_mc_prescale","").replace("_loose_mc_prescale",""), globals(), locals(), ['defineMenu'], -1)
+        menumodule = __import__('l1menu.Menu_%s' % menuName.replace("_tight_mc_prescale","").replace("_loose_mc_prescale","").replace("_no_prescale",""), globals(), locals(), ['defineMenu'], -1)
         menumodule.defineMenu()
         log = logging.getLogger('TriggerConfigLVL1.defineMenu')
         log.info("menu %s contains %i items and %i thresholds" % ( menuName, len(Lvl1Flags.items()), len(Lvl1Flags.thresholds()) ) )

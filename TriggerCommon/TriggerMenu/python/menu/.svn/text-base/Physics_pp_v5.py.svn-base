@@ -59,6 +59,10 @@ def setupMenu():
         ]
 
     TriggerFlags.TauSlice.signatures = [
+        ['tau8_cosmic_track', 620, 'L1_TAU8_EMPTY', [], [PhysicsStream], ['RATE:SingleTau', 'BW:Tau'], -1],
+        ['tau8_cosmic_ptonly', 621, 'L1_TAU8_EMPTY', [], [PhysicsStream], ['RATE:SingleTau', 'BW:Tau'], -1],
+        ['tau1_cosmic_track_L1MU4EMPTY', 622, 'L1_MU4_EMPTY', [], [PhysicsStream], ['RATE:SingleTau', 'BW:Tau'], -1],
+        ['tau1_cosmic_ptonly_L1MU4EMPTY', 623, 'L1_MU4_EMPTY', [], [PhysicsStream], ['RATE:SingleTau', 'BW:Tau'], -1],
         ]
 
     TriggerFlags.EgammaSlice.signatures = [
@@ -115,11 +119,11 @@ def setupMenu():
         ['larcalib_L1TAU8_EMPTY',   6419, 'L1_TAU8_EMPTY',     [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
         ['larcalib_L1J12_EMPTY',    6420, 'L1_J12_EMPTY',      [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
         ['larcalib_L1J3032ETA49_EMPTY',   6421, 'L1_J30.32ETA49_EMPTY',     [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
-        # DCM level monitoring chain for CSC (#104895)
-        #csccalib
-        ['larcalib_L1MU10',   6422, 'L1_MU10',     [], ['calibration_CSC'], ["RATE:Calibration", "BW:Detector"], -1],
-        ['larcalib_L1EM3',   6423, 'L1_EM3',     [], ['calibration_CSC'], ["RATE:Calibration", "BW:Detector"], -1],
-        ['larcalib_L1J12',   6424, 'L1_J12',     [], ['calibration_CSC'], ["RATE:Calibration", "BW:Detector"], -1],
+
+        # DCM level monitoring chain for CSC (#104895, ATR-8082)
+        ['larcalib_L1MU10',   6422, 'L1_MU10',     [], ['CSC'], ["RATE:Monitoring", "BW:Detector"], -1],
+        ['larcalib_L1EM3',   6423, 'L1_EM3',     [], ['CSC'], ["RATE:Monitoring", "BW:Detector"], -1],
+        ['larcalib_L1J12',   6424, 'L1_J12',     [], ['CSC'], ["RATE:Monitoring", "BW:Detector"], -1],
         
         ['tilelarcalib_L1EM3_EMPTY',    6430, 'L1_EM3_EMPTY',      [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
         ['tilelarcalib_L1TAU8_EMPTY',   6431, 'L1_TAU8_EMPTY',     [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
@@ -127,11 +131,11 @@ def setupMenu():
         ['tilelarcalib_L1J3032ETA49_EMPTY',   6433, 'L1_J30.32ETA49_EMPTY',     [], ['LArCellsEmpty'], ["RATE:Calibration", "BW:Detector"], -1],
 
         #ALFA
-        ['alfa_alfacalib',         6685, 'L1_ALFA_EMPTY', [], ['ALFACalib'], [ 'RATE:ALFACalibration','BW:Detector'], -1],        
+        #['alfa_alfacalib',         6685, 'L1_ALFA_EMPTY', [], ['ALFACalib'], [ 'RATE:ALFACalibration','BW:Detector'], -1],        
         ]
 
     TriggerFlags.CosmicSlice.signatures  = [ 
-        ['tilecalib_laser',  6500, 'L1_CALREQ2', [], ['Tile'], ["RATE:Calibration", "RATE:Cosmic_TileCalibration", "BW:Detector"], -1],
+        #['tilecalib_laser',  6500, 'L1_CALREQ2', [], ['Tile'], ["RATE:Calibration", "RATE:Cosmic_TileCalibration", "BW:Detector"], -1],
         ['pixel_noise',      6501, 'L1_RD0_EMPTY', [], ['PixelNoise'], ["RATE:Calibration", "RATE:PixelCalibration", "BW:Detector"], -1],
         ['pixel_beam',       6502, 'L1_RD0_FILLED', [], ['PixelBeam'], ["RATE:Calibration", "RATE:PixelBeamCalibration", "BW:Detector"], -1],
         ['sct_noise',        6503, 'L1_RD0_EMPTY', [], ['SCTNoise'], ["RATE:Calibration", "RATE:SCTCalibration", "BW:Detector"], -1],
@@ -192,7 +196,7 @@ def setupMenu():
         # L1 seed doesn't exits ['noalg_mb_L1RD1_UNPAIRED_ISO',  831, 'L1_RD1_UNPAIRED_ISO', [], ['MinBias'], ["BW:Unpaired_Minbias", "RATE:Cosmic_Minbias"], -1],
         
         # id cosmic streamer
-        ['noalg_idcosmic_L1TRT',         6667, 'L1_TRT',              [], ['IDCosmic'], ["BW:MinBias", "RATE:Minbias"], -1],
+        #['noalg_idcosmic_L1TRT',         6667, 'L1_TRT',              [], ['IDCosmic'], ["BW:MinBias", "RATE:Minbias"], -1],
         
         # Cosmic calo streamer
         ['noalg_cosmiccalo_L1EM3_EMPTY',         6668, 'L1_EM3_EMPTY',        [], ['CosmicCalo'], ["BW:MinBias", "RATE:Cosmic_Minbias"], -1],        
@@ -214,7 +218,11 @@ def setupMenu():
         
         # Enhanced bias item
         ['noalg_eb_L1BGRP7',                  6679, 'L1_BGRP7',              [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['noalg_eb_L1RD1_FILLED',             7000, 'L1_RD1_FILLED',        [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ['noalg_eb_L1RD0_EMPTY',             7001, 'L1_RD0_EMPTY',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['noalg_eb_L1RD0_FIRSTEMPTY',         7002, 'L1_RD0_FIRSTEMPTY',    [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['noalg_eb_L1RD0_UNPAIRED_ISO',        7003, 'L1_RD0_UNPAIRED_ISO',  [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['noalg_eb_L1Physics_noPS'   ,        7004, 'L1_Physics_noPS',      [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         
         #idmon streamer
         ['noalg_idmon_L1RD0_EMPTY',         6680, 'L1_RD0_EMPTY',        [], ['IDMonitoring'], ["RATE:DISCARD","BW:DISCARD"], -1],
@@ -241,7 +249,11 @@ def setupMenu():
 
     TriggerFlags.EnhancedBiasSlice.signatures = [
         #['eb_physics_L1RD1_FILLED',             7002, 'L1_RD1_FILLED',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
-        ['eb_empty_L1RD0_EMPTY',             7002, 'L1_RD0_EMPTY',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['eb_low_L1RD0_FILLED',                   7010, 'L1_RD0_FILLED',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['eb_high_L1RD0_FILLED',              7014, 'L1_RD0_FILLED',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        ['eb_empty_L1RD0_EMPTY',             7011, 'L1_RD0_EMPTY',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        #['eb_firstempty_L1RD0_FIRSTEMPTY',    7012, 'L1_RD0_FIRSTEMPTY',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        # ['eb_unpairediso_L1RD0_UNPAIRED_ISO', 7013, 'L1_RD0_UNPAIRED_ISO',         [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ]
 
     #TriggerFlags.GenericSlice.signatures = []

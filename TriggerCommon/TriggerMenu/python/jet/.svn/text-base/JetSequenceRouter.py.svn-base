@@ -10,6 +10,11 @@ A set of string keys is into a dispatch table is made according to the
 chain request (input data). The value side of the dispatch table are the
 functions which create the Algorithm instances of a sequence.
 
+Algorithm instances can themselves be used to instantiate ATLAS
+python confuiguration classes using an appropriate Instantiator object,
+or remain as they are to provide convenient visualization of Algorthm
+factory functions and their arguments.
+
 The keys are looped over, and the correponding cuntions are called. These
 return an AlgList objects containing the Algorithm instances of a single
 sequence.
@@ -48,7 +53,8 @@ class JetSequenceRouter(object):
         # jh: EFJetHypo
         # ps: partial scan
         # cm: cell/cluster maker using non full scan tools in CellMaker
-        # roi: use l1 RoI
+        # roi: use l1 RoI (not implemented)
+        # ds: data scouting sequence requested
         #
         # rd: RoI diagnistics (prints RoI data)
         # ced: cell diagnostics (for studies)
@@ -71,12 +77,15 @@ class JetSequenceRouter(object):
                        'cm': _make_cm,  # cell and cluster maker
                        'tt': _make_tt,  # trigger towers
                        'jhd': _make_jhd, # jet hypo diagnostics
-                       'fexd': _make_fexd  # make all the pre-hypo diagnostics
+                       'fexd': _make_fexd,  # make all the pre-hypo diagnostics
+                       'ds': _make_datascouting
                        }
 
     def make_alglists(self, chain_config):
-        """Use the router table to send the incoming ChainConfig object
-        to set up trigger sequences."""
+        """Entrance point to the module. From the chain_config argument,
+        determine which sequences are to be run, and in which order.
+        The Alforithms assigned to each sequence are specified
+        in the functions after this class."""
 
         # find the sequences to build
         key = _make_sequence_list(chain_config)
@@ -127,6 +136,9 @@ def _make_sequence_list(chain_config):
             # see which jets are cut.
             seq_order.append('jhd')
 
+    if chain_config.data_scouting:
+        seq_order.append('ds')
+
     seq_order = tuple(seq_order)
     return seq_order
 
@@ -146,14 +158,14 @@ def _make_ps(chain_config):
 def _make_cmfs(chain_config):
     """Return cellmaker optimized for full scan and cluster maker"""
 
-    menu_data = chain_config.jr_menudata
-    alias = 'cluster'
-    if menu_data.cluster_params.do_lc:
-        alias += '_lc'
+    do_lc = chain_config.jr_menudata.cluster_params.do_lc
+    alias = 'cluster_lc' if do_lc else 'cluster'
 
     return AlgList(
         alg_list=[alg_dispatcher['cellMaker_fullcalo_topo'](),
-                  alg_dispatcher['topoClusterMaker_fullcalo'](menu_data)],
+                  alg_dispatcher['topoClusterMaker_fullcalo'](do_lc),
+                  alg_dispatcher['energyDensityAlg'](do_lc),
+              ],
         alias=alias)
 
 
@@ -161,10 +173,12 @@ def _make_cm(chain_config):
     """Return cellmaker for non full scan running"""
 
     # flag to do local cluster calibration
-    menu_data = chain_config.jr_menudata
+    do_lc = chain_config.jr_menudata.cluster_params.do_lc
     return AlgList(
         alg_list=[alg_dispatcher['cellMaker_superPS_topo'](),
-                  alg_dispatcher['topoClusterMaker_partial'](menu_data)],
+                  alg_dispatcher['topoClusterMaker_partial'](do_lc),
+                  alg_dispatcher['energyDensityAlg'](do_lc),
+                  ],
         alias='ps_cluster')
 
     
@@ -236,4 +250,13 @@ def _make_fexd(chain_config):
     return AlgList(alg_list=[rd,
                              ced,
                              cld,
-                             jrd], alias='fexd_%s' % chain_config.name)
+                             jrd], alias='fexd_%s' % chain_config.chain_name)
+
+
+def _make_datascouting(chain_config):
+
+    dispatch_key = {'ds1': 'dataScoutingAlg1',
+                    'ds2': 'dataScoutingAlg2'}.get(chain_config.data_scouting)
+
+    return AlgList(alg_list=[alg_dispatcher[dispatch_key]()],
+                   alias='data_scouting_%s' % chain_config.chain_name)

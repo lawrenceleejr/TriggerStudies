@@ -26,12 +26,14 @@ class ChainConfig(object):
                  seed,
                  run_hypo,
                  test,
+                 data_scouting,
                  tt_menudata,
                  jr_menudata):
 
         self.chain_name = chain_name
         self.seed = seed
         self.run_hypo = run_hypo
+        self.data_scouting = data_scouting
 
         # the following flags will guide sequence construction
         self.tt_menudata = tt_menudata  # menu data for TT sequences

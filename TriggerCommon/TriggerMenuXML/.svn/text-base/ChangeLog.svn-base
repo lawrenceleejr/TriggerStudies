@@ -1,3 +1,7 @@
+2014-11-19 Moritz Backes
+        * Add MC_pp_v5 prescale sets (ATR-9366)
+        * TriggerMenuXML-04-00-43
+
 2014-11-10 Iwona Grabowska-Bold
         * LVL1config_Physics_HI_v3.xml updated to use old CTPID (to get ZDC rates right)
         * TriggerMenuXML-04-00-42

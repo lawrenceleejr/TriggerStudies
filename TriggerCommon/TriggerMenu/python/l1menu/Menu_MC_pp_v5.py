@@ -54,20 +54,20 @@ def defineMenu():
         
 
         # 8 x TE
-        'TE20', 'TE30', 'TE40', # 'TE1000', 'TE1200', 'TE1400',# --> the last three are left in as a forced threshold.
+        'TE20', 'TE30', 'TE40', 'TE50', 'TE60',# 'TE1000', 'TE1200', 'TE1400',# --> the last three are left in as a forced threshold.
 
         # 8 x XS
         # 'XS25', 'XS30', 'XS35', 'XS45', 'XS50', 'XS55', 'XS60', 'XS65',
 
         # 8 x XE
-        'XE35', 'XE40', 'XE45', 'XE50', 'XE60', 'XE70', 'XE80', 'XE55',
+        'XE35', 'XE40', 'XE45', 'XE50', 'XE55', 'XE60', 'XE70', 'XE80',
         
         # 2 x MBTS
         'MBTS_A', 'MBTS_C',
 
-#        # 2  x BPTX
-#        'BPTX0','BPTX1',
-#
+        # 2  x BPTX
+        'BPTX0','BPTX1',
+
         # 2 x LUCID
         'LUCID_A','LUCID_C',
 #
@@ -77,41 +77,28 @@ def defineMenu():
 #        # 3 x ZDC
 #        'ZDC_A', 'ZDC_C','ZDC_AND',
 #
-        # LUCID_COMM 
-        'NIMDIR5',
-#
-#        # TRT
-        'NIMDIR25',
-#
-#        # L1A_MON
-#        'NIMDIR26',
-#
-#        # LHCF
-#        'NIMDIR36',
-#
-#        # 3 x CALREQ
-        'NIM30',
-#        'NIM28','NIM29','NIM30','NIM_MUB', 'NIM_MUE',
-#
+
+        # TRT
+        #'NIMTRT',
+
+        # L1A for CTP monitoring itself
+        #'NIML1A',
+
+        # LHCF
+        #'NIMLHCF',
+
+        # 3 x CALREQ
+        'CAL0','CAL1','CAL2',
+
 #        # 1 x ZB
 #        'ZB_EM12',
-#
-#
-#        ### Forced for MBTSSI
+
+
+        ### Forced for MBTSSI
         'MBTS_A0', 'MBTS_A1', 'MBTS_A2', 'MBTS_A3', 'MBTS_A4'  , 'MBTS_A5', 'MBTS_A6', 'MBTS_A7', 
         'MBTS_A8',  'MBTS_A10', 'MBTS_A12' , 'MBTS_A14',
         'MBTS_C0', 'MBTS_C1', 'MBTS_C2', 'MBTS_C3', 'MBTS_C4'  , 'MBTS_C5', 'MBTS_C6', 'MBTS_C7', 
         'MBTS_C8',  'MBTS_C10', 'MBTS_C12' , 'MBTS_C14',
-#
-#        # Forced for ALFA
-#        'NIM_B7R1L','NIM_B7R1U','NIM_B7L1L','NIM_B7L1U',
-#        'NIM_A7R1L','NIM_A7R1U','NIM_A7L1L','NIM_A7L1U',
-#        'NIM_B7R1L_OD','NIM_B7R1U_OD','NIM_B7L1L_OD','NIM_B7L1U_OD',
-#        'NIM_A7R1L_OD','NIM_A7R1U_OD','NIM_A7L1L_OD','NIM_A7L1U_OD',
-#
-#        # For L1_ALFA
-        'NIM_ALFA_LOG', #'NIM_ALFA_LOG_OD'
-
 
         #-------------------------------------------------------------------
         #L1 TOPO inputs 
@@ -139,7 +126,8 @@ def defineMenu():
         #B-jet
         '0DR04-MU4ab-CJ15ab', '0DR04-MU4ab-CJ30ab', '0DR04-MU6ab-CJ25ab', '0DR04-MU4ab-CJ17ab', '0DR04-MU4ab-CJ20ab',
         #B-physics
-        '2DR15-2MU4ab', #'2INVM-2MU4ab',
+        '2DR15-2MU4ab', '2INVM999-2MU4ab', '4INVM8-2MU4ab',
+        '2DR15-2MU6ab', '2INVM999-2MU6ab', '4INVM8-2MU6ab',
 
         ]
 
@@ -200,13 +188,13 @@ def defineMenu():
         "L1_4J17.0ETA22", "L1_3J25.0ETA22", "L1_5J15.0ETA24",
      
         # combined jet
-        "L1_J40_XE50", "L1_J75_XE40", "L1_2J15_XE55",
+        "L1_2J15_XE55", "L1_J40_XE50", "L1_J75_XE40",
 
         # XE
-        "L1_XE35", "L1_XE45", "L1_XE50", "L1_XE60", "L1_XE70", "L1_XE80", "L1_XE55", # "L1_XSXX",
+        "L1_XE35", "L1_XE45", "L1_XE50", "L1_XE55", "L1_XE60", "L1_XE70", "L1_XE80", 
         
         # TE
-        "L1_TE20", "L1_TE30", "L1_TE40",   
+        "L1_TE20", "L1_TE30", "L1_TE40", "L1_TE50", "L1_TE60",   
 
         # MBTS
         "L1_MBTS_1", "L1_MBTS_2", "L1_MBTS_1_1", "L1_MBTS_2_UNPAIRED_ISO",
@@ -225,7 +213,7 @@ def defineMenu():
         #LUCID
         'L1_LUCID', 'L1_LUCID_EMPTY', 'L1_LUCID_UNPAIRED_ISO', 
         'L1_LUCID_A_C_EMPTY', 'L1_LUCID_A_C_UNPAIRED_ISO',  'L1_LUCID_A_C_UNPAIRED_NONISO',
-        'L1_LUCID_COMM_EMPTY','L1_LUCID_COMM_UNPAIRED_ISO',
+        
 
 
         
@@ -233,14 +221,11 @@ def defineMenu():
         # VDM
         "L1_BGRP7",
 
-        # ALFA
-        "L1_ALFA_EMPTY",
-
         # TRT
-        "L1_TRT",
+        #"L1_TRT",
 
         #CALREQ
-        "L1_CALREQ2",
+        #"L1_CALREQ2",
         
         # BCM
         'L1_BCM_Wide_BGRP0','L1_BCM_AC_CA_BGRP0', 'L1_BCM_Wide_EMPTY','L1_BCM_Wide_UNPAIRED_ISO','L1_BCM_Wide_UNPAIRED_NONISO', 'L1_BCM_AC_CA_UNPAIRED_ISO',
@@ -261,24 +246,29 @@ def defineMenu():
         'L1_1INVM5-EMs2-EMall', 'L1_1INVM5-EM7s2-EMall', 'L1_1INVM5-EM12s2-EMall',        
 
         # W T&P
-        'L1_EM3_10MINDPHI-AJj15s2-XE0',
-        'L1_EM3_20MINDPHI-AJjs6-XE0',
-        'L1_EM3_20MINDPHI-AJj15s2-XE0',
-        'L1_EM3_10MINDPHI-EM6s1-XE0',
-        'L1_EM3_20MINDPHI-EM9s6-XE0',
-        'L1_EM3_20MINDPHI-EM6s1-XE0',
-        'L1_EM3_05RATIO-XE0-HT0-AJj15all.ETA49',
-        'L1_EM3_08RATIO-XE0-HT0-AJj0all.ETA49',
-        'L1_EM3_40RATIO2-XE0-HT0-AJj15all.ETA49',
-        'L1_EM3_90RATIO2-XE0-HT0-AJj0all.ETA49',
-        'L1_EM3_HT20-AJj0all.ETA49',
-        'L1_EM3_NOT-02MATCH-EM9s1-AJj15all.ETA49',
-        'L1_EM3_NOT-02MATCH-EM9s1-AJj15all.ETA49_05RATIO-XE0-SUM0-EM9s1-HT0-AJj15all.ETA49',
+        'L1_10MINDPHI-AJj15s2-XE0',
+        'L1_20MINDPHI-AJjs6-XE0',
+        'L1_20MINDPHI-AJj15s2-XE0',
+        'L1_10MINDPHI-EM6s1-XE0',
+        'L1_20MINDPHI-EM9s6-XE0',
+        'L1_20MINDPHI-EM6s1-XE0',
+        'L1_05RATIO-XE0-HT0-AJj15all.ETA49',
+        'L1_08RATIO-XE0-HT0-AJj0all.ETA49',
+        'L1_40RATIO2-XE0-HT0-AJj15all.ETA49',
+        'L1_90RATIO2-XE0-HT0-AJj0all.ETA49',
+        'L1_HT20-AJj0all.ETA49',
+        'L1_NOT-02MATCH-EM9s1-AJj15all.ETA49',
+        'L1_NOT-02MATCH-EM9s1-AJj15all.ETA49_05RATIO-XE0-SUM0-EM9s1-HT0-AJj15all.ETA49',
 
         #Bphysics items
-        'L1_2DR15-2MU4ab', #'L1_2INVM-2MU4ab'
+        'L1_2DR15-2MU4ab', 
+        'L1_2INVM999-2MU4ab', 'L1_4INVM8-2MU4ab',
+        'L1_2DR15-2MU4ab_2INVM999-2MU4ab', 'L1_2DR15-2MU4ab_4INVM8-2MU4ab',
 
-
+        'L1_2DR15-2MU6ab', 
+        'L1_2INVM999-2MU6ab', 'L1_4INVM8-2MU6ab',
+        'L1_2DR15-2MU6ab_2INVM999-2MU6ab', 'L1_2DR15-2MU6ab_4INVM8-2MU6ab'
+        
 
         #'L1_TOPO_JetDPhi',
         

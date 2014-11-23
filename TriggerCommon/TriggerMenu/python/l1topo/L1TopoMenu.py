@@ -37,15 +37,23 @@ class L1TopoMenu:
 
     def getTriggerLines(self):
         from collections import namedtuple
-        TriggerLine = namedtuple("TriggerLine","trigger cable bit clock ordinal")
+        TriggerLine = namedtuple("TriggerLine","trigger cable bit clock fpga ordinal firstbit")
         outputLines = {}
         #print "Topo trigger defines %i output algorithms" % len(self.topoOutput)
         for output in self.topoOutput:
 
             for (idx,line) in enumerate(output.algo.outputs):
+                
                 ordinal = 64*output.module + 32*output.clock + 16*output.fpga + output.firstbit+idx
-                outputLines[ordinal] = TriggerLine(trigger = line, cable = output.module, bit = output.firstbit+idx+16*output.fpga, clock = output.clock, ordinal = ordinal)
 
+                outputLines[ordinal] = TriggerLine( trigger = line,
+                                                    cable = output.module,
+                                                    bit = output.firstbit+idx+16*output.fpga,
+                                                    clock = output.clock,
+                                                    fpga = output.fpga,
+                                                    ordinal = ordinal,
+                                                    firstbit = output.firstbit
+                                                    )
         return [x[1] for x in sorted(outputLines.items())] # return the TriggerLines, sorted by the ordinal
 
 

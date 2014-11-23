@@ -91,10 +91,9 @@ def readMenuFromXML(l1menu, filename):
                     em_isolation = int(xV['em_isolation'])
                     had_isolation = int(xV['had_isolation'])
                     had_veto = int(xV['had_veto'])
-                    em_isobits = xV['em_isobits'] if 'em_isobits' in xV else '00000'
-                    had_isobits = xV['had_isobits'] if 'had_isobits' in xV else '00000'
+                    isobits = xV['isobits'] if 'isobits' in xV else '00000'
                     use_relIso = xV['use_relIso'] if 'use_relIso' in xV else False
-                    thrVal.setIsolation(em_isolation, had_isolation, had_veto, em_isobits, had_isobits, use_relIso)
+                    thrVal.setIsolation(em_isolation, had_isolation, had_veto, isobits, use_relIso)
 
 
                 

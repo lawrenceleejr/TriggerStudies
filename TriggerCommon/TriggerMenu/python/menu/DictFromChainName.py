@@ -324,7 +324,9 @@ class DictFromChainName(object):
             chainProperties['multiplicity'] = multiplicity
             chainProperties['threshold']=mdicts[chainindex]['threshold']
             chainProperties['signature']=mdicts[chainindex]['signature']
-            chainProperties['chainPartName'] = chainparts #"_".join(filter(None,parts))
+
+            chainProperties['chainPartName'] = chainparts
+
             logDict.debug('Chainparts: '+ str(chainparts))
             if (chainProperties['signature'] != 'Cosmic') \
                     & (chainProperties['signature'] != 'Calibration')\
@@ -413,6 +415,8 @@ class DictFromChainName(object):
         logDict.debug('genchainDict that is passed as Final dict'+ str(genchainDict))
         #for cprop in allChainProperties: del cprop['signature']
              
+
+
         return genchainDict
 
 
