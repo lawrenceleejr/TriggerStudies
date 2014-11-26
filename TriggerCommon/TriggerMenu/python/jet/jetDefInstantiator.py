@@ -4,7 +4,6 @@ In some cases instantiation is done by a remote module.
 In thsi case the factory function imports that module and retrieves the
 instance."""
 
-from exc2string import exc2string2
 
 from TriggerJobOpts.TriggerFlags import TriggerFlags
 
@@ -29,8 +28,7 @@ from TrigHLTJetRec.TrigHLTJetRecConfig import (TrigHLTJetDiagnostics_named,
                                                TrigHLTClusterDiagnostics_named,
                                                TrigHLTCellDiagnostics_named,
                                                TrigHLTHypoDiagnostics_named,
-                                               TrigHLTJetRec_param,
-                                               TrigHLTEnergyDensity_p)
+                                               TrigHLTJetRec_param)
 
 from TrigJetHypo.TrigJetHypoConfig import (EFJetHypo,
                                            # EFCentJetHypo,
@@ -64,11 +62,8 @@ class Instantiator(object):
         try:
             alg = eval(s)
         except Exception, e:
-            tb = exc2string2()
-            m = '%s() Error instantiating  Algorithm: eval(%s) '\
-                '%s\nTraceback: \n%s'
-            m = m % (self.__class__.__name__, s, str(e), tb)
-
+            m = '%s Error instantiating  Algorithm: eval(%s) %s' % (
+                self.err_hdr, s, str(e))
             raise RuntimeError(m)
 
         def manual_attr_add(k, v):

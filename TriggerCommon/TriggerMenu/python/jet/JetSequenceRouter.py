@@ -158,14 +158,14 @@ def _make_ps(chain_config):
 def _make_cmfs(chain_config):
     """Return cellmaker optimized for full scan and cluster maker"""
 
-    do_lc = chain_config.jr_menudata.cluster_params.do_lc
-    alias = 'cluster_lc' if do_lc else 'cluster'
+    menu_data = chain_config.jr_menudata
+    alias = 'cluster'
+    if menu_data.cluster_params.do_lc:
+        alias += '_lc'
 
     return AlgList(
         alg_list=[alg_dispatcher['cellMaker_fullcalo_topo'](),
-                  alg_dispatcher['topoClusterMaker_fullcalo'](do_lc),
-                  alg_dispatcher['energyDensityAlg'](do_lc),
-              ],
+                  alg_dispatcher['topoClusterMaker_fullcalo'](menu_data)],
         alias=alias)
 
 
@@ -173,12 +173,10 @@ def _make_cm(chain_config):
     """Return cellmaker for non full scan running"""
 
     # flag to do local cluster calibration
-    do_lc = chain_config.jr_menudata.cluster_params.do_lc
+    menu_data = chain_config.jr_menudata
     return AlgList(
         alg_list=[alg_dispatcher['cellMaker_superPS_topo'](),
-                  alg_dispatcher['topoClusterMaker_partial'](do_lc),
-                  alg_dispatcher['energyDensityAlg'](do_lc),
-                  ],
+                  alg_dispatcher['topoClusterMaker_partial'](menu_data)],
         alias='ps_cluster')
 
     

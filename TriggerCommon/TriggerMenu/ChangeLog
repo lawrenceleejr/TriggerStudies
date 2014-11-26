@@ -1,5 +1,39 @@
-2014-11-22   Peter Sherwood  <peter@peter-8.fritz.box>
+2011-11-24 Elisabetta Pianori
+	* revert jet directory TriggerMenu-00-04-91
+	* comment out HLT chains seeded by L1Topo 
+	* TriggerMenu-00-05-00
 
+2011-11-24 Yu Nakahama
+	* Temporarily commented out L1Topo BPhys chains before FEX update (ATR-8195)
+	* TriggerMenu-00-04-99
+	
+2014-11-24 Catrin Bernius
+	* change of streamwriter for datascouting (ATR-9395)
+	* TriggerMenu-00-04-98
+
+2014-11-24 Elisabetta Pianori
+	* Change stream for larps*FIRSTEMPTY chains (ATR-9485)	
+	* TriggerMenu-00-04-97
+
+2014-11-24 Catrin Bernius
+	* minor L1 name fix in chain name in LS1 menu
+	* TriggerMenu-00-04-96
+
+2014-11-24 Catrin Bernius
+	* Fixed problem with list of list for inputTE for DphiMETJet
+	* Peter's tag 00-04-92 depends on TrigHLTJetRec-00-00-25!!
+	* NEEDS TrigHLTJetRec-00-00-25
+	* TriggerMenu-00-04-95
+
+2014-11-23 Joerg Stelzer <stelzer@cern.ch>
+	* python/menu/GenerateMenu.py: Fix piece of the L1Topo generation code
+	* TriggerMenu-00-04-94
+
+2014-11-22 Tim Martin <Tim.Martin@cern.ch>
+	* Reintroduce enhanced bias streaming to noalg_eb_L1RD0_EMPTY in LS1v1
+	* TriggerMenu-00-04-93
+
+2014-11-22   Peter Sherwood  <peter@peter-8.fritz.box>
 	* TriggerMenu-00-04-92
 	* add scheduling of the for the jet EnergyDensity algorithm.
 

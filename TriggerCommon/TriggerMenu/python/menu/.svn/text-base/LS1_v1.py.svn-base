@@ -109,8 +109,8 @@ def setupMenu():
     TriggerFlags.TauSlice.signatures = [
         ['tau8_cosmic_track', 620, 'L1_TAU8_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
         ['tau8_cosmic_ptonly', 621, 'L1_TAU8_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
-        ['tau1_cosmic_track_L1MU4EMPTY', 622, 'L1_MU4_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
-        ['tau1_cosmic_ptonly_L1MU4EMPTY', 623, 'L1_MU4_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
+        ['tau1_cosmic_track_L1MU4_EMPTY', 622, 'L1_MU4_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
+        ['tau1_cosmic_ptonly_L1MU4_EMPTY', 623, 'L1_MU4_EMPTY', [], ['Main'], ['RATE:SingleTau', 'BW:Tau'], -1],
         ]
 
     TriggerFlags.EgammaSlice.signatures = [
@@ -195,8 +195,8 @@ def setupMenu():
         ['larps_L1J30_EMPTY',  5063, 'L1_J30_EMPTY', [], ['CosmicCalo'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
         ['larps_L1TAU8_EMPTY', 5064, 'L1_TAU8_EMPTY', [], ['CosmicCalo'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
 
-        ['larps_L1J10_FIRSTEMPTY', 5065, 'L1_J10_FIRSTEMPTY', [], ['Main'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
-        ['larps_L1J30_FIRSTEMPTY', 5066, 'L1_J30_FIRSTEMPTY', [], ['Main'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
+        ['larps_L1J10_FIRSTEMPTY', 5065, 'L1_J10_FIRSTEMPTY', [], ['LArCellsEmpty'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
+        ['larps_L1J30_FIRSTEMPTY', 5066, 'L1_J30_FIRSTEMPTY', [], ['LArCellsEmpty'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
 
         #CosmicID
         ['id_cosmic_L1MU4',         5041, 'L1_MU4', [], ['HLT_IDCosmic', 'express'], ['RATE:CosmicSlice', 'RATE:Cosmic_Tracking', 'BW:Detector'], -1],
@@ -267,7 +267,7 @@ def setupMenu():
         # Enhanced bias item
         ['noalg_eb_L1BGRP7',                  846, 'L1_BGRP7',              [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ['noalg_eb_L1RD1_FILLED',             7000, 'L1_RD1_FILLED',        [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
-        ['noalg_eb_L1RD0_EMPTY',              7001, 'L1_RD0_EMPTY',         [], ['express'], ["Supporting", "Calibration", "BW:Detector"], -1],
+        ['noalg_eb_L1RD0_EMPTY',              7001, 'L1_RD0_EMPTY',         [], ['EnhancedBias', 'express'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ['noalg_eb_L1RD0_FIRSTEMPTY',         7002, 'L1_RD0_FIRSTEMPTY',    [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ['noalg_eb_L1RD0_UNPAIRED_ISO',        7003, 'L1_RD0_UNPAIRED_ISO',  [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],
         ['noalg_eb_L1Physics_noPS'   ,        7004, 'L1_Physics_noPS',      [], ['EnhancedBias'], ["Supporting", "Calibration", "BW:Detector"], -1],

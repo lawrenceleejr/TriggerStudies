@@ -62,7 +62,8 @@ def _addDPhiMetJet(theChainDef,chainDicts,listOfChainDefs):
     ##Get only the last MET TE
     inputTEsEF = [] 
     for cD in listOfChainDefs: 
-        inputTEsEF +=[deepcopy(cD.signatureList[-1]['listOfTriggerElements'])] 
+        inputTEsEF +=deepcopy(cD.signatureList[-1]['listOfTriggerElements']) 
+        #inputTEsEF +=[deepcopy(cD.signatureList[-1]['listOfTriggerElements'])] 
  		         
     inputTEsEF.reverse() # need first met then jet input TE           
 

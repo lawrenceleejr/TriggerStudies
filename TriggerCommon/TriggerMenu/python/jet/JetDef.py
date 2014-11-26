@@ -4,9 +4,6 @@ code."""
 import os
 import re
 import copy
-import sys
-import getopt
-import shelve
 
 from JetSequenceRouter import JetSequenceRouter
 from TriggerMenu.menu.ChainDef import (ChainDef,
@@ -230,9 +227,13 @@ def generateHLTChainDef(caller_data):
     caller_data [type - dictionary]: data from the caller and returns
                 either a ChainDef or an ErrorChainDef object.
 
-    Debug and testing actions are controlled by environment variables.
-    See commnets in usage()."""
-    
+    use_atlas_config [type - boolean]: True - instantiate ATLAS configuration
+                     objects, which requires the succesful imports of the
+                     python classes.
+                     False - Use JetDef proxies of the ATLAS configuration
+                     objects. These have natural types as attributes,
+                     and are suitable for development work."""
+
     caller_data['test'] = 'JETDEF_TEST' in os.environ
     debug = 'JETDEF_DEBUG' in os.environ
     no_instantiation = 'JETDEF_NO_INSTANTIATION' in os.environ
@@ -264,10 +265,10 @@ def generateHLTChainDef(caller_data):
             logger.warning(str(cd))
 
     if debug:
-        _debug(caller_data, cd, no_instantiation)
+        _debug(caller_data, cd)
     return cd
 
-def _debug(caller_data, cd, no_instantiation):
+def _debug(caller_data, cd):
     """Dump incoming dictionaly and outfgoing(Error)ChainDef to a file."""
 
     chain_name = caller_data['chainName']
@@ -279,16 +280,6 @@ def _debug(caller_data, cd, no_instantiation):
     txt = 'Input dictionary:\n%s\nChainDef:\n%s' % (str(caller_data), str(cd))
     with open(fn, 'w') as off:
         off.write(txt)
-
-    # If instantiation is off, ChainDef instances
-    # hold only string data, and
-    # can be stored for later investigation.
-
-    if no_instantiation:
-        db =  shelve.open(os.path.join(ddir,
-                                       'chain_defs.db'))
-        db[chain_name] = cd
-        db.close()
 
     print 'Debug output written to ', fn
 
@@ -391,50 +382,6 @@ def run_from_dict_file(fn):
 
 
 if __name__ == '__main__':
-    def usage():
-        print """\
-        python JetDef.py
-
-        Run the jet slice configuration code in stand alone node.
-        Input dictionaries have been hardwired into the test code.
-        These are used as the input to JetDef. ChainDef objects are
-        returned.
-
-        Debug output is controlled by the following environment variables
-        $JETDEF_DEBUG 1 -            ChainDef and ErrorChainDef objects are
-                                     written to /tmp/<username>
-
-        $JETDEF_NO_INSTANTIATION 1 - No instantiation of the ATLAS
-                                     configuration objects is done.
-                                     A string representation of the Algorithms
-                                     is presented. The arguments to the
-                                     Algoruthms are visble.
-        
-        $JETDEF_TEST               - Diagnosis Algorithms are added to the
-                                     production chains.
-
-        Performing
-        export JETDEF_DEBUG=1;export JETDEF_NO_INSTANTIATION=1
-
-        will produce useful debug information in /tmp/<usename>.
-        """
-
-    try:
-        opts, args = getopt.getopt(sys.argv[1:], "h", ["help"])
-    except getopt.GetoptError as err:
-        # print help information and exit:
-        print str(err) # will print something like "option -a not recognized"
-        usage()
-        sys.exit(2)
-
-    verbose = False
-    for o, a in opts:
-        if o in ("-h", "--help"):
-            usage()
-            sys.exit()
-        else:
-            assert False, "unhandled option"
-
     # chain_defs = run_test()
     chain_defs = run_strawman_test()
     for c in chain_defs:
@@ -442,4 +389,3 @@ if __name__ == '__main__':
         print c
 
     print 'done'
-    

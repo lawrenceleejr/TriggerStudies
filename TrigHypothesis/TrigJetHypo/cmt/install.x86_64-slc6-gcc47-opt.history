@@ -12,4 +12,8 @@ S'../../../Trigger/TrigHypothesis/TrigJetHypo/genConf/TrigJetHypo/TrigJetHypoCon
 p6
 S'../../../../InstallArea/python/TrigJetHypo/TrigJetHypoConf.py'
 p7
-sssb.
+ssS'../../../../../../../atlas/software/builds/GAUDI/v25r3p1/GaudiPolicy/cmt/fragments/__init__.py'
+p8
+S'../../../../InstallArea/python/TrigJetHypo/__init__.py'
+p9
+ssb.

@@ -64,7 +64,7 @@ class TestJetDef(unittest.TestCase):
             fc['chainName'] = dd[0]
             chain_def = generateHLTChainDef(fc)
             if chain_def.__class__.__name__ != 'ChainDef':
-                print 'real error ---> ', chain_def
+                print chain_def
             self.assertTrue(chain_def.__class__.__name__ == 'ChainDef')
 
     def test_1(self):

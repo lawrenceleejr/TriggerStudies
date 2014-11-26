@@ -148,8 +148,8 @@ def setupMenu():
         ['larps_L1TAU8_EMPTY', 5064, 'L1_TAU8_EMPTY', [], ['CosmicCalo'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
 
         #JetTauEtmiss 
-        ['larps_L1J12_FIRSTEMPTY', 5065, 'L1_J12_FIRSTEMPTY', [], [PhysicsStream], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
-        ['larps_L1J30_FIRSTEMPTY', 5066, 'L1_J30_FIRSTEMPTY', [], [PhysicsStream], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
+        ['larps_L1J12_FIRSTEMPTY', 5065, 'L1_J12_FIRSTEMPTY', [], ['LArCellsEmpty'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
+        ['larps_L1J30_FIRSTEMPTY', 5066, 'L1_J30_FIRSTEMPTY', [], ['LArCellsEmpty'], ['RATE:CosmicSlice', 'RATE:Cosmic_LArCalibration', 'BW:Detector'], -1],
 
         #CosmicID
         ['id_cosmicid_L1MU4',         5041, 'L1_MU4', [], ['CosmicID', 'express'], ['RATE:CosmicSlice', 'RATE:Cosmic_Tracking', 'BW:Detector'], -1],

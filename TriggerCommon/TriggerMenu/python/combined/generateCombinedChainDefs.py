@@ -38,7 +38,7 @@ def _addTopoInfo(theChainDef,chainDicts,listOfChainDefs,doAtL2AndEF=True):
             logCombined.warning("Need a Met and a JET chain to run DPhi Topo cut")        
         else:
             theChainDef=_addDPhiMetJet(theChainDef,chainDicts,listOfChainDefs) 
-    if any("razor" in alg for alg in topoAlgs):
+    elif any("razor" in alg for alg in topoAlgs):
         ##Check that we only have a MET and JET chain
         inputChains=[]
         # print "------------*_*_*_*_*_*_*_*_-----------------------"
@@ -81,7 +81,7 @@ def _addDPhiMetJet(theChainDef,chainDicts,listOfChainDefs):
     inputTEsEF = [] 
     for cD in listOfChainDefs: 
         inputTEsEF +=[deepcopy(cD.signatureList[-1]['listOfTriggerElements'])] 
- 		         
+                 
     inputTEsEF.reverse() # need first met then jet input TE           
 
     logCombined.debug("Input TEs to DPhi algorithm: %s" % inputTEsEF)
@@ -115,32 +115,6 @@ def _addRazor(theChainDef,chainDicts,listOfChainDefs):
     Razor_Hypo = EFRazor("EFRazor_J"+str(JetThr).replace(".","")+"_Razor"+str(RazorCut).replace(".",""),
                                            Razor_cut=RazorCut)
     
-    # ##Get only the last MET TE
-    # inputTEsEF = [] 
-
-    # print listOfChainDefs
-
-    # for cD in listOfChainDefs: 
-    #     inputTEsEF +=[deepcopy(cD.signatureList[-1]['listOfTriggerElements'])] 
-                 
-    # inputTEsEF.reverse() # need first met then jet input TE           
-
-    # logCombined.debug("Input TEs to Razor algorithm: %s" % inputTEsEF)
-    # print "Input TEs to Razor algorithm: %s" % inputTEsEF
-
-    # from TrigHLTJetHemisphereRec.TrigHLTJetHemisphereRecConfig import TrigHLTJetHemisphereRec_Builder
-    # theTrigHLTJetHemisphereRec = TrigHLTJetHemisphereRec_Builder()
-
-    # EFChainName = "EF_" + chainDicts[0]['chainName']
-    
-    # theChainDef.addSequence([theTrigHLTJetHemisphereRec], inputTEsEF,'TrigHLTJetHemisphereRec')
-    # theChainDef.addSequence([Razor_Hypo],inputTEsEF+['TrigHLTJetHemisphereRec'],EFChainName)
-
-    # theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, ['TrigHLTJetHemisphereRec'])    
-    # theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, [EFChainName])    
-
-    # return theChainDef
-
 
     inputTEsEFMET = []
     inputTEsEFJet = []
@@ -162,11 +136,27 @@ def _addRazor(theChainDef,chainDicts,listOfChainDefs):
 
     EFChainName = "EF_" + chainDicts[0]['chainName']
 
+
+    for i,thisSequence in enumerate(theChainDef.sequenceList):
+        if "EF_jets_" in thisSequence['output']:
+            theChainDef.sequenceList.pop( i )
+            break
+
+    for i,thisSignature in enumerate(theChainDef.signatureList):
+        if "EF_jets_" in thisSignature['listOfTriggerElements'][0]:
+            theChainDef.signatureList.pop( i )
+            break
+
+    for j in xrange(i,len(theChainDef.signatureList) ):
+        theChainDef.signatureList[j]['signature_counter'] = theChainDef.signatureList[j]['signature_counter']  - 1
+
     theChainDef.addSequence([theTrigHLTJetHemisphereRec], inputTEsEFJet,'TrigHLTJetHemisphereRec')
     theChainDef.addSequence([Razor_Hypo],inputTEsEFMET+['TrigHLTJetHemisphereRec'],EFChainName)
 
     theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, ['TrigHLTJetHemisphereRec'])    
     theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, [EFChainName])    
+
+    
 
     print "*_*_*_*_*_*_*_*_*_*_******************"
     print theChainDef
