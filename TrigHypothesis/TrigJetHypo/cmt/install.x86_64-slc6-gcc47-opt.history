@@ -16,4 +16,8 @@ ssS'../../../../../../../atlas/software/builds/GAUDI/v25r3p1/GaudiPolicy/cmt/fra
 p8
 S'../../../../InstallArea/python/TrigJetHypo/__init__.py'
 p9
+sS'../../../../../../../atlas/software/builds/nightlies/dev/GAUDI/rel_2/GaudiPolicy/cmt/fragments/__init__.py'
+p10
+S'../../../../InstallArea/python/TrigJetHypo/__init__.py'
+p11
 ssb.

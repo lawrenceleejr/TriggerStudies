@@ -8,9 +8,9 @@ set cmtTriggerMenutempfile=`${CMTROOT}/${CMTBIN}/cmt.exe -quiet build temporary_
 if $status != 0 then
   set cmtTriggerMenutempfile=/tmp/cmt.$$
 endif
-${CMTROOT}/${CMTBIN}/cmt.exe cleanup -csh -pack=TriggerMenu -version=TriggerMenu-00-05-00 -path=/afs/cern.ch/user/l/leejr/work/NightlyTest/Trigger/TriggerCommon  -quiet -without_version_directory $* >${cmtTriggerMenutempfile}
+${CMTROOT}/${CMTBIN}/cmt.exe cleanup -csh -pack=TriggerMenu -version=TriggerMenu-00-05-00 -path=/afs/cern.ch/user/l/leejr/work/NightlyTest/Trigger/TriggerCommon  $* >${cmtTriggerMenutempfile}
 if ( $status != 0 ) then
-  echo "${CMTROOT}/${CMTBIN}/cmt.exe cleanup -csh -pack=TriggerMenu -version=TriggerMenu-00-05-00 -path=/afs/cern.ch/user/l/leejr/work/NightlyTest/Trigger/TriggerCommon  -quiet -without_version_directory $* >${cmtTriggerMenutempfile}"
+  echo "${CMTROOT}/${CMTBIN}/cmt.exe cleanup -csh -pack=TriggerMenu -version=TriggerMenu-00-05-00 -path=/afs/cern.ch/user/l/leejr/work/NightlyTest/Trigger/TriggerCommon  $* >${cmtTriggerMenutempfile}"
   set cmtcleanupstatus=2
   /bin/rm -f ${cmtTriggerMenutempfile}
   unset cmtTriggerMenutempfile

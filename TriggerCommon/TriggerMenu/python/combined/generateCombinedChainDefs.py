@@ -15,12 +15,6 @@ from copy import deepcopy
 
 def _addTopoInfo(theChainDef,chainDicts,listOfChainDefs,doAtL2AndEF=True): 
 
-    print "*_*_*_*_*_*_*_*_*_*_*_*_*_*_"
-    # print chainDicts
-    print theChainDef
-    # print listOfChainDefs
-    print "-----------------"
-
     maxL2SignatureIndex = -1
     for signatureIndex,signature in enumerate(theChainDef.signatureList):
         if signature['listOfTriggerElements'][0][0:2] == "L2":
@@ -41,7 +35,6 @@ def _addTopoInfo(theChainDef,chainDicts,listOfChainDefs,doAtL2AndEF=True):
     elif any("razor" in alg for alg in topoAlgs):
         ##Check that we only have a MET and JET chain
         inputChains=[]
-        # print "------------*_*_*_*_*_*_*_*_-----------------------"
         for ChainPart in chainDicts:
             # print ChainPart['signature']
             if 'MET' in ChainPart['signature']  or 'Jet' in ChainPart['signature']:
@@ -99,7 +92,7 @@ def _addDPhiMetJet(theChainDef,chainDicts,listOfChainDefs):
 def _addRazor(theChainDef,chainDicts,listOfChainDefs): 
 
     for topo_item in chainDicts[0]['topo']:
-        RazorCut=float(topo_item.split('razor')[1]) if 'razor' in topo_item else logCombined.error("No Razor threshold in topo definition")
+        RazorCut=int(topo_item.split('razor')[1]) if 'razor' in topo_item else logCombined.error("No Razor threshold in topo definition")
     
     JetThr=-1
     for ChainPart in chainDicts:
@@ -114,11 +107,9 @@ def _addRazor(theChainDef,chainDicts,listOfChainDefs):
 
     Razor_Hypo = EFRazor("EFRazor_J"+str(JetThr).replace(".","")+"_Razor"+str(RazorCut).replace(".",""),
                                            Razor_cut=RazorCut)
-    
 
     inputTEsEFMET = []
     inputTEsEFJet = []
-
 
     for sig in theChainDef.signatureList: 
         if "EF" in sig['listOfTriggerElements'][-1] and 'xe' in sig['listOfTriggerElements'][-1] and not( 'step' in sig['listOfTriggerElements'][-1]  ) and not( 'razor' in sig['listOfTriggerElements'][-1]  ):
@@ -132,10 +123,9 @@ def _addRazor(theChainDef,chainDicts,listOfChainDefs):
     logCombined.debug("Input TEs to Razor algorithm: %s" % inputTEsEFMET)
 
     from TrigHLTJetHemisphereRec.TrigHLTJetHemisphereRecConfig import TrigHLTJetHemisphereRec_Builder
-    theTrigHLTJetHemisphereRec = TrigHLTJetHemisphereRec_Builder(jetPtCut=20000.)
+    theTrigHLTJetHemisphereRec = TrigHLTJetHemisphereRec_Builder(jetPtCut=30000.)
 
     EFChainName = "EF_" + chainDicts[0]['chainName']
-
 
     for i,thisSequence in enumerate(theChainDef.sequenceList):
         if "EF_jets_" in thisSequence['output']:
@@ -155,12 +145,6 @@ def _addRazor(theChainDef,chainDicts,listOfChainDefs):
 
     theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, ['TrigHLTJetHemisphereRec'])    
     theChainDef.addSignature(theChainDef.signatureList[-1]['signature_counter']+1, [EFChainName])    
-
-    
-
-    print "*_*_*_*_*_*_*_*_*_*_******************"
-    print theChainDef
-    print "-------------------------------"
 
     return theChainDef
 

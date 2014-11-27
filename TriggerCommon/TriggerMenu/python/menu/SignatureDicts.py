@@ -49,8 +49,8 @@ ChainDictTemplate = {
 #==========================================================
 AllowedTopos_e = ["Jpsiee","Zeg"]
 AllowedTopos_mu = ['Jpsimumu']
-AllowedTopos_xe = ['dphi1','razor200']
-2# AllowedTopos_bphys = ['bJpsi', 'bTau', 'bDiMu', 
+AllowedTopos_xe = ['dphi1','razor200','razor10']
+# AllowedTopos_bphys = ['bJpsi', 'bTau', 'bDiMu', 
 #                       'bJpsiMuMu', 'bUpsiMuMu', 
 #                       'bMuMux', 'bMuMu', 
 #                       'bMuMuxv2', 

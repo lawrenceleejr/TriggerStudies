@@ -136,14 +136,10 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
 
   bool pass=false;
 
-  // Get MET
-
   msg() << MSG::DEBUG << "***  Executing this TrigJetHypo : " << name() << endreq;
 
 
   // Let's get the collections from the input TEs //////////////////////////////////////
-
-
 
   // Check size of vector of TEs
   if (tes_in.size() < 1) {
@@ -171,7 +167,8 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   HLT::TEVec allTEs;
 
   // Retrieve MET from tes_in[0]
-  std::vector<const TrigMissingET*> vectorMissingET;
+  // std::vector<const TrigMissingET*> vectorMissingET;
+  std::vector<const xAOD::TrigMissingET*> vectorMissingET;
   HLT::ErrorCode statMET = getFeatures(tes_in[0].front(), vectorMissingET );
   if(statMET != HLT::OK) {
     msg() << MSG::WARNING << " Failed to get vectorMissingETs " << endreq;
@@ -182,10 +179,10 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
     return HLT::MISSING_FEATURE;
   }
 
-  if ( (tes_in.size()>0) && (tes_in[0].size()>0) ) allTEs.push_back( tes_in[0][0] );
+  if ( (tes_in.size()>0) &&  (tes_in[0].size()>0) ) allTEs.push_back( tes_in[0][0] );
     
-  const TrigMissingET* efmet = vectorMissingET.front();
-
+  // const TrigMissingET* efmet = vectorMissingET.front();
+  const xAOD::TrigMissingET* efmet = vectorMissingET.front();
 
   // Retrieve Hemisphere Jets from tes_in[1]
   const xAOD::JetContainer* outJets(0);
@@ -202,7 +199,7 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
 
   // Creation of internal inputs and some sanity checks... ////////////////////////////
 
-  TVector3 MET(efmet->ex(), efmet->ey(), 0.0);
+  TVector3 MET(efmet->ex()/1000., efmet->ey()/1000., 0.0);
 
   // JetCollection -> jetcollection_t
   std::vector<const xAOD::Jet*> theJets(outJets->begin(), outJets->end());
@@ -254,6 +251,7 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
 
   ///// Calculate (super) Razor Observables ////////////////////////////////
   //////////////////////////////////////////////////////////////////////////
+  // With update to include massive jets
 
 
   m_nJets = theJets.size();
@@ -286,9 +284,6 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   vBETA_z.SetX(0.0);
   vBETA_z.SetY(0.0);
 
-  // msg()<< MSG::INFO << "a J1 Pt, J2 Pt is : " << J1.Pt() << ", " << J2.Pt() << endreq;
-
-
   //transformation from lab frame to approximate rest frame along beam-axis
   J1.Boost(-vBETA_z);
   J2.Boost(-vBETA_z);
@@ -296,7 +291,7 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   TVector3 pT_CM = (J1+J2).Vect() + MET;
   pT_CM.SetZ(0.0); //should be redundant...
 
-  m_Minv2 = (J1+J2).M2();
+  m_Minv2 = (J1+J2).M2() - 4.*J1.M()*J2.M();
   m_Einv = sqrt(MET.Mag2()+m_Minv2);
 
 
@@ -307,12 +302,9 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
 
   TVector3 vBETA_R = (1./sqrt(pT_CM.Mag2() + m_shatR*m_shatR))*pT_CM;
 
-  // msg()<< MSG::INFO << "b J1 Pt, J2 Pt is : " << J1.Pt() << ", " << J2.Pt() << endreq;
-
-
   //transformation from lab frame to R frame
-  J1.Boost(-vBETA_R);
-  J2.Boost(-vBETA_R);
+  // J1.Boost(-vBETA_R);
+  // J2.Boost(-vBETA_R);
 
   /////////////
   //
@@ -320,38 +312,15 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   //
   /////////////
 
-  TVector3 vBETA_Rp1 = (1./(J1.E()+J2.E()))*(J1.Vect() - J2.Vect());
+  // TVector3 vBETA_Rp1 = (1./(J1.E()+J2.E()))*(J1.Vect() - J2.Vect());
 
   ////////////////////////
   // definition of m_gaminvR
   ////////////////////////
-  m_gaminvR = sqrt(1.-vBETA_Rp1.Mag2() );
 
-  msg()<< MSG::INFO << "BETA_Rp1.Mag2 : " << vBETA_Rp1.Mag2() << endreq;
+  m_gaminvR = sqrt(1.-vBETA_R.Mag2() );
 
-
-  //transformation from R frame to R+1 frames
-  J1.Boost(-vBETA_Rp1);
-  J2.Boost(vBETA_Rp1);
-
-  //////////////
-  //
-  // R+1-frames
-  //
-  //////////////
-
-  ///////////////////////
-  // definition of m_mdeltaR
-  ////////////////////////
-  m_mdeltaR = J1.E()+J2.E();
-
-  ///////////////////////
-  // definition of m_cosptR
-  ////////////////////////
-  m_cosptR = pT_CM.Mag()/sqrt(pT_CM.Mag2()+m_mdeltaR * m_mdeltaR);
-
-  //////////////////////////////////////////////////////////////////////////
-  //////////////////////////////////////////////////////////////////////////
+  
 
   // Define "razor" cut as m_gaminvR * m_shatR
   // This is "Pi" according to the talks. 

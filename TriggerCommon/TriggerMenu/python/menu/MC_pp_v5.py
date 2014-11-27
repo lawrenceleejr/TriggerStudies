@@ -636,8 +636,15 @@ def setupMenu():
 #        ['j40_xe80_razor200',       926,    '', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'],  -1,['serial',-1,["j15","xe100noL1"]]],
 
         # ['j40_xe80_razor200',       926,    '', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], 1, ['serial',-1,['j12']]],
-         ['j40_xe80_razor200',       926,    'L1_2J15_XE55', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j40','xe80']]],
+         ['j40_xe70_razor200',       926,    'L1_2J15_XE55', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j40','xe70']]],
 
+
+        # ['j60_xe50_razor200',       1926,    'L1_J20', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j60','xe50']]],  
+        # ['j10_xe50_razor200',       1928,   'L1_XE35', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j10','xe50']]],
+
+        ['j60_xe50_razor10',        1930,    'L1_J20', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j60','xe50']]],
+        # ['j10_xe50_razor10',        1931,    'L1_XE35', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j10','xe50']]],
+        # ['j60_xe80_razor10',        1932,    'L1_J40_XE50', ['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1, ['serial',-1,['j60','xe80']]],
         # ['j80_xe80_dphi1_L1J40_10MINDPHI-J20s2-XE50', 926, 'L1_J40_10MINDPHI-J20s2-XE50',['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1,['serial',-1,["j80","xe80_L1J40_10MINDPHI-J20s2-XE50"]]],
         # ['j80_xe80_dphi1_L1J40_10MINDPHI-J20ab-XE50', 927, 'L1_J40_10MINDPHI-J20ab-XE50',['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1,['serial',-1,["j80","xe80_L1J40_10MINDPHI-J20ab-XE50"]]],
         # ['j80_xe80_dphi1_L1J40_10MINDPHI-CJ20ab-XE50', 928, 'L1_J40_10MINDPHI-CJ20ab-XE50',['',''], [PhysicsStream], ['RATE:JetMET', 'BW:Jets'], -1,['serial',-1,["j80","xe80_L1J40_10MINDPHI-CJ20ab-XE50"]]],
