@@ -60,7 +60,7 @@ TrigEFRazorAllTE::TrigEFRazorAllTE(const std::string& name, ISvcLocator* pSvcLoc
   declareMonitoredVariable("Razor_passedRazor" , m_Razor_passedRazor  );
   declareMonitoredVariable("nJets"	         , m_nJets            );
 
-  declareMonitoredVariable("gaminvR"   ,  m_gaminvR );     
+  declareMonitoredVariable("gaminvRp1"   ,  m_gaminvRp1 );     
   declareMonitoredVariable("shatR"   ,    m_shatR   );  
   declareMonitoredVariable("mdeltaR"   ,  m_mdeltaR );     
   declareMonitoredVariable("cosptR"   ,   m_cosptR  );   
@@ -241,7 +241,7 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   m_passedJetCuts_jeteta_1 = -999.;
   m_passedJetCuts_jetet_1  = -999.;
 
-  m_gaminvR = -999.;
+  m_gaminvRp1 = -999.;
   m_shatR = -999.;
   m_mdeltaR = -999.;
   m_cosptR = -999.;
@@ -303,8 +303,8 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   TVector3 vBETA_R = (1./sqrt(pT_CM.Mag2() + m_shatR*m_shatR))*pT_CM;
 
   //transformation from lab frame to R frame
-  // J1.Boost(-vBETA_R);
-  // J2.Boost(-vBETA_R);
+  J1.Boost(-vBETA_R);
+  J2.Boost(-vBETA_R);
 
   /////////////
   //
@@ -312,22 +312,21 @@ HLT::ErrorCode TrigEFRazorAllTE::hltExecute(std::vector<std::vector<HLT::Trigger
   //
   /////////////
 
-  // TVector3 vBETA_Rp1 = (1./(J1.E()+J2.E()))*(J1.Vect() - J2.Vect());
+  TVector3 vBETA_Rp1 = (1./(J1.E()+J2.E()))*(J1.Vect() - J2.Vect());
 
   ////////////////////////
   // definition of m_gaminvR
   ////////////////////////
 
-  m_gaminvR = sqrt(1.-vBETA_R.Mag2() );
+  m_gaminvRp1 = 1./sqrt(1.-vBETA_Rp1.Mag2());
 
-  
 
-  // Define "razor" cut as m_gaminvR * m_shatR
+  // Define "razor" cut as m_gaminvRp1 * m_shatR
   // This is "Pi" according to the talks. 
   // Most versions involve some offsets on the two factors. 
   // Will need to be put in if those are nonzero.
 
-  m_Razor = m_gaminvR * m_shatR;
+  m_Razor = m_gaminvRp1 * m_shatR;
 
   // Trigger cuts on this "razor" cut value
 

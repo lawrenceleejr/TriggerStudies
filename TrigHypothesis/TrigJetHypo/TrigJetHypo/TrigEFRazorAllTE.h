@@ -67,7 +67,7 @@ class TrigEFRazorAllTE : public HLT::AllTEAlgo {
   double m_passedJetCuts_jetphi_1    ;
   double m_passedJetCuts_jeteta_1    ;
 
-  double m_gaminvR;
+  double m_gaminvRp1;
   double m_shatR;
   double m_mdeltaR;
   double m_cosptR;
